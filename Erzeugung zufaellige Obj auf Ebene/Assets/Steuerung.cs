@@ -16,8 +16,10 @@ public class Steuerung : MonoBehaviour {
     private float x = 0.0f;
     private float y = 0.0f;
 
-	// Use this for initialization
-	void Start () {
+   
+
+    // Use this for initialization
+    void Start () {
 
         var angles = transform.eulerAngles;
         x = angles.x;
@@ -30,6 +32,35 @@ public class Steuerung : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Vector3 pos = transform.position;
+
+        //Laufen Rechts links vor zurück
+
+        if (Input.GetKey(KeyCode.W))
+        {
+            pos.z += 2.5f * Time.deltaTime;
+        }
+
+        if (Input.GetKey(KeyCode.S))
+        {
+            pos.z -= 2.5f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.A))
+        {
+            pos.x -= 2.5f * Time.deltaTime;
+        }
+        if (Input.GetKey(KeyCode.D))
+        {
+            pos.x += 2.5f * Time.deltaTime;
+        }
+
+        transform.position = pos;
+
+
+
+
+        //Drehen
+
         distance = Input.GetAxis("Mouse ScrollWheel") * wheelSpeed* Time.deltaTime;
 
         distance = Mathf.Clamp(distance, distMinLimit, distMaxLimit);
@@ -43,6 +74,8 @@ public class Steuerung : MonoBehaviour {
 
         }
         CalcPos();
+
+        
     }
 
     static float ClampAngle(float angle, float min, float max)
@@ -68,6 +101,9 @@ public class Steuerung : MonoBehaviour {
     void CalcPos()
     {
         transform.rotation = Quaternion.Euler(y, x, 0);
-        transform.position = Quaternion.Euler(y,x, 0) * new Vector3 (0.0f, 0.0f, -distance);
+        //transform.position = Quaternion.Euler(y,x, 0) * new Vector3 (0.0f, 0.0f, -distance);
+   
     }
+
+
 }
