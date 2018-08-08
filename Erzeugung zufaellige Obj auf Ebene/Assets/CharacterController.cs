@@ -16,7 +16,7 @@ public class CharacterController : MonoBehaviour {
 	void Update () {
         float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
         float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        bool huepf = Input.GetKeyDown(KeyCode.Space);
+        bool huepf = Input.GetKey(KeyCode.Space);
 
         transform.Translate(straffe, 0, translation);
 
@@ -27,10 +27,11 @@ public class CharacterController : MonoBehaviour {
 
         if (huepf)
         {
-            if(rb.position.y < -1.0) {
+            if(rb.velocity.y == 0) {
                 rb.AddForce(new Vector3(0, 8f, 0), ForceMode.Impulse);
+                Debug.Log("Die Leertaste wird gedrueckt!");
             }
-            
+
         }
 	}
 }

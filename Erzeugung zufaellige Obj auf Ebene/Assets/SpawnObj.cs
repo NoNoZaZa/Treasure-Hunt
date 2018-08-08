@@ -7,7 +7,7 @@ public class SpawnObj : MonoBehaviour {
 
     public GameObject Statueprefab;
     public Vector3 center;
-    public Vector3 size;
+    public Vector3 size = new Vector3 (10, 10, 10);
     public Quaternion rot;
     public int counter = 0;
     public System.Random zufall = new System.Random();
