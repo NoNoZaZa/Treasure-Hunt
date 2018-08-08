@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour {
 
-    public int keycount = 0;
+    GameManager m;
 
     // Event, dass bei der Berührung mit einem anderen ausgeführt wird
-    void OnCollisionEnter(Collision touch)
+    void OnTriggerEnter(Collider other)
     {
-        if (touch.gameObject.name == "key_gold")
+        if (other.CompareTag("Key"))
         {
-        keycount++; 
+            Debug.Log("Collision Key");
+            if (m != null)
+                m.SendMessage("KeyCollected", other.GetComponent<Key>());
         }
+    }
+    void Start()
+    {
+       // m = FindObjectOfType<GameManager>;
+        //m.SendMessage(m.KeyCollected(Key key));
     }
 }
