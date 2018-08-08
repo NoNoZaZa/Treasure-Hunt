@@ -7,7 +7,7 @@ public class SpawnObj : MonoBehaviour {
 
     public GameObject Statueprefab;
     public Vector3 center;
-    public Vector3 size;
+    public Vector3 size = new Vector3 (10, 10, 10);
     public Quaternion rot;
     public int counter = 0;
     public System.Random zufall = new System.Random();
@@ -33,8 +33,9 @@ public class SpawnObj : MonoBehaviour {
 
     public void Spawn()
     {
-        Vector3 pos = center + new Vector3(UnityEngine.Random.Range(-size.x / 2, size.x / 2), 0, 0);
-        Quaternion rot = new Quaternion(UnityEngine.Random.Range(-size.x / 2, size.x / 2), UnityEngine.Random.Range(-size.y / 2, size.y / 2), UnityEngine.Random.Range(-size.z / 2, size.z / 2), -1f);
+        Vector3 pos = center + new Vector3(UnityEngine.Random.Range(-size.x / 8, size.x / 8), -1f , UnityEngine.Random.Range(-size.z / 8, size.z / 8));
+        Quaternion rot = new Quaternion(0, UnityEngine.Random.Range(-size.y / 8, size.y / 8), 0, -1f);
+
         Instantiate(Statueprefab, pos, rot);
     }
 
