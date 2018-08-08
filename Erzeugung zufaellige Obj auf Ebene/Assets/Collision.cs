@@ -16,6 +16,16 @@ public class Collision : MonoBehaviour {
                 m.SendMessage("KeyCollected", other.GetComponent<Key>());
         }
     }
+
+    //void OnCollisionEnter(Collision col)
+    //{
+    //    if (col.gameObject.name == "Key")
+    //    {
+    //        Debug.Log("Collision Key");
+    //        Destroy(col.gameObject);
+    //    }
+    //}
+
     void Start()
     {
        // m = FindObjectOfType<GameManager>;
