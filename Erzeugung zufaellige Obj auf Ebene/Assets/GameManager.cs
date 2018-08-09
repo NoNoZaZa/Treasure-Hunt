@@ -35,13 +35,4 @@ public class GameManager : MonoBehaviour
         keysCollected = keysCollected + passedValue;
         scoreT.text = "Schlüssel: " + keysCollected.ToString();
     }
-
-    //public void KeyCollected(Key key)
-    //{
-    //    Debug.Log("KeyCollected");
-    //    Destroy(key.gameObject);
-    //    key.gameObject.GetComponent<Renderer>().enabled = false;
-    //    keysCollected++;
-    //}
-
 }
