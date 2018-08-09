@@ -25,7 +25,7 @@ public class Quizausloeser : MonoBehaviour
     {
         Debug.Log("Collide!");
         wand.GetComponent<Renderer>().material.color = Color.red;
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
 }

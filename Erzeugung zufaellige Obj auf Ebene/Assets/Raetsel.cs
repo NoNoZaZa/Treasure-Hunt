@@ -49,9 +49,9 @@ public class Raetsel : MonoBehaviour {
     }
     void arrayBefuellen()
     {
-        for(i=0; i <16; i++)
+        for(i=0; i <4; i++)
         {
-            for(j=0; j <16; j++)
+            for(j=0; j <4; j++)
             {
                 bloecke[i, j] = paare();
             }
