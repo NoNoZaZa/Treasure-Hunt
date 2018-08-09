@@ -7,21 +7,25 @@ static class Constants {
     public const int Seed1 = 42;
 }
 
-public class RandomGenerating : MonoBehaviour {
+public class RoomGeneration : MonoBehaviour {
 
     public GameObject Raumprefab;
     public GameObject[] Raeume;
 
-    public Vector3[] generierteRaeume;
+    public char[,] generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
+
 
     public Vector3 center;
     public Vector3 size;
+    public bool randomizeSeed = true;
 
     public int raumzaehler = 0;
 
 	// Use this for initialization
 	void Start () {
-        Random.InitState(Constants.Seed1);
+        if (randomizeSeed == false) {
+            Random.InitState(Constants.Seed1);
+        }
         while (raumzaehler < Constants.HoechstanzahlRaeume) {
             SpawnRoom();
 
