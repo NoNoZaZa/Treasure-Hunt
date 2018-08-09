@@ -6,6 +6,7 @@ public class Spielfigursteuerung : MonoBehaviour {
 
     public float speed = 3f;
     public Rigidbody rb;
+    private bool onGround;
     
 // Use this for initialization
 	void Start () {
@@ -31,11 +32,17 @@ public class Spielfigursteuerung : MonoBehaviour {
 
         if (huepf)
         {
-            if(rb.velocity.y == 0) {
+            if(onGround) {
                 rb.AddForce(new Vector3(0, 8f, 0), ForceMode.Impulse);
                 Debug.Log("Die Leertaste wird gedrueckt!");
             }
 
         }
 	}
+    private void OnCollisionStay(UnityEngine.Collision collision)
+    {
+        if (collision.gameObject.tag == "ground") {
+            onGround = true;
+        }
+    }
 }
