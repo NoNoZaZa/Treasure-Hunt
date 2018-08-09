@@ -4,23 +4,28 @@ using UnityEngine;
 
 static class Constants {
     public const int HoechstanzahlRaeume = 10;
+    public const int Seed1 = 42;
 }
 
-public class RandomGenerating : MonoBehaviour {
+public class RoomGeneration : MonoBehaviour {
 
     public GameObject Raumprefab;
     public GameObject[] Raeume;
 
-    public Vector3[] generierteRaeume;
+    public char[,] generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
 
-    public Vector2 center;
-    public Vector2 size;
 
-    public System.Random zufall = new System.Random();
+    public Vector3 center;
+    public Vector3 size;
+    public bool randomizeSeed = true;
+
     public int raumzaehler = 0;
 
 	// Use this for initialization
 	void Start () {
+        if (randomizeSeed == false) {
+            Random.InitState(Constants.Seed1);
+        }
         while (raumzaehler < Constants.HoechstanzahlRaeume) {
             SpawnRoom();
 
@@ -34,13 +39,13 @@ public class RandomGenerating : MonoBehaviour {
 	}
 
     void SpawnRoom() {
-        Vector2 pos = center + new Vector2(Random.Range(-size.x / 2, size.x /2), 0);
+        Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x /2), -1, Random.Range(-size.z /2, size.z / 2));
         Instantiate(Raumprefab, pos, Quaternion.identity);
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.color = new Color(1,1,0,0.5f);
+        Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(center, size);
     }
 
