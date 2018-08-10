@@ -1,16 +1,66 @@
 fileFormatVersion: 2
-guid: f8fedfbd04ea43a4a87f7779e40680b7
+guid: b791e3b60d2c9fd41aa2239a880a8da6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Material
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cube
-    7400000: Default Take
-    9500000: //RootNode
+    100000: Cube
+    100002: Cube.001
+    100004: Cube.002
+    100006: Cube.003
+    100008: Cube.004
+    100010: Cube.005
+    100012: Cube.006
+    100014: Cube.007
+    100016: Dach
+    100018: //RootNode
+    100020: "T\xFCrLinks"
+    100022: "T\xFCrRechts"
+    400000: Cube
+    400002: Cube.001
+    400004: Cube.002
+    400006: Cube.003
+    400008: Cube.004
+    400010: Cube.005
+    400012: Cube.006
+    400014: Cube.007
+    400016: Dach
+    400018: //RootNode
+    400020: "T\xFCrLinks"
+    400022: "T\xFCrRechts"
+    2100000: No Name
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: Cube.005
+    2300012: Cube.006
+    2300014: Cube.007
+    2300016: Dach
+    2300018: "T\xFCrLinks"
+    2300020: "T\xFCrRechts"
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: Cube.005
+    3300012: Cube.006
+    3300014: Cube.007
+    3300016: Dach
+    3300018: "T\xFCrLinks"
+    3300020: "T\xFCrRechts"
+    4300000: "T\xFCrRechts"
+    4300002: "T\xFCrLinks"
+    4300004: Dach
+    4300006: Cube.007
+    4300008: Cube.006
+    4300010: Cube.005
+    4300012: Cube.004
+    4300014: Cube.003
+    4300016: Cube.002
+    4300018: Cube.001
+    4300020: Cube
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -63,7 +113,7 @@ ModelImporter:
     secondaryUVPackMargin: 4
     useFileScale: 1
     previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -88,7 +138,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
