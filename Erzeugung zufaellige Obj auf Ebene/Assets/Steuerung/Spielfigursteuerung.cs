@@ -19,8 +19,8 @@ public class Spielfigursteuerung : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime;
-        float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime *2;
+        float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime *2;
         bool huepf = Input.GetKey(KeyCode.Space);
 
         transform.Translate(straffe, 0, translation);
