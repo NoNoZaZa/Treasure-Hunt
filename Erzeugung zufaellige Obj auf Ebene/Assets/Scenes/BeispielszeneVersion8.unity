@@ -1347,6 +1347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eab659195fb1b044b166a6a83d1eb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rbc: {fileID: 0}
   stein: {fileID: 387081502}
   stein1: {fileID: 0}
   stein2: {fileID: 0}

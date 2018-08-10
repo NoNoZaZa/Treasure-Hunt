@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     public class Raetsel : MonoBehaviour {
+    // public Rigidbody rbc;
     public GameObject[,] bloecke;
     public ArrayList liste = new ArrayList();
     public GameObject stein, stein1, stein2, stein3, stein4, stein5, stein6, stein7, stein8,
@@ -18,11 +19,13 @@ using UnityEngine;
     void Start () {
         
         bloecke = new GameObject[4,4];
-        erzeugungObjekte();
+        erzeugungObjekte();       
         arrayBefuellen();
         anordnung();
+        
 
-      }
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -33,7 +36,9 @@ using UnityEngine;
         stein1 = GameObject.CreatePrimitive(PrimitiveType.Cube);      
         stein1.transform.localScale = groesse;
         stein1.gameObject.GetComponent<Renderer>().material.color = Color.green;
+        stein1.tag = "stein";
         liste.Add(stein1);
+       
         stein2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
         stein2.transform.localScale = groesse;
         stein2.gameObject.GetComponent<Renderer>().material.color = Color.green;
@@ -44,7 +49,7 @@ using UnityEngine;
         liste.Add(stein3);
         stein4 = GameObject.CreatePrimitive(PrimitiveType.Cube);
         stein4.transform.localScale = groesse;
-        stein3.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
+        stein4.gameObject.GetComponent<Renderer>().material.color = Color.yellow;
         liste.Add(stein4);
         stein5 = GameObject.CreatePrimitive(PrimitiveType.Cube);
         stein5.transform.localScale = groesse;
@@ -126,6 +131,8 @@ using UnityEngine;
     void arrayRandomzuweisen()
     {
         int zahl = random.Next(0, liste.Count);
+        ((GameObject)liste[zahl]).GetComponent<Rigidbody>();
+        ((GameObject)liste[zahl]).tag = "stein";
         bloecke[i, j] = (GameObject)liste[zahl];
         liste.RemoveAt(zahl);
     }
