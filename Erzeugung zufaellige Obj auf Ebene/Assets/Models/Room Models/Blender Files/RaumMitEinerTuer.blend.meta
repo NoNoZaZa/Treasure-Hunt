@@ -4,11 +4,71 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
+    100002: Cube
+    100004: Cube_001
+    100006: Cube_002
+    100008: Cube_003
+    100010: Cube_004
+    100012: Cube_005
+    100014: Cube_006
+    100016: Cube_007
+    100018: Cube_008
+    100020: Dach
+    100022: T_rHinten
+    100024: T_rLinks
     400000: //RootNode
+    400002: Cube
+    400004: Cube_001
+    400006: Cube_002
+    400008: Cube_003
+    400010: Cube_004
+    400012: Cube_005
+    400014: Cube_006
+    400016: Cube_007
+    400018: Cube_008
+    400020: Dach
+    400022: T_rHinten
+    400024: T_rLinks
     2100000: Material
+    2100002: unnamed
     2300000: //RootNode
+    2300002: Cube
+    2300004: Cube_001
+    2300006: Cube_002
+    2300008: Cube_003
+    2300010: Cube_004
+    2300012: Cube_005
+    2300014: Cube_006
+    2300016: Cube_007
+    2300018: Cube_008
+    2300020: Dach
+    2300022: T_rHinten
+    2300024: T_rLinks
     3300000: //RootNode
+    3300002: Cube
+    3300004: Cube_001
+    3300006: Cube_002
+    3300008: Cube_003
+    3300010: Cube_004
+    3300012: Cube_005
+    3300014: Cube_006
+    3300016: Cube_007
+    3300018: Cube_008
+    3300020: Dach
+    3300022: T_rHinten
+    3300024: T_rLinks
     4300000: Cube
+    4300002: Cube_008
+    4300004: T_rLinks
+    4300006: T_rHinten
+    4300008: Dach
+    4300010: Cube_007
+    4300012: Cube_006
+    4300014: Cube_005
+    4300016: Cube_004
+    4300018: Cube_003
+    4300020: Cube_002
+    4300022: Cube_001
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
