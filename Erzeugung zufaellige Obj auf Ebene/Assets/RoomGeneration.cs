@@ -44,7 +44,7 @@ public class RoomGeneration : MonoBehaviour {
         }
         //while (raumzaehler < Constants.HoechstanzahlRaeume) {
             SpawnRoom();
-        SpawnRoom();
+        //SpawnRoom();
 
             raumzaehler++;  
         //}

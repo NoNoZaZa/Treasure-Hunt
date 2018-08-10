@@ -1266,6 +1266,58 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &813774404
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 813774406}
+  - component: {fileID: 813774405}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &813774405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813774404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 035f4ffcc44e12641bf93158a0ec3081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RaumMitVierTueren: {fileID: 0}
+  RaumMitDreiTueren: {fileID: 0}
+  RaumMitNebeneinanderliegendenTueren: {fileID: 0}
+  RaumMitGegenueberliegendenTueren: {fileID: 0}
+  RaumMitEinerTuer: {fileID: 0}
+  raumArtenArray: []
+  center: {x: 0, y: 0, z: 0}
+  size: {x: 0, y: 0, z: 0}
+  randomizeSeed: 1
+  raumzaehler: 0
+  vorherigeRaumArt: 0
+  vorherigeRaumAusrichtung: 0
+--- !u!4 &813774406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 813774404}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.52196, y: 1.9051514, z: -0.10780859}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!108 &843952652 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
