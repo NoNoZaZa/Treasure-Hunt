@@ -15,6 +15,22 @@ ModelImporter:
     100018: //RootNode
     100020: "T\xFCrLinks"
     100022: "T\xFCrRechts"
+    100024: EckeHintenLinks
+    100026: EckeHintenRechts
+    100028: EckeVorneLinks
+    100030: EckeVorneRechts
+    100032: "T\xFCrrahmenHinten"
+    100034: "T\xFCrrahmenLinks"
+    100036: "T\xFCrrahmenRechts"
+    100038: "T\xFCrrahmenVorne"
+    100040: WandHintenLinks
+    100042: WandHintenRechts
+    100044: WandLinksLinks
+    100046: WandLinksRechts
+    100048: WandRechtsLinks
+    100050: WandRechtsRechts
+    100052: WandVorneLinks
+    100054: WandVorneRechts
     400000: Cube
     400002: Cube.001
     400004: Cube.002
@@ -27,6 +43,22 @@ ModelImporter:
     400018: //RootNode
     400020: "T\xFCrLinks"
     400022: "T\xFCrRechts"
+    400024: EckeHintenLinks
+    400026: EckeHintenRechts
+    400028: EckeVorneLinks
+    400030: EckeVorneRechts
+    400032: "T\xFCrrahmenHinten"
+    400034: "T\xFCrrahmenLinks"
+    400036: "T\xFCrrahmenRechts"
+    400038: "T\xFCrrahmenVorne"
+    400040: WandHintenLinks
+    400042: WandHintenRechts
+    400044: WandLinksLinks
+    400046: WandLinksRechts
+    400048: WandRechtsLinks
+    400050: WandRechtsRechts
+    400052: WandVorneLinks
+    400054: WandVorneRechts
     2100000: No Name
     2300000: Cube
     2300002: Cube.001
@@ -39,6 +71,22 @@ ModelImporter:
     2300016: Dach
     2300018: "T\xFCrLinks"
     2300020: "T\xFCrRechts"
+    2300022: EckeHintenLinks
+    2300024: EckeHintenRechts
+    2300026: EckeVorneLinks
+    2300028: EckeVorneRechts
+    2300030: "T\xFCrrahmenHinten"
+    2300032: "T\xFCrrahmenLinks"
+    2300034: "T\xFCrrahmenRechts"
+    2300036: "T\xFCrrahmenVorne"
+    2300038: WandHintenLinks
+    2300040: WandHintenRechts
+    2300042: WandLinksLinks
+    2300044: WandLinksRechts
+    2300046: WandRechtsLinks
+    2300048: WandRechtsRechts
+    2300050: WandVorneLinks
+    2300052: WandVorneRechts
     3300000: Cube
     3300002: Cube.001
     3300004: Cube.002
@@ -50,6 +98,22 @@ ModelImporter:
     3300016: Dach
     3300018: "T\xFCrLinks"
     3300020: "T\xFCrRechts"
+    3300022: EckeHintenLinks
+    3300024: EckeHintenRechts
+    3300026: EckeVorneLinks
+    3300028: EckeVorneRechts
+    3300030: "T\xFCrrahmenHinten"
+    3300032: "T\xFCrrahmenLinks"
+    3300034: "T\xFCrrahmenRechts"
+    3300036: "T\xFCrrahmenVorne"
+    3300038: WandHintenLinks
+    3300040: WandHintenRechts
+    3300042: WandLinksLinks
+    3300044: WandLinksRechts
+    3300046: WandRechtsLinks
+    3300048: WandRechtsRechts
+    3300050: WandVorneLinks
+    3300052: WandVorneRechts
     4300000: "T\xFCrRechts"
     4300002: "T\xFCrLinks"
     4300004: Dach
@@ -61,6 +125,22 @@ ModelImporter:
     4300016: Cube.002
     4300018: Cube.001
     4300020: Cube
+    4300022: WandVorneRechts
+    4300024: "T\xFCrrahmenHinten"
+    4300026: "T\xFCrrahmenLinks"
+    4300028: "T\xFCrrahmenRechts"
+    4300030: "T\xFCrrahmenVorne"
+    4300032: EckeHintenRechts
+    4300034: EckeHintenLinks
+    4300036: WandHintenLinks
+    4300038: WandRechtsRechts
+    4300040: WandHintenRechts
+    4300042: WandLinksLinks
+    4300044: EckeVorneLinks
+    4300046: WandLinksRechts
+    4300048: WandVorneLinks
+    4300050: EckeVorneRechts
+    4300052: WandRechtsLinks
   externalObjects: {}
   materials:
     importMaterials: 1

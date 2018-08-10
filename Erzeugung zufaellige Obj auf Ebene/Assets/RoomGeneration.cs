@@ -6,6 +6,7 @@ static class Constants
 {
     public const int HoechstanzahlRaeume = 10;
     public const int Seed1 = 42;
+    public const int raumgroesse = 17;
 }
 
 public class RoomGeneration : MonoBehaviour
@@ -101,8 +102,16 @@ public class RoomGeneration : MonoBehaviour
 
         //Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x /2), -1, Random.Range(-size.z /2, size.z / 2));
         Vector3 pos = center;
+        Vector3 pos2 = center + new Vector3(Constants.raumgroesse,0,0);
         Instantiate(raumArtenArray[zufallszahlRaumArt], pos, Quaternion.identity);
-        //Instantiate(raumArtenArray[4], pos, Quaternion.Euler(0, 0, 0));
+        Instantiate(raumArtenArray[0], pos2, Quaternion.Euler(0, 0, 0));
+        Instantiate(raumArtenArray[0], pos + new Vector3(0,0, -Constants.raumgroesse), Quaternion.identity);
+        Instantiate(raumArtenArray[0], pos + new Vector3(-Constants.raumgroesse, 0, 0), Quaternion.identity);
+        Instantiate(raumArtenArray[0], pos + new Vector3(Constants.raumgroesse, 0, 0), Quaternion.identity);
+        Instantiate(raumArtenArray[0], pos + new Vector3(0, 0, Constants.raumgroesse), Quaternion.identity);
+
+
+
         vorherigeRaumAusrichtung = zufallszahlRaumAusrichtung;
     }
 
