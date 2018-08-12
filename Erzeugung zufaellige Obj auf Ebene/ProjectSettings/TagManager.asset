@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Key
   - ground
+  - stein
   layers:
   - Default
   - TransparentFX
