@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -566,6 +566,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kreuz: {fileID: 2800000, guid: 171316fb5dfbeba49b0cfc087f4ab124, type: 3}
+  geklickt: []
 --- !u!1 &300618891
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,9 +595,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RaumMitVierTueren: {fileID: 100000, guid: c97ef101c246ce440894f5e3a855201d, type: 3}
-  RaumMitDreiTueren: {fileID: 100000, guid: fadde60c8fa3704458d87e085d69e7e5, type: 3}
-  RaumMitNebeneinanderLiegendenTueren: {fileID: 0}
-  RaumMitHintereinanderLiegendenTueren: {fileID: 0}
+  RaumMitDreiTueren: {fileID: 100000, guid: 93d4f643a39dad54a85ac2c8e27c3570, type: 3}
+  RaumMitNebeneinanderLiegendenTueren: {fileID: 100000, guid: b02968ea7ef1ecb40a26906bc4c0b401,
+    type: 3}
+  RaumMitHintereinanderLiegendenTueren: {fileID: 100018, guid: b791e3b60d2c9fd41aa2239a880a8da6,
+    type: 3}
   RaumMitEinerTuer: {fileID: 100000, guid: d6fec1eeb89054e469bed990e466fbb8, type: 3}
   raumArtenArray: []
   center: {x: 0, y: 0, z: 0}
@@ -1345,6 +1348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eab659195fb1b044b166a6a83d1eb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rbc: {fileID: 0}
   stein: {fileID: 387081502}
   stein1: {fileID: 0}
   stein2: {fileID: 0}
