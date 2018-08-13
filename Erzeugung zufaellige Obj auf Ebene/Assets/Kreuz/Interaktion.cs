@@ -96,7 +96,7 @@ public class Interaktion : MonoBehaviour {
                     obj.GetComponent<Rigidbody>().isKinematic = true;
                     //obj.transform.position = new Vector3 (Screen.width / 2, Screen.height / 2, 0.7f);
                     obj.transform.position = pickup.position;
-                    obj.transform.parent = GameObject.Find("Spieler").transform;
+                    //obj.transform.parent = GameObject.Find("Spieler").transform;
                     obj.transform.parent = GameObject.Find("Main Camera").transform;
                 }
 
