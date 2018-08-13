@@ -63,12 +63,12 @@ public class Interaktion : MonoBehaviour {
                             klicknum = 0;
                         }
                         //Bug "ein Würfel kann in beide Plätze abgespeichert werden, sodass nur dieser verschwindet" beheben
-                        if (geklickt[0].GetComponent<Renderer>().material.color == geklickt[1].GetComponent<Renderer>().material.color)
+                        if (geklickt[0].GetComponent<MeshRenderer>().sharedMaterial.color == geklickt[1].GetComponent<MeshRenderer>().sharedMaterial.color)
                         {
                             Destroy(geklickt[0]);
                             Destroy(geklickt[1]);
                         }
-                        if (geklickt[0].GetComponent<Renderer>().material.color != geklickt[1].GetComponent<Renderer>().material.color)
+                        if (geklickt[0].GetComponent<MeshRenderer>().sharedMaterial.color != geklickt[1].GetComponent<MeshRenderer>().sharedMaterial.color)
                         {
                             geklickt[0].transform.position = new Vector3(geklickt[0].transform.position.x, geklickt[0].transform.position.y, 0f);
                             geklickt[1].transform.position = new Vector3(geklickt[1].transform.position.x, geklickt[1].transform.position.y, 0f);
@@ -101,12 +101,12 @@ public class Interaktion : MonoBehaviour {
                 //Quiz3 (Objekte anklicken und damit zerstören)
 
                 if (hit.collider.gameObject.tag == "Quiz3")
-                    {
+                {
                     objekt3 = hit.collider.gameObject;
                     Destroy(objekt3);
-                    }
+                }
 
-                
+
 
             }
             if (Input.GetMouseButtonDown(1))
