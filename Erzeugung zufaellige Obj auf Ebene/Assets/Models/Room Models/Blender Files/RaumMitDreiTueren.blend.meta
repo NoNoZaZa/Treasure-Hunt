@@ -14,6 +14,24 @@ ModelImporter:
     100016: Cube_007
     100018: Cube_008
     100020: Cube_009
+    100022: Dach
+    100024: EckeHintenLinks
+    100026: EckeHintenRechts
+    100028: EckeVorneLinks
+    100030: EckeVorneRechts
+    100032: T_rHinten
+    100034: T_rrahmenHinten
+    100036: T_rrahmenLinks
+    100038: T_rrahmenRechts
+    100040: T_rrahmenVorne
+    100042: WandHintenLinks
+    100044: WandHintenRechts
+    100046: WandLinksLinks
+    100048: WandLinksRechts
+    100050: WandRechtsLinks
+    100052: WandRechtsRechts
+    100054: WandVorneLinks
+    100056: WandVorneRechts
     400000: //RootNode
     400002: Cube
     400004: Cube_001
@@ -25,6 +43,24 @@ ModelImporter:
     400016: Cube_007
     400018: Cube_008
     400020: Cube_009
+    400022: Dach
+    400024: EckeHintenLinks
+    400026: EckeHintenRechts
+    400028: EckeVorneLinks
+    400030: EckeVorneRechts
+    400032: T_rHinten
+    400034: T_rrahmenHinten
+    400036: T_rrahmenLinks
+    400038: T_rrahmenRechts
+    400040: T_rrahmenVorne
+    400042: WandHintenLinks
+    400044: WandHintenRechts
+    400046: WandLinksLinks
+    400048: WandLinksRechts
+    400050: WandRechtsLinks
+    400052: WandRechtsRechts
+    400054: WandVorneLinks
+    400056: WandVorneRechts
     2100000: Material
     2100002: unnamed
     2300000: //RootNode
@@ -38,6 +74,24 @@ ModelImporter:
     2300016: Cube_007
     2300018: Cube_008
     2300020: Cube_009
+    2300022: Dach
+    2300024: EckeHintenLinks
+    2300026: EckeHintenRechts
+    2300028: EckeVorneLinks
+    2300030: EckeVorneRechts
+    2300032: T_rHinten
+    2300034: T_rrahmenHinten
+    2300036: T_rrahmenLinks
+    2300038: T_rrahmenRechts
+    2300040: T_rrahmenVorne
+    2300042: WandHintenLinks
+    2300044: WandHintenRechts
+    2300046: WandLinksLinks
+    2300048: WandLinksRechts
+    2300050: WandRechtsLinks
+    2300052: WandRechtsRechts
+    2300054: WandVorneLinks
+    2300056: WandVorneRechts
     3300000: //RootNode
     3300002: Cube
     3300004: Cube_001
@@ -49,6 +103,24 @@ ModelImporter:
     3300016: Cube_007
     3300018: Cube_008
     3300020: Cube_009
+    3300022: Dach
+    3300024: EckeHintenLinks
+    3300026: EckeHintenRechts
+    3300028: EckeVorneLinks
+    3300030: EckeVorneRechts
+    3300032: T_rHinten
+    3300034: T_rrahmenHinten
+    3300036: T_rrahmenLinks
+    3300038: T_rrahmenRechts
+    3300040: T_rrahmenVorne
+    3300042: WandHintenLinks
+    3300044: WandHintenRechts
+    3300046: WandLinksLinks
+    3300048: WandLinksRechts
+    3300050: WandRechtsLinks
+    3300052: WandRechtsRechts
+    3300054: WandVorneLinks
+    3300056: WandVorneRechts
     4300000: Cube
     4300002: Cube_009
     4300004: Cube_008
@@ -59,6 +131,24 @@ ModelImporter:
     4300014: Cube_003
     4300016: Cube_002
     4300018: Cube_001
+    4300020: T_rHinten
+    4300022: Dach
+    4300024: WandVorneRechts
+    4300026: T_rrahmenHinten
+    4300028: T_rrahmenLinks
+    4300030: T_rrahmenRechts
+    4300032: T_rrahmenVorne
+    4300034: EckeHintenRechts
+    4300036: EckeHintenLinks
+    4300038: WandHintenLinks
+    4300040: WandRechtsRechts
+    4300042: WandHintenRechts
+    4300044: WandLinksLinks
+    4300046: EckeVorneLinks
+    4300048: WandLinksRechts
+    4300050: WandVorneLinks
+    4300052: EckeVorneRechts
+    4300054: WandRechtsLinks
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
