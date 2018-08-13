@@ -5,13 +5,14 @@ using UnityEngine;
     public class Raetsel : MonoBehaviour {
     public Rigidbody rbc;
     public GameObject[,] bloecke;
-    public ArrayList liste = new ArrayList();
+    private ArrayList liste = new ArrayList();
     public GameObject stein, stein1, stein2, stein3, stein4, stein5, stein6, stein7, stein8,
         stein9, stein10, stein11, stein12, stein13, stein14, stein15, stein16;
-    public int i;
-    public int j;
-    public System.Random random = new System.Random();
-    public Vector3 groesse = new Vector3(0.8f,0.8f,0.8f);
+    private int i;
+    private int j;
+    private System.Random random = new System.Random();
+    private Vector3 groesse = new Vector3(0.8f,0.8f,0.8f);
+    // private Color[] farben = {Color.black, Color.blue, Color.red, Color.green, Color.magenta, Color.cyan, Color.yellow, Color.grey };
 
 
     // Use this for initialization
@@ -36,7 +37,6 @@ using UnityEngine;
         stein1 = GameObject.CreatePrimitive(PrimitiveType.Cube);      
         stein1.transform.localScale = groesse;
         stein1.gameObject.GetComponent<Renderer>().material.color = Color.green;
-        stein1.tag = "stein";
         liste.Add(stein1);
        
         stein2 = GameObject.CreatePrimitive(PrimitiveType.Cube);
