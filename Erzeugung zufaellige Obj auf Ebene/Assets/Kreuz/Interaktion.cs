@@ -109,7 +109,7 @@ public class Interaktion : MonoBehaviour {
                 
 
             }
-            if (Input.GetMouseButtonUp(1))
+            if (Input.GetMouseButtonDown(1))
             {
                 if (hit.collider.gameObject.tag == "hebObj")
                 {
