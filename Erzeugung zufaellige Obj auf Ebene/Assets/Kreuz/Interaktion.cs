@@ -135,7 +135,7 @@ public class Interaktion : MonoBehaviour {
 
 
         if (!obj) return;
-        Debug.Log(obj.GetComponent<Rigidbody>().useGravity);
+        //Debug.Log(obj.GetComponent<Rigidbody>().useGravity);
 
 
     }
