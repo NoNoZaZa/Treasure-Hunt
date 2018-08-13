@@ -21,15 +21,16 @@ GameObject:
   - component: {fileID: 4889487287707410}
   - component: {fileID: 33738631321232634}
   - component: {fileID: 23929384938222118}
-  - component: {fileID: 65416799068332800}
   - component: {fileID: 54384836552272718}
+  - component: {fileID: 65999754689963428}
+  - component: {fileID: 114991664583775026}
   m_Layer: 0
   m_Name: PickupCube
   m_TagString: hebObj
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4889487287707410
 Transform:
   m_ObjectHideFlags: 1
@@ -98,9 +99,9 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &65416799068332800
+--- !u!65 &65999754689963428
 BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,3 +113,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114991664583775026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1443573447687550}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f925c2f5faa11a64c9bb90512ef9ef16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kreuz: {fileID: 0}
+  geklickt: []
+  pickup: {fileID: 0}

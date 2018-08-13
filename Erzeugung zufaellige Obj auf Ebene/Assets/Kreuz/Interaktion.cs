@@ -5,7 +5,7 @@ using System;
 
 
 public class Interaktion : MonoBehaviour {
-
+    private bool IsHolding = false;
     private GameObject obj;
     private GameObject objekt3;
 
@@ -89,6 +89,7 @@ public class Interaktion : MonoBehaviour {
                 //Quiz2 (Objekt aufheben & auf Druckplatte legen)
                 if(hit.collider.gameObject.tag == "hebObj")
                 {
+                    IsHolding = true;
                     Debug.Log("NOT USING GRAVITY!!!!");
                     obj = hit.collider.gameObject;
                     obj.GetComponent<Rigidbody>().useGravity = false;
@@ -117,12 +118,18 @@ public class Interaktion : MonoBehaviour {
         {
             if (hit.collider.gameObject.tag == "hebObj")
             {
-                Debug.Log("USING GRAVITY");
-                obj = hit.collider.gameObject;
+                //Debug.Log("USING GRAVITY");
+                //obj = hit.collider.gameObject;
+                //obj.transform.parent = null;
+                //obj.GetComponent<Rigidbody>().useGravity = true;
+
+            }
+            if (IsHolding)
+            {
+                if (!obj) return;
                 obj.transform.parent = null;
                 obj.GetComponent<Rigidbody>().useGravity = true;
                 obj.GetComponent<Rigidbody>().isKinematic = false;
-
             }
         }
 
