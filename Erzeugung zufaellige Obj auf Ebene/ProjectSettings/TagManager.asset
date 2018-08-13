@@ -8,6 +8,7 @@ TagManager:
   - ground
   - stein
   - hebObj
+  - Quiz3
   layers:
   - Default
   - TransparentFX
