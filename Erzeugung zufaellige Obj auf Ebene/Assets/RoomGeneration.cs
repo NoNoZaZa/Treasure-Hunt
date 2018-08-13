@@ -17,18 +17,20 @@ public class RoomGeneration : MonoBehaviour
     public GameObject RaumMitNebeneinanderLiegendenTueren;
     public GameObject RaumMitHintereinanderLiegendenTueren;
     public GameObject RaumMitEinerTuer;
-    public GameObject[] raumArtenArray;
+    private GameObject[] raumArtenArray;
 
-    public char[,] generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
+    private char[,] generierteRaeume;
+    private char[,] raumPositionen;
+    public List<Vector3> tuerpositionen;
 
 
-    public Vector3 center;
-    public Vector3 size;
+    private Vector3 center;
+    private Vector3 size;
     public bool randomizeSeed = true;
 
-    public int raumzaehler = 0;
-    public int vorherigeRaumArt;
-    public int vorherigeRaumAusrichtung;
+    private int raumzaehler = 0;
+    private int vorherigeRaumArt;
+    private int vorherigeRaumAusrichtung;
 
     // Use this for initialization
     void Start()
@@ -55,12 +57,16 @@ public class RoomGeneration : MonoBehaviour
         {
             Random.InitState(Constants.Seed1);
         }
-        //while (raumzaehler < Constants.HoechstanzahlRaeume) {
-        SpawnRoom();
-        //SpawnRoom();
 
+        raumPositionen = new char[Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2), Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2)];
+        generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
+        tuerpositionen = new List<Vector3>();
+
+        while (raumzaehler < Constants.HoechstanzahlRaeume) {
+        SpawnRoom();
+        
         raumzaehler++;
-        //}
+        }
     }
 
     // Update is called once per frame
@@ -102,17 +108,22 @@ public class RoomGeneration : MonoBehaviour
 
         //Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x /2), -1, Random.Range(-size.z /2, size.z / 2));
         Vector3 pos = center;
-        Vector3 pos2 = center + new Vector3(Constants.raumgroesse,0,0);
-        Instantiate(raumArtenArray[zufallszahlRaumArt], pos, Quaternion.identity);
-        Instantiate(raumArtenArray[0], pos2, Quaternion.Euler(0, 0, 0));
-        Instantiate(raumArtenArray[0], pos + new Vector3(0,0, -Constants.raumgroesse), Quaternion.identity);
-        Instantiate(raumArtenArray[0], pos + new Vector3(-Constants.raumgroesse, 0, 0), Quaternion.identity);
-        Instantiate(raumArtenArray[0], pos + new Vector3(Constants.raumgroesse, 0, 0), Quaternion.identity);
-        Instantiate(raumArtenArray[0], pos + new Vector3(0, 0, Constants.raumgroesse), Quaternion.identity);
+        Instantiate(raumArtenArray[4], pos, Quaternion.identity);
+        //Instantiate(raumArtenArray[0], pos2, Quaternion.Euler(0, 0, 0));
+        //Instantiate(raumArtenArray[0], pos + new Vector3(0,0, -Constants.raumgroesse), Quaternion.identity);
+        //Instantiate(raumArtenArray[0], pos + new Vector3(-Constants.raumgroesse, 0, 0), Quaternion.identity);
+        //Instantiate(raumArtenArray[0], pos + new Vector3(Constants.raumgroesse, 0, 0), Quaternion.identity);
+        //Instantiate(raumArtenArray[0], pos + new Vector3(0, 0, Constants.raumgroesse), Quaternion.identity);
 
 
 
         vorherigeRaumAusrichtung = zufallszahlRaumAusrichtung;
+    }
+
+    int CreateDoor(float xKoordinate, float zKoordinate) {
+        Vector3 neuePosition = new Vector3(xKoordinate, -0.1f, zKoordinate);
+        tuerpositionen.Add(neuePosition);
+        return (0);
     }
 
     private void OnDrawGizmosSelected()

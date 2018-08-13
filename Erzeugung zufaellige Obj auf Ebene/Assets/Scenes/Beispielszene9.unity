@@ -601,13 +601,8 @@ MonoBehaviour:
   RaumMitHintereinanderLiegendenTueren: {fileID: 100018, guid: b791e3b60d2c9fd41aa2239a880a8da6,
     type: 3}
   RaumMitEinerTuer: {fileID: 100000, guid: d6fec1eeb89054e469bed990e466fbb8, type: 3}
-  raumArtenArray: []
-  center: {x: 0, y: 0, z: 0}
-  size: {x: 0, y: 0, z: 0}
-  randomizeSeed: 0
-  raumzaehler: 0
-  vorherigeRaumArt: 0
-  vorherigeRaumAusrichtung: 0
+  tuerpositionen: []
+  randomizeSeed: 1
 --- !u!4 &300618893
 Transform:
   m_ObjectHideFlags: 0
