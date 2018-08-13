@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Interaktion : MonoBehaviour {
+public class Interaktion : MonoBehaviour
+{
     public Texture2D kreuz;
     // Use this for initialization
 
     int klicknum = 0;
     public GameObject[] geklickt;
 
-    void Start () {
+    void Start()
+    {
         geklickt = new GameObject[2];
     }
 
@@ -24,21 +26,22 @@ public class Interaktion : MonoBehaviour {
 
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width /2, Screen.height /2));
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
-        if(Physics.Raycast(ray, out hit))
+        if (Physics.Raycast(ray, out hit))
         {
             if (Input.GetMouseButtonDown(0))
             {
-                
+
                 //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
                 if (hit.collider.gameObject.tag == "stein")
                 {
                     ++klicknum;
                     GameObject stein = hit.collider.gameObject;
-                    
+
                     if (klicknum == 1 || klicknum == 2)
                     {
                         if (klicknum == 1)
@@ -67,13 +70,15 @@ public class Interaktion : MonoBehaviour {
                     }
                     else
                     {
-                        
-                        
+
+
                     }
-                    
+
                 }
             }
         }
 
-	}
+
+    }
 }
+
