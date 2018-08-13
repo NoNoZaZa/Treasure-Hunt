@@ -5,7 +5,8 @@ using UnityEngine;
 static class Constants
 {
     public const int HoechstanzahlRaeume = 10;
-    public const int Seed1 = 42;
+    public const int Seed1 = 43;
+    //Groesse der Raeume (Breite und Länge)
     public const int raumgroesse = 17;
 }
 
@@ -19,8 +20,15 @@ public class RoomGeneration : MonoBehaviour
     public GameObject RaumMitEinerTuer;
     private GameObject[] raumArtenArray;
 
+    //speichert die relative Position der generierten Räume und zeigt an, welche Positionen belegt sind
+    //o: die Position ist leer
+    //x: die Position ist belegt
     private char[,] generierteRaeume;
+
+    //speichert die Koordinaten der generierten Räume, der mittlerste Raum ist in der Mitte des Arrays
     private char[,] raumPositionen;
+
+    //speichert die Positionen, an denen die Türen platziert werden müssen
     public List<Vector3> tuerpositionen;
 
 
@@ -29,20 +37,13 @@ public class RoomGeneration : MonoBehaviour
     public bool randomizeSeed = true;
 
     private int raumzaehler = 0;
-    private int vorherigeRaumArt;
-    private int vorherigeRaumAusrichtung;
+    public int vorherigeRaumArt;
+    public int vorherigeRaumAusrichtung;
 
     // Use this for initialization
     void Start()
     {
-        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++)
-        {
-            for (int j = 0; j < Constants.HoechstanzahlRaeume; j++)
-            {
-                generierteRaeume[i, j] = 'o';
-            }
-        }
-
+        
         raumArtenArray = new GameObject[5];
         raumArtenArray[0] = RaumMitVierTueren;
         raumArtenArray[1] = RaumMitHintereinanderLiegendenTueren;
@@ -62,11 +63,21 @@ public class RoomGeneration : MonoBehaviour
         generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
         tuerpositionen = new List<Vector3>();
 
-        while (raumzaehler < Constants.HoechstanzahlRaeume) {
-        SpawnRoom();
-        
-        raumzaehler++;
+        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++)
+        {
+            for (int j = 0; j < Constants.HoechstanzahlRaeume; j++)
+            {
+                generierteRaeume[i, j] = 'o';
+            }
         }
+
+        //Anfangsraum
+        SpawnRoom(center);
+
+        //while (raumzaehler < Constants.HoechstanzahlRaeume -1) {
+            SpawnRoom(center); 
+        //    raumzaehler++;
+        //}
     }
 
     // Update is called once per frame
@@ -75,7 +86,7 @@ public class RoomGeneration : MonoBehaviour
 
     }
 
-    void SpawnRoom()
+    void SpawnRoom(Vector3 pos)
     {
         //Zufallszahl um zu bestimmen, welcher Raum als nächstes platziert wird 
         //Raum 1: Raum mit Vier Tueren
@@ -104,26 +115,30 @@ public class RoomGeneration : MonoBehaviour
             case 5:
                 break;
         }
+        
+        Instantiate(raumArtenArray[0], pos, Quaternion.identity);
 
+        generierteRaeume[(int)pos.x + Constants.HoechstanzahlRaeume/2, (int)pos.y + Constants.HoechstanzahlRaeume/2] = 'x';
 
-        //Vector3 pos = center + new Vector3(Random.Range(-size.x / 2, size.x /2), -1, Random.Range(-size.z /2, size.z / 2));
-        Vector3 pos = center;
-        Instantiate(raumArtenArray[4], pos, Quaternion.identity);
-        //Instantiate(raumArtenArray[0], pos2, Quaternion.Euler(0, 0, 0));
-        //Instantiate(raumArtenArray[0], pos + new Vector3(0,0, -Constants.raumgroesse), Quaternion.identity);
-        //Instantiate(raumArtenArray[0], pos + new Vector3(-Constants.raumgroesse, 0, 0), Quaternion.identity);
-        //Instantiate(raumArtenArray[0], pos + new Vector3(Constants.raumgroesse, 0, 0), Quaternion.identity);
-        //Instantiate(raumArtenArray[0], pos + new Vector3(0, 0, Constants.raumgroesse), Quaternion.identity);
-
-
-
+        Debug.Log(vorherigeRaumArt);
         vorherigeRaumAusrichtung = zufallszahlRaumAusrichtung;
     }
 
     int CreateDoor(float xKoordinate, float zKoordinate) {
-        Vector3 neuePosition = new Vector3(xKoordinate, -0.1f, zKoordinate);
-        tuerpositionen.Add(neuePosition);
-        return (0);
+        Vector3 neuePosition = new Vector3(xKoordinate, -1, zKoordinate);
+        
+        //Wenn es die Tür schon von einem anderen Raum aus gibt 
+        //wird sie nicht in das Array eingefügt damit sie nicht doppelt eingefügt wird
+        if (tuerpositionen.Contains(neuePosition))
+        {
+            //1 = quasi Errorcode
+            return (1);
+        }
+        else {
+            tuerpositionen.Add(neuePosition);
+            return (0);
+        }
+        
     }
 
     private void OnDrawGizmosSelected()
