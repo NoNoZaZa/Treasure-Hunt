@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-<<<<<<< HEAD
-public class Interaktion : MonoBehaviour
-{
-=======
+
 public class Interaktion : MonoBehaviour {
 
     private GameObject obj;
->>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
+
     public Texture2D kreuz;
     // Use this for initialization
 
@@ -42,10 +39,7 @@ public class Interaktion : MonoBehaviour {
         {
             if (Input.GetMouseButtonDown(0))
             {
-<<<<<<< HEAD
 
-=======
->>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
                 //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
                 
                 //Rätsel1 (Steinplatten eindrücken und Paare finden)
@@ -80,14 +74,14 @@ public class Interaktion : MonoBehaviour {
                             Array.Clear(geklickt, 0, 2);
                         }
                     }
-<<<<<<< HEAD
+
                     else
                     {
 
 
                     }
 
-=======
+
                    
                 }
 
@@ -113,17 +107,16 @@ public class Interaktion : MonoBehaviour {
                     obj.transform.parent = null;
                     obj.GetComponent<Rigidbody>().useGravity = true;
                     obj.GetComponent<Rigidbody>().isKinematic = false;
->>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
+
                 }
             }
 
         }
 
-<<<<<<< HEAD
-=======
+
         if (!obj) return;
         Debug.Log(obj.GetComponent<Rigidbody>().useGravity);
->>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
+
 
     }
 }
