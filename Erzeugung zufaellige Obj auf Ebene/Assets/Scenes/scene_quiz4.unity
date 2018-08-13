@@ -307,7 +307,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1409,7 +1409,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1604,6 +1604,11 @@ Prefab:
       propertyPath: m_Name
       value: drehrad1
       objectReference: {fileID: 0}
+    - target: {fileID: 23564354630507204, guid: 6fc80ce1af4d9814bb5c40e243a85ddc,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6071ba02fbbbe12489e29bb129ba9904, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc80ce1af4d9814bb5c40e243a85ddc, type: 2}
   m_IsPrefabAsset: 0
@@ -1658,6 +1663,11 @@ Prefab:
       propertyPath: m_Name
       value: drehrad3
       objectReference: {fileID: 0}
+    - target: {fileID: 23564354630507204, guid: 6fc80ce1af4d9814bb5c40e243a85ddc,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc80ce1af4d9814bb5c40e243a85ddc, type: 2}
   m_IsPrefabAsset: 0
@@ -1972,6 +1982,11 @@ Prefab:
       propertyPath: m_Name
       value: drehrad2
       objectReference: {fileID: 0}
+    - target: {fileID: 23564354630507204, guid: 6fc80ce1af4d9814bb5c40e243a85ddc,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6fc80ce1af4d9814bb5c40e243a85ddc, type: 2}
   m_IsPrefabAsset: 0
@@ -2254,7 +2269,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2830,7 +2845,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3097,7 +3112,6 @@ MonoBehaviour:
   drehrad2: {fileID: 137719513}
   drehrad3: {fileID: 538232734}
   groesse: {x: 0.8, y: 0.8, z: 0.8}
-  cubePos: {x: 2, y: 0, z: 3}
 --- !u!4 &1657860157
 Transform:
   m_ObjectHideFlags: 0
@@ -3418,7 +3432,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 6071ba02fbbbe12489e29bb129ba9904, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3523,7 +3537,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: b71558950a880b64eaba9de6a2a9db20, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
