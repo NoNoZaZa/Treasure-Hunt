@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee2c9008a5931d4fbe8d3fee1d57d06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  block: {fileID: 0}
+  block: {fileID: 2092906783}
   druckplatte: {fileID: 0}
   groesse: {x: 0.8, y: 0.8, z: 0.8}
   cubePos: {x: -2, y: 0, z: -3}
@@ -671,7 +671,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   kreuz: {fileID: 2800000, guid: 171316fb5dfbeba49b0cfc087f4ab124, type: 3}
   geklickt: []
-  pickup: {fileID: 0}
+  pickup: {fileID: 21095236}
 --- !u!1 &300618891
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,3 +3211,8 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 458b964e67c52254185ae4d5e4782a6a, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &2092906783 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1443573447687550, guid: 458b964e67c52254185ae4d5e4782a6a,
+    type: 2}
+  m_PrefabInternal: {fileID: 2092906782}

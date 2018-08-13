@@ -12,6 +12,7 @@ public class Quiz2 : MonoBehaviour {
     void Start () {
         //erzeugung();
         GameObject cubeInstance = Instantiate(block, cubePos, Quaternion.identity);
+        if (!cubeInstance.activeInHierarchy) cubeInstance.SetActive(true);
         
     }
 	
