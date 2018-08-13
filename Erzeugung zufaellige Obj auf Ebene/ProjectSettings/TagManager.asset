@@ -7,6 +7,7 @@ TagManager:
   - Key
   - ground
   - stein
+  - hebObj
   layers:
   - Default
   - TransparentFX

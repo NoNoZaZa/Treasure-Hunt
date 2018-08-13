@@ -3,13 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+<<<<<<< HEAD
 public class Interaktion : MonoBehaviour
 {
+=======
+public class Interaktion : MonoBehaviour {
+
+    private GameObject obj;
+>>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
     public Texture2D kreuz;
     // Use this for initialization
 
     int klicknum = 0;
     public GameObject[] geklickt;
+    public Transform pickup;
 
     void Start()
     {
@@ -35,8 +42,13 @@ public class Interaktion : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
                 //hit.collider.gameObject.GetComponent<Renderer>().material.color = Color.green;
+                
+                //Rätsel1 (Steinplatten eindrücken und Paare finden)
                 if (hit.collider.gameObject.tag == "stein")
                 {
                     ++klicknum;
@@ -68,16 +80,50 @@ public class Interaktion : MonoBehaviour
                             Array.Clear(geklickt, 0, 2);
                         }
                     }
+<<<<<<< HEAD
                     else
                     {
 
 
                     }
 
+=======
+                   
+                }
+
+                //Quiz2 (Objekt aufheben & auf Druckplatte legen)
+                if(hit.collider.gameObject.tag == "hebObj")
+                {
+                    Debug.Log("NOT USING GRAVITY!!!!");
+                    obj = hit.collider.gameObject;
+                    obj.GetComponent<Rigidbody>().useGravity = false;
+                    obj.GetComponent<Rigidbody>().isKinematic = true;
+                    obj.transform.position = pickup.position;
+                    obj.transform.parent = GameObject.Find("Spieler").transform;
+                    obj.transform.parent = GameObject.Find("Main Camera").transform;
+                }
+
+            }
+            if (Input.GetMouseButtonUp(1))
+            {
+                if (hit.collider.gameObject.tag == "hebObj")
+                {
+                    Debug.Log("USING GRAVITY");
+                    obj = hit.collider.gameObject;
+                    obj.transform.parent = null;
+                    obj.GetComponent<Rigidbody>().useGravity = true;
+                    obj.GetComponent<Rigidbody>().isKinematic = false;
+>>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
                 }
             }
+
         }
 
+<<<<<<< HEAD
+=======
+        if (!obj) return;
+        Debug.Log(obj.GetComponent<Rigidbody>().useGravity);
+>>>>>>> 2d549563a62855dfa5a9538649e0200a76aca953
 
     }
 }
