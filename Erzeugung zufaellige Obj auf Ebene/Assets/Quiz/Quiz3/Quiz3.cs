@@ -8,6 +8,7 @@ public class Quiz3 : MonoBehaviour {
     public float maxGeschw = 6f;
     private float geschwindigkeit;
     public float grenze = 3f;
+    public float offset; 
    // Use this for initialization
 
     void Start()
@@ -18,7 +19,7 @@ public class Quiz3 : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze), transform.position.y, transform.position.z);
+        transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze) + offset, transform.position.y, transform.position.z);
         //transform.Translate(Vector3.left* geschwindigkeit * Time.deltaTime);
     }
 
