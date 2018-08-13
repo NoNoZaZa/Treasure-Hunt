@@ -93,6 +93,7 @@ public class Interaktion : MonoBehaviour {
                     obj = hit.collider.gameObject;
                     obj.GetComponent<Rigidbody>().useGravity = false;
                     obj.GetComponent<Rigidbody>().isKinematic = true;
+                    //obj.transform.position = new Vector3 (Screen.width / 2, Screen.height / 2, 0.7f);
                     obj.transform.position = pickup.position;
                     obj.transform.parent = GameObject.Find("Spieler").transform;
                     obj.transform.parent = GameObject.Find("Main Camera").transform;
@@ -109,19 +110,20 @@ public class Interaktion : MonoBehaviour {
                 
 
             }
-            if (Input.GetMouseButtonDown(1))
+            
+
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            if (hit.collider.gameObject.tag == "hebObj")
             {
-                if (hit.collider.gameObject.tag == "hebObj")
-                {
-                    Debug.Log("USING GRAVITY");
-                    obj = hit.collider.gameObject;
-                    obj.transform.parent = null;
-                    obj.GetComponent<Rigidbody>().useGravity = true;
-                    obj.GetComponent<Rigidbody>().isKinematic = false;
+                Debug.Log("USING GRAVITY");
+                obj = hit.collider.gameObject;
+                obj.transform.parent = null;
+                obj.GetComponent<Rigidbody>().useGravity = true;
+                obj.GetComponent<Rigidbody>().isKinematic = false;
 
-                }
             }
-
         }
 
 
