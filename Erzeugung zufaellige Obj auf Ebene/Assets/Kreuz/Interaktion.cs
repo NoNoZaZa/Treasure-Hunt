@@ -7,6 +7,7 @@ using System;
 public class Interaktion : MonoBehaviour {
 
     private GameObject obj;
+    private GameObject objekt3;
 
     public Texture2D kreuz;
     // Use this for initialization
@@ -97,6 +98,16 @@ public class Interaktion : MonoBehaviour {
                     obj.transform.parent = GameObject.Find("Main Camera").transform;
                 }
 
+                //Quiz3 (Objekte anklicken und damit zerstören)
+
+                if (hit.collider.gameObject.tag == "Quiz3")
+                    {
+                    objekt3 = hit.collider.gameObject;
+                    Destroy(objekt3);
+                    }
+
+                
+
             }
             if (Input.GetMouseButtonUp(1))
             {
@@ -119,5 +130,7 @@ public class Interaktion : MonoBehaviour {
 
 
     }
+
+
 }
 
