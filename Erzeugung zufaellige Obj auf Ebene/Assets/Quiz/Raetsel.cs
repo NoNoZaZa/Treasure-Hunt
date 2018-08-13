@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
     public class Raetsel : MonoBehaviour {
-    // public Rigidbody rbc;
+    public Rigidbody rbc;
     public GameObject[,] bloecke;
     public ArrayList liste = new ArrayList();
     public GameObject stein, stein1, stein2, stein3, stein4, stein5, stein6, stein7, stein8,
