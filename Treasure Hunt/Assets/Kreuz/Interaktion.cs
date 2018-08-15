@@ -18,6 +18,11 @@ public class Interaktion : MonoBehaviour {
     public GameObject[] geklickt;
     public Transform pickup;
 
+
+    //fuer Quiz 3 Zaehler zerstoerter Objekte
+    public float zaehlercubes = 0;
+ 
+
     void Start()
     {
         geklickt = new GameObject[2];
@@ -110,15 +115,18 @@ public class Interaktion : MonoBehaviour {
 
                 #region Quiz3
                 //Quiz3 (Objekte anklicken und damit zerstören)
-
+                
                 if (hit.collider.gameObject.tag == "Quiz3")
                 {
                     objekt3 = hit.collider.gameObject;
+                    zaehlercubes++;
                     Destroy(objekt3);
+                    Debug.Log(zaehlercubes);
                 }
+
                 #endregion
 
-                
+
             }
 
 

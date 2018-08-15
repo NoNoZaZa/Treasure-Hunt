@@ -33,7 +33,7 @@ public class Quiz3 : MonoBehaviour {
 
     }
 
-    //void ErzeugungCubes()
+        //void ErzeugungCubes()
     //{
     //    for (int i = 0; i < 6; i++)
     //    {
