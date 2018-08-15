@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Quiz3Ausloeser : MonoBehaviour
 {
     public GameObject quiz3Cube;
+    public Text text;
 
     // Use this for initialization
     void Start()
@@ -22,6 +23,8 @@ public class Quiz3Ausloeser : MonoBehaviour
     {
         Debug.Log("Collide!");
         quiz3Cube.SetActive(true);
+        text.enabled = true;
         Destroy(this.gameObject);
+
     }
 }
