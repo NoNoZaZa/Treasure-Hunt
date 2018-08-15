@@ -9,6 +9,7 @@ TagManager:
   - stein
   - hebObj
   - Quiz3
+  - TimerQuiz3
   layers:
   - Default
   - TransparentFX
