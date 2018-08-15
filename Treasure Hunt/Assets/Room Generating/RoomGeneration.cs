@@ -44,7 +44,12 @@ public class RoomGeneration : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        
+        //Raum 1: Raum mit Vier Tueren
+        //Raum 2: Raum mit Zwei hintereinanderliegenden Tueren (gerader Durchgang)
+        //Raum 3: Raum mit Drei Tueren
+        //Raum 4: Raum mit Zwei nebeneinanderliegenden Tueren (Ecke)
+        //Raum 5: Raum mit einer Tuer (quasi Dead End)
+
         raumArtenArray = new GameObject[5];
         raumArtenArray[0] = RaumMitVierTueren;
         raumArtenArray[1] = RaumMitHintereinanderLiegendenTueren;
@@ -90,13 +95,6 @@ public class RoomGeneration : MonoBehaviour
 
     void FindRoomPosition()
     {
-        //Zufallszahl um zu bestimmen, welcher Raum als nächstes platziert wird 
-        //Raum 1: Raum mit Vier Tueren
-        //Raum 2: Raum mit hintereinanderliegenden Tueren
-        //Raum 3: Raum mit Drei Tueren
-        //Raum 4: Raum mit nebeneinanderliegenden Tueren
-        //Raum 5: Raum mit einer Tuer (quasi Dead End)
-
         bool raumPositionGefunden = false;
         Vector3 pos = center;
 

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -348,7 +348,7 @@ Transform:
   m_Children:
   - {fileID: 1828783821}
   m_Father: {fileID: 1657860157}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &170076733
 GameObject:
@@ -757,6 +757,7 @@ MonoBehaviour:
   RaumMitHintereinanderLiegendenTueren: {fileID: 100018, guid: b791e3b60d2c9fd41aa2239a880a8da6,
     type: 3}
   RaumMitEinerTuer: {fileID: 100000, guid: d6fec1eeb89054e469bed990e466fbb8, type: 3}
+  raumArtenArray: []
   tuerpositionen: []
   randomizeSeed: 1
   vorherigeRaumArt: 0
@@ -1025,7 +1026,7 @@ Prefab:
     - target: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
         type: 2}
       propertyPath: m_Intensity
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
         type: 2}
@@ -1051,6 +1052,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
+        type: 2}
+      propertyPath: m_Cookie
+      value: 
+      objectReference: {fileID: 2800000, guid: 641bb2dce818a8a499b537a1963889ac, type: 3}
     m_RemovedComponents:
     - {fileID: 54181807387111586, guid: 91de66de50ac94488abb3b2cc94e0a5b, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 91de66de50ac94488abb3b2cc94e0a5b, type: 2}
@@ -3097,7 +3103,6 @@ MonoBehaviour:
   drehrad2: {fileID: 137719513}
   drehrad3: {fileID: 538232734}
   groesse: {x: 0.8, y: 0.8, z: 0.8}
-  cubePos: {x: 2, y: 0, z: 3}
 --- !u!4 &1657860157
 Transform:
   m_ObjectHideFlags: 0
@@ -3108,8 +3113,8 @@ Transform:
   m_LocalPosition: {x: 1.3360573, y: -0.4123323, z: 20.038404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1798243529}
   - {fileID: 137719517}
+  - {fileID: 1798243529}
   - {fileID: 538232738}
   m_Father: {fileID: 0}
   m_RootOrder: 24
@@ -3459,7 +3464,7 @@ Transform:
   m_Children:
   - {fileID: 1478647295}
   m_Father: {fileID: 1657860157}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!1 &1828783820
 GameObject:
