@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quiz3 : MonoBehaviour {
 
@@ -14,13 +15,13 @@ public class Quiz3 : MonoBehaviour {
     //public GameObject cubeForm;
     // Use this for initialization
 
+
+
     void Start()
     {
         //ErzeugungCubes();
         //AnordnungListe();
         geschwindigkeit = Random.Range(minGeschw, maxGeschw);
-        
-        
         
     }
 
@@ -29,6 +30,7 @@ public class Quiz3 : MonoBehaviour {
     {
         //CubesBewegen();
         transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze) + offset, transform.position.y, transform.position.z);
+
     }
 
     //void ErzeugungCubes()
