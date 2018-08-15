@@ -8,7 +8,8 @@ public class Quiz3 : MonoBehaviour {
     public float maxGeschw = 6f;
     private float geschwindigkeit;
     public float grenze = 3f;
-    public float offset; 
+    public float offset;
+    public List<GameObject> cubeListe;
    // Use this for initialization
 
     void Start()
