@@ -107,6 +107,8 @@ public class Interaktion : MonoBehaviour {
                     //obj.transform.parent = GameObject.Find("Main Camera").transform;
                 }
                 #endregion
+
+                #region Quiz3
                 //Quiz3 (Objekte anklicken und damit zerstören)
 
                 if (hit.collider.gameObject.tag == "Quiz3")
@@ -114,11 +116,11 @@ public class Interaktion : MonoBehaviour {
                     objekt3 = hit.collider.gameObject;
                     Destroy(objekt3);
                 }
+                #endregion
 
-
-
+                
             }
-            
+
 
         }
 

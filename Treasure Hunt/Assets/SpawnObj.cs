@@ -24,9 +24,9 @@ public class SpawnObj : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(Input.GetKeyDown(KeyCode.Q)){ 
-            Spawn();
-        }
+        //if(Input.GetKeyDown(KeyCode.Q)){ 
+        //    Spawn();
+        //}
         
     }
     
