@@ -1822,7 +1822,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rbc: {fileID: 0}
-  cubePref: {fileID: 0}
+  cubePref: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
   groesse: 0.8
 --- !u!4 &717054233
 Transform:
