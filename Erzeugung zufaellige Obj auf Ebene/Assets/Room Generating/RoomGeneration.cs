@@ -12,13 +12,14 @@ static class Constants
 
 public class RoomGeneration : MonoBehaviour
 {
+    private Room[] raumarray;
 
     public GameObject RaumMitVierTueren;
     public GameObject RaumMitDreiTueren;
     public GameObject RaumMitNebeneinanderLiegendenTueren;
     public GameObject RaumMitHintereinanderLiegendenTueren;
     public GameObject RaumMitEinerTuer;
-    private GameObject[] raumArtenArray;
+    public GameObject[] raumArtenArray;
 
     //speichert die relative Position der generierten Räume und zeigt an, welche Positionen belegt sind
     //o: die Position ist leer
@@ -52,14 +53,14 @@ public class RoomGeneration : MonoBehaviour
         raumArtenArray[4] = RaumMitEinerTuer;
 
         center = new Vector3(0, -1, 0);
-        size = new Vector3();
 
         if (randomizeSeed == false)
         {
             Random.InitState(Constants.Seed1);
         }
 
-        raumPositionen = new char[Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2), Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2)];
+        //raumPositionen = new char[Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2), Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2)];
+        //Positionen der Raeume ohne Koordinaten
         generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
         tuerpositionen = new List<Vector3>();
 
@@ -71,13 +72,14 @@ public class RoomGeneration : MonoBehaviour
             }
         }
 
-        //Anfangsraum
-        SpawnRoom(center);
+        while (raumzaehler < Constants.HoechstanzahlRaeume) {
+            FindRoomPosition(); 
+            raumzaehler++;
+        }
 
-        //while (raumzaehler < Constants.HoechstanzahlRaeume -1) {
-            SpawnRoom(center); 
-        //    raumzaehler++;
-        //}
+        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++) {
+            SpawnRoom();
+        }
     }
 
     // Update is called once per frame
@@ -86,7 +88,7 @@ public class RoomGeneration : MonoBehaviour
 
     }
 
-    void SpawnRoom(Vector3 pos)
+    void FindRoomPosition()
     {
         //Zufallszahl um zu bestimmen, welcher Raum als nächstes platziert wird 
         //Raum 1: Raum mit Vier Tueren
@@ -95,33 +97,38 @@ public class RoomGeneration : MonoBehaviour
         //Raum 4: Raum mit nebeneinanderliegenden Tueren
         //Raum 5: Raum mit einer Tuer (quasi Dead End)
 
-        int zufallszahlRaumArt = Random.Range(1, 5);
-        vorherigeRaumArt = zufallszahlRaumArt;
+        bool raumPositionGefunden = false;
+        Vector3 pos = center;
 
-        //Zufallszahl um die Positionierung des Raums festzulegen
-        //Oben = 1, Rechts = 2, Unten = 3, Links = 4
-        int zufallszahlRaumAusrichtung = Random.Range(1, 4);
+        while (raumPositionGefunden == false && raumzaehler != 0) {
+            int zufallsraumKoordinateX = Random.Range(0, Constants.HoechstanzahlRaeume - 1);
+            int zufallsraumKoordinateZ = Random.Range(0, Constants.HoechstanzahlRaeume - 1);
 
-        switch (vorherigeRaumArt)
-        {
-            case 1:
-                break;
-            case 2:
-                break;
-            case 3:
-                break;
-            case 4:
-                break;
-            case 5:
-                break;
+            if (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ] == 'o') {
+                if ((generierteRaeume[zufallsraumKoordinateX - 1, zufallsraumKoordinateZ] != 'o') ||
+                    (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ - 1] != 'o') ||
+                    (generierteRaeume[zufallsraumKoordinateX + 1, zufallsraumKoordinateZ] != 'o') ||
+                    (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ + 1] != 'o')
+                    ) {
+                    raumPositionGefunden = true;
+                }
+            }
+            pos = new Vector3((float)zufallsraumKoordinateX, 0, (float)zufallsraumKoordinateZ);
         }
         
-        Instantiate(raumArtenArray[0], pos, Quaternion.identity);
-
         generierteRaeume[(int)pos.x + Constants.HoechstanzahlRaeume/2, (int)pos.y + Constants.HoechstanzahlRaeume/2] = 'x';
 
-        Debug.Log(vorherigeRaumArt);
-        vorherigeRaumAusrichtung = zufallszahlRaumAusrichtung;
+    }
+
+    void SpawnRoom()
+    {
+
+        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++) {
+            for(int j = 0; j < Constants.HoechstanzahlRaeume; j++)
+            {
+
+            }
+        }
     }
 
     int CreateDoor(float xKoordinate, float zKoordinate) {
