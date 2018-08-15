@@ -12,7 +12,7 @@ static class Constants
 
 public class RoomGeneration : MonoBehaviour
 {
-    private Room[] raumarray;
+    public List<Room> raumListe = new List<Room>();
 
     public GameObject RaumMitVierTueren;
     public GameObject RaumMitDreiTueren;
@@ -32,14 +32,11 @@ public class RoomGeneration : MonoBehaviour
     //speichert die Positionen, an denen die Türen platziert werden müssen
     public List<Vector3> tuerpositionen;
 
-
     private Vector3 center;
     private Vector3 size;
     public bool randomizeSeed = true;
 
     private int raumzaehler = 0;
-    public int vorherigeRaumArt;
-    public int vorherigeRaumAusrichtung;
 
     // Use this for initialization
     void Start()
@@ -83,7 +80,8 @@ public class RoomGeneration : MonoBehaviour
         }
 
         for (int i = 0; i < Constants.HoechstanzahlRaeume; i++) {
-            SpawnRoom();
+
+            SpawnRoom(i);
         }
     }
 
@@ -118,15 +116,11 @@ public class RoomGeneration : MonoBehaviour
 
     }
 
-    void SpawnRoom()
+    void SpawnRoom(int uebergebeneRaumNummer)
     {
-
-        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++) {
-            for(int j = 0; j < Constants.HoechstanzahlRaeume; j++)
-            {
-
-            }
-        }
+        Room raum = new Room();
+        raum.raumNummer = uebergebeneRaumNummer;
+        raumListe.Add(raum);
     }
 
     int CreateDoor(float xKoordinate, float zKoordinate) {
@@ -150,6 +144,33 @@ public class RoomGeneration : MonoBehaviour
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(center, size);
+    }
+
+}
+
+public class Room {
+    public Vector3 raumPosition;
+    public int raumNummer;
+
+    bool hatRaumDrueber = false;
+    bool hatRaumRechts = false;
+    bool hatRaumUnten = false;
+    bool hatRaumLinks = false;
+
+    void setRaumDrueberTrue() {
+        hatRaumDrueber = true;
+    }
+
+    void setRaumRechtsTrue() {
+        hatRaumRechts = true;
+    }
+
+    void setRaumUntenTrue() {
+        hatRaumUnten = true;
+    }
+
+    void setRaumLinksTrue() {
+        hatRaumLinks = true;
     }
 
 }
