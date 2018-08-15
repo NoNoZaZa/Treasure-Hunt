@@ -6,13 +6,14 @@ using UnityEngine;
    
     public Rigidbody rbc;
     public GameObject[,] bloecke;
+    public GameObject cubePref;
     public ArrayList liste = new ArrayList();
     //public GameObject stein, stein1, stein2, stein3, stein4, stein5, stein6, stein7, stein8,
     //    stein9, stein10, stein11, stein12, stein13, stein14, stein15, stein16;
     private int i;
     private int j;
-    private System.Random random = new System.Random();
-    private Vector3 groesse = new Vector3(0.8f,0.8f,0.8f);
+
+    public float groesse = 0.8f;
     private Color[] farben = {Color.black, Color.blue, Color.red, Color.green, Color.magenta, Color.cyan, Color.yellow, Color.grey };
   
 
@@ -22,9 +23,9 @@ using UnityEngine;
     void Start () {
         
         bloecke = new GameObject[4,4];       
-        erzeugungObjekte();
-        arrayBefuellen();
-        anordnung();
+        ErzeugungObjekte();
+        ArrayBefuellen();
+        Anordnung();
 
 
 
@@ -34,21 +35,26 @@ using UnityEngine;
 	void Update () {
     }
 
-    void erzeugungObjekte()
+    void ErzeugungObjekte()
     {
         const float NUM_CUBES = 16;
         int farbIndex = 0;
         for (int i = 0; i < NUM_CUBES; i += 2)
         {
-            GameObject stein = GameObject.CreatePrimitive(PrimitiveType.Cube);
-           // stein.transform.parent = transform;
-            //stein.transform.position = transform.localPosition; 
-            stein.transform.localScale = groesse;
-            stein.gameObject.GetComponent<Renderer>().material.color = farben[farbIndex];
-            GameObject stein2 = Instantiate(stein, transform.position, transform.rotation);
-            //stein2.transform.parent = transform;
-            liste.Add(stein);
-            liste.Add(stein2);
+            GameObject steinA = Instantiate(cubePref, transform.position, transform.rotation);
+            GameObject steinB = Instantiate(cubePref, transform.position, transform.rotation);
+
+            steinA.transform.localScale = new Vector3(groesse, groesse, groesse);
+            steinB.transform.localScale = new Vector3(groesse, groesse, groesse); 
+
+            steinA.gameObject.GetComponent<Renderer>().material.color = farben[farbIndex];
+            steinB.gameObject.GetComponent<Renderer>().material.color = farben[farbIndex];
+
+            steinA.transform.parent = this.transform;
+            steinB.transform.parent = this.transform;
+
+            liste.Add(steinA);
+            liste.Add(steinB);
 
             farbIndex++;
         }
@@ -122,28 +128,29 @@ using UnityEngine;
     }
 
 
-    void arrayBefuellen()
+    void ArrayBefuellen()
     {
         
         for(i=0; i <4; i++)
         {
             for (j = 0; j < 4; j++)
             {
-                arrayRandomzuweisen();
+                ArrayRandomzuweisen();
                 Debug.Log("Zahl");
             }
         }
 
     }
 
-    void anordnung()
+    void Anordnung()
     {
         
         for(i = 0; i<4; i++)
         {
             for (j = 0; j < 4; j++)
             {
-                bloecke[i, j].transform.localPosition = new Vector3(i,j, 0);
+                //bloecke[i, j].transform.localPosition = new Vector3(i,j, 0);
+                bloecke[i, j].transform.Translate(i, j, 0);
                 Debug.Log("Anordnung");
                
                 
@@ -151,12 +158,18 @@ using UnityEngine;
         }
     }
 
-    void arrayRandomzuweisen()
+    void ArrayRandomzuweisen()
     {
-        int zahl = random.Next(0, liste.Count);
+        int zahl = Random.Range(0, liste.Count);//random.Next(0, liste.Count);
         ((GameObject)liste[zahl]).GetComponent<Rigidbody>();
         ((GameObject)liste[zahl]).tag = "stein";
         bloecke[i, j] = (GameObject)liste[zahl];
         liste.RemoveAt(zahl);
     }
+
+    public void PushCube(GameObject cube)
+    {
+        
+    }
+
 }
