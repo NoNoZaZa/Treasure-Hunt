@@ -54,6 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4046300041299344}
   - component: {fileID: 114254878735232714}
+  - component: {fileID: 114344664526536890}
   m_Layer: 0
   m_Name: Quiz1Wand
   m_TagString: Untagged
@@ -68,7 +69,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830549150576994}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.5, y: -2, z: -23}
+  m_LocalPosition: {x: -20.5, y: -3, z: -23}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4077981782653772}
@@ -117,7 +118,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 32c799952f453db418f8ae39c6a2f711, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -167,9 +168,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0eab659195fb1b044b166a6a83d1eb45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbc: {fileID: 0}
+  interaktion: {fileID: 0}
   cubePref: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
   groesse: 0.8
+  timer: {fileID: 1267958848990514, guid: d3759c8fdd266af4dbb65fec94854fd2, type: 2}
+--- !u!114 &114344664526536890
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830549150576994}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3314b54ffece3d34d83641ee2757af73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interaktion: {fileID: 0}
+  zeitGesamt1: 15
+  timer1: 0
+  countDownText: {fileID: 0}
+  winText: {fileID: 0}
+  quiz1Cube: {fileID: 1830549150576994}
 --- !u!114 &114842577665204420
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,3 +202,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quiz1Cube: {fileID: 1830549150576994}
   quiz1ausloeser: {fileID: 1574374964745464}
+  text: {fileID: 0}

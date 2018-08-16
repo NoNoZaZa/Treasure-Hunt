@@ -6,6 +6,8 @@ public class CubeGenerator : MonoBehaviour {
 
     public GameObject prefab;
     Vector3 raumposition;
+    int success;
+    int maximaleRaumzahl = 10;
 
     List<Vector3> raumpositionen = new List<Vector3>();
     Vector3 norden = new Vector3(-17, 0, 0);
@@ -19,8 +21,11 @@ public class CubeGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        int success = RaumGenerieren();
-        Debug.Log(success);
+        while (success < maximaleRaumzahl) {
+            success = success + RaumGenerieren();
+            //Debug.Log(success);
+        }
+        
 
 	}
 	
@@ -33,27 +38,35 @@ public class CubeGenerator : MonoBehaviour {
     {
         int zufallszahl = Random.Range(0, 100);
 
-        while (naechsteRaumPosition == 0)
-        {
+        Debug.Log("zufallszahl: " + zufallszahl);
+        Debug.Log("naechsteRaumPosition am Anfang: " + naechsteRaumPosition);
+
 
             if (zufallszahl > 25)
             {
                 naechsteRaumPosition = 2;
+                Debug.Log("naechsteRaumPosition nach > 25 Vergleich: " + naechsteRaumPosition);
+
                 if (zufallszahl > 50)
                 {
                     naechsteRaumPosition = 3;
+                    Debug.Log("naechsteRaumPosition nach > 50 Vergleich: " + naechsteRaumPosition);
+
                     if (zufallszahl > 75)
                     {
                         naechsteRaumPosition = 4;
+                        Debug.Log("naechsteRaumPosition nach > 75 Vergleich: " + naechsteRaumPosition);
+
                     }
                 }
             }
-            else
+            else if (zufallszahl < 25)
             {
                 naechsteRaumPosition = 1;
-            }
-        }
+                Debug.Log("naechsteRaumPosition nach < 25 Vergleich: " + naechsteRaumPosition);
 
+            }
+        
         switch (naechsteRaumPosition)
         {
             case 1:
@@ -74,7 +87,7 @@ public class CubeGenerator : MonoBehaviour {
         if (raumpositionen.Contains(raumposition))
         {
             //Raum existiert bereits an der Stelle, return 1 als "Fehler"
-            return 1;
+            return 0;
         }
         else {
             Instantiate(prefab, raumposition, Quaternion.identity);
@@ -82,7 +95,7 @@ public class CubeGenerator : MonoBehaviour {
         }
 
 
-        return 0;
+        return 1;
     }
 
 }

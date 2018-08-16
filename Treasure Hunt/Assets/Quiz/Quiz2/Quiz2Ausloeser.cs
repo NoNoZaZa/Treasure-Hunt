@@ -21,10 +21,10 @@ public class Quiz2Ausloeser : MonoBehaviour
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        Debug.Log("Collide!");
+        Destroy(this.gameObject);
         quiz2Cube.SetActive(true);
         text.enabled = true;
-        Destroy(this.gameObject);
+
 
     }
 }
