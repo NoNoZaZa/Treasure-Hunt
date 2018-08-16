@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PuzzleMovement : MonoBehaviour {
-
-    public Puzzle puzzle;
+    
     GameObject emptySlot;
     Transform slot;
     float xtemp;
@@ -21,8 +20,8 @@ public class PuzzleMovement : MonoBehaviour {
         {
             xtemp = transform.position.x;
             ytemp = transform.position.y;
-            //this.transform.position.x = slot.position.x;
-            //this.transform.position.y = slot.position.y;
+            //transform.position.x = slot.position.x;
+            //transform.position.y = slot.position.y;
             //slot.position.x = xtemp;
             //slot.position.y = ytemp;
         }

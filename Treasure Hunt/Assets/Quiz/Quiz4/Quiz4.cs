@@ -9,6 +9,7 @@ public class Quiz4 : MonoBehaviour
     private Vector3 targetAngleA;
     private Vector3 targetAngleB;
     private Vector3 targetAngleC;
+    Transform target;
 
 
     // Use this for initialization
@@ -44,6 +45,7 @@ public class Quiz4 : MonoBehaviour
         if (p > radP)
         {
             float rot = rad.transform.rotation.z;
+            targetAngleA = new Vector3(0, (rot + 45), 0);
             rad.transform.Rotate(0, (rot + 45), 0);
 
         }
@@ -59,7 +61,10 @@ public class Quiz4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float speed = Time.deltaTime * rotSpeed;
-        .Lerp(rot.z, targetAngleA, speed);
+        float step = Time.deltaTime * rotSpeed;
+        Vector3 targetDir = target.position - transform.position;
+        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
+        transform.rotation = Quaternion.LookRotation(newDir);
+        //transform.rotation.Lerp(rot.z, targetAngleA, step);
     }
 }

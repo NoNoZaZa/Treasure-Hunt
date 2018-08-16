@@ -19,6 +19,7 @@ public class Puzzle : MonoBehaviour {
             {
                 pos = new Vector3(i, j, 5f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
+                puzzle.GetComponent("PuzzleMovement");
                 if (!puzzle.activeInHierarchy)
                 {
                     puzzle.SetActive(true);
