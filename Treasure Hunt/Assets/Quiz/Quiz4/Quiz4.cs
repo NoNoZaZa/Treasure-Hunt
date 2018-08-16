@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quiz4 : MonoBehaviour {
+public class Quiz4 : MonoBehaviour
+{
     public GameObject rad1, rad2, rad3;
 
 
@@ -31,31 +32,60 @@ public class Quiz4 : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update ()
+    void Update()
     {
-        bool left = Input.GetKey(KeyCode.Q);
-        bool right = Input.GetKey(KeyCode.E);
-        if (right)
+        RaycastHit hit;
+        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
+
+        if (Physics.Raycast(ray, out hit))
         {
-            float rot1 = rad1.transform.rotation.z;
-            rad1.transform.Rotate(0, (rot1 + 45), 0);
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (hit.collider.gameObject.tag == "rad")
+                {
+                    GameObject rad = hit.collider.gameObject;
+                    float p = hit.point.x;
+                    float radP = rad.transform.position.x;
+                    //Rechtsdrehung
+                    if (p > radP)
+                    {
+                        float rot = rad.transform.rotation.z;
+                        rad.transform.Rotate(0, (rot + 45), 0);
+                    }
+                    //Linkssdrehung
+                    if (p < radP)
+                    {
+                        float rot = rad1.transform.rotation.z;
+                        rad.transform.Rotate(0, (rot - 45), 0);
+                    }
+                }
 
-            float rot2 = rad2.transform.rotation.z;
-            rad2.transform.Rotate(0, (rot2 + 45), 0);
 
-            float rot3 = rad3.transform.rotation.z;
-            rad3.transform.Rotate(0, (rot3 + 45), 0);
-        }
-        if (left)
-        {
-            float rot1 = rad1.transform.rotation.z;
-            rad1.transform.rotation = Quaternion.Euler(0, (rot1 - 45), 0);
 
-            float rot2 = rad2.transform.rotation.z;
-            rad2.transform.rotation = Quaternion.Euler(0, (rot2 - 45), 0);
 
-            float rot3 = rad3.transform.rotation.z;
-            rad3.transform.rotation = Quaternion.Euler(0, (rot3 - 45), 0);
+                //if (right)
+                //{
+                //    float rot1 = rad1.transform.rotation.z;
+                //    rad1.transform.Rotate(0, (rot1 + 45), 0);
+
+                //    float rot2 = rad2.transform.rotation.z;
+                //    rad2.transform.Rotate(0, (rot2 + 45), 0);
+
+                //    float rot3 = rad3.transform.rotation.z;
+                //    rad3.transform.Rotate(0, (rot3 + 45), 0);
+                //}
+                //if (left)
+                //{
+                //    float rot1 = rad1.transform.rotation.z;
+                //    rad1.transform.Rotate(0, (rot1 - 45), 0);
+
+                //    float rot2 = rad2.transform.rotation.z;
+                //    rad2.transform.Rotate(0, (rot2 - 45), 0);
+
+                //    float rot3 = rad3.transform.rotation.z;
+                //    rad3.transform.Rotate(0, (rot3 - 45), 0);
+                //}
+            }
         }
     }
 }
