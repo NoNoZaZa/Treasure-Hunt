@@ -10,15 +10,16 @@ public class Quiz4 : MonoBehaviour {
     void Start()
     {
         int zufall = (Random.Range(1, 8)) * 45;
-        rad1 = Instantiate(rad1, rad1.transform.position, Quaternion.Euler(0, 0, zufall));
+        GameObject radChild1 = rad1.transform.GetChild(0).Find("rad").gameObject;
+        rad1 = Instantiate(radChild1, rad1.transform.position, Quaternion.Euler(0, zufall, 0));
         if (!rad1.activeInHierarchy) rad1.SetActive(true);
 
         zufall = (Random.Range(1, 8)) * 45;
-        rad2 = Instantiate(rad2, rad2.transform.position, Quaternion.Euler(0, 0, zufall));
+        rad2 = Instantiate(rad2, rad2.transform.position, Quaternion.Euler(0, zufall, 0));
         if (!rad2.activeInHierarchy) rad2.SetActive(true);
 
         zufall = (Random.Range(1, 8)) * 45;
-        rad3 = Instantiate(rad3, rad3.transform.position, Quaternion.Euler(0, 0, zufall));
+        rad3 = Instantiate(rad3, rad3.transform.position, Quaternion.Euler(0, zufall, 0));
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
     }
@@ -31,13 +32,13 @@ public class Quiz4 : MonoBehaviour {
         if (right)
         {
             float rot1 = rad1.transform.rotation.z;
-            rad1.transform.rotation = Quaternion.Euler(0, 0, (rot1 + 45));
+            rad1.transform.rotation = Quaternion.Euler(0, (rot1 + 45), 0);
 
             float rot2 = rad2.transform.rotation.z;
-            rad2.transform.rotation = Quaternion.Euler(0, 0, (rot2 + 45));
+            rad2.transform.rotation = Quaternion.Euler(0, (rot2 + 45), 0);
 
             float rot3 = rad3.transform.rotation.z;
-            rad3.transform.rotation = Quaternion.Euler(0, 0, (rot3 + 45));
+            rad3.transform.rotation = Quaternion.Euler(0, (rot3 + 45), 0);
         }
         if (left)
         {
