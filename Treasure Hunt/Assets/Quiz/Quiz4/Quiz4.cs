@@ -5,6 +5,10 @@ using UnityEngine;
 public class Quiz4 : MonoBehaviour
 {
     public GameObject rad1, rad2, rad3;
+    private float rotSpeed = 1;
+    private Vector3 targetAngleA;
+    private Vector3 targetAngleB;
+    private Vector3 targetAngleC;
 
 
     // Use this for initialization
@@ -31,61 +35,31 @@ public class Quiz4 : MonoBehaviour
 
     }
 
+
+    public void Drehen(GameObject rad, float p, float radP)
+    {
+        
+        //Update();
+        //Rechtsdrehung
+        if (p > radP)
+        {
+            float rot = rad.transform.rotation.z;
+            rad.transform.Rotate(0, (rot + 45), 0);
+
+        }
+        //Linkssdrehung
+        if (p < radP)
+        {
+            float rot = rad.transform.rotation.z;
+            rad.transform.Rotate(0, (rot - 45), 0);
+        }
+    }
+
+
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
-
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (hit.collider.gameObject.tag == "rad")
-                {
-                    GameObject rad = hit.collider.gameObject;
-                    float p = hit.point.x;
-                    float radP = rad.transform.position.x;
-                    //Rechtsdrehung
-                    if (p > radP)
-                    {
-                        float rot = rad.transform.rotation.z;
-                        rad.transform.Rotate(0, (rot + 45), 0);
-                    }
-                    //Linkssdrehung
-                    if (p < radP)
-                    {
-                        float rot = rad1.transform.rotation.z;
-                        rad.transform.Rotate(0, (rot - 45), 0);
-                    }
-                }
-
-
-
-
-                //if (right)
-                //{
-                //    float rot1 = rad1.transform.rotation.z;
-                //    rad1.transform.Rotate(0, (rot1 + 45), 0);
-
-                //    float rot2 = rad2.transform.rotation.z;
-                //    rad2.transform.Rotate(0, (rot2 + 45), 0);
-
-                //    float rot3 = rad3.transform.rotation.z;
-                //    rad3.transform.Rotate(0, (rot3 + 45), 0);
-                //}
-                //if (left)
-                //{
-                //    float rot1 = rad1.transform.rotation.z;
-                //    rad1.transform.Rotate(0, (rot1 - 45), 0);
-
-                //    float rot2 = rad2.transform.rotation.z;
-                //    rad2.transform.Rotate(0, (rot2 - 45), 0);
-
-                //    float rot3 = rad3.transform.rotation.z;
-                //    rad3.transform.Rotate(0, (rot3 - 45), 0);
-                //}
-            }
-        }
+        float speed = Time.deltaTime * rotSpeed;
+        .Lerp(rot.z, targetAngleA, speed);
     }
 }

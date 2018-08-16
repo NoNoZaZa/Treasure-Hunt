@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4576677421321640}
   - component: {fileID: 33214244820315298}
   - component: {fileID: 23208597012167760}
+  - component: {fileID: 64525756807145070}
   m_Layer: 0
   m_Name: RingB
   m_TagString: rad
@@ -82,4 +83,18 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1925637679652262}
+  m_Mesh: {fileID: 4300000, guid: 8d174c2148771ec4fa07a43bda6ef922, type: 3}
+--- !u!64 &64525756807145070
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1925637679652262}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 8d174c2148771ec4fa07a43bda6ef922, type: 3}

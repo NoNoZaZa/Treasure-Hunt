@@ -9,7 +9,9 @@ public class Interaktion : MonoBehaviour {
     private GameObject obj;
     private GameObject objekt3;
 
+
     public Quiz2 quiz2;
+    public Quiz4 quiz4;
 
     public Texture2D kreuz;
     // Use this for initialization
@@ -130,6 +132,18 @@ public class Interaktion : MonoBehaviour {
 
                 #endregion
 
+                #region Quiz4
+                if (hit.collider.gameObject.tag == "rad")
+                {
+                    Debug.Log("Ich bin ein Rad");
+                    GameObject rad = hit.collider.gameObject;
+                    float p = hit.point.x;
+                    float radP = rad.transform.position.x;
+
+                    quiz4.Drehen(rad, p, radP);
+                    
+                }
+#endregion
 
             }
 

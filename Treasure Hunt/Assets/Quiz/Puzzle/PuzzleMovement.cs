@@ -21,7 +21,7 @@ public class PuzzleMovement : MonoBehaviour {
         {
             xtemp = transform.position.x;
             ytemp = transform.position.y;
-            //transform.position.x = slot.position.x;
+            //this.transform.position.x = slot.position.x;
             //this.transform.position.y = slot.position.y;
             //slot.position.x = xtemp;
             //slot.position.y = ytemp;
