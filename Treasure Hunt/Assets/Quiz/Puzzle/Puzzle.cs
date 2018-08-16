@@ -19,21 +19,23 @@ public class Puzzle : MonoBehaviour {
             {
                 pos = new Vector3(i, j, 5f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
-                farbe = puzzle.GetComponent<Renderer>().material.color;
-                if (!puzzle.activeInHierarchy) puzzle.SetActive(true);
+                if (!puzzle.activeInHierarchy)
+                {
+                    puzzle.SetActive(true);
+                }
 
-                if (farbe == Color.red)
-                { 
+                if (((j==0 || j==2) && (i==0 || i == 2)) || ((j == 1 || j == 3) && (i == 1 || i == 3)))
+                {
                     puzzle.GetComponent<Renderer>().material.color = Color.cyan;
                 }
                 else
                 {
                     puzzle.GetComponent<Renderer>().material.color = Color.red;
                 }
-                
-                
+
+
                 //Puzzlelücke
-                if (i == 3 && j== 2)
+                if (i == 3 && j == 2)
                 {
                     ++j;
                     GameObject empty = new GameObject();
