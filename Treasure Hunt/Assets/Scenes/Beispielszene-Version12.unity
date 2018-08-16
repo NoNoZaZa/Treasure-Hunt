@@ -503,7 +503,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 10
+  m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 72
   m_CookieSize: 10
@@ -1457,8 +1457,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interaktion: {fileID: 282840816}
-  zeitGesamt: 15
-  timer: 0
+  zeitGesamt1: 15
+  timer1: 0
   countDownText: {fileID: 640815429}
   winText: {fileID: 1899497468}
   quiz1Cube: {fileID: 717054231}
