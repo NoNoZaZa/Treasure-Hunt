@@ -39,10 +39,4 @@ public class TimerQuiz2 : MonoBehaviour
 
     }
 
-
-    IEnumerable Abbruch()
-    {
-        yield return new WaitForSeconds(5);
-        winText.enabled = false;
-    }
 }
