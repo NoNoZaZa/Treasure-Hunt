@@ -18,6 +18,9 @@ public class Interaktion : MonoBehaviour {
     public GameObject[] geklickt;
     public Transform pickup;
 
+    //fuer Quiz1 Zaehler Paare
+    public float quiz1zaehler = 0;
+
 
     //fuer Quiz 3 Zaehler zerstoerter Objekte
     public float zaehlercubes = 0;
@@ -81,6 +84,7 @@ public class Interaktion : MonoBehaviour {
                             {
                                 Destroy(geklickt[0]);
                                 Destroy(geklickt[1]);
+                                quiz1zaehler++;
                             }
                             else
                             {
