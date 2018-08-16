@@ -45,7 +45,7 @@ public class Quiz4 : MonoBehaviour
         if (p > radP)
         {
             float rot = rad.transform.rotation.z;
-            targetAngleA = new Vector3(0, (rot + 45), 0);
+            //targetAngleA = new Vector3(0, (rot + 45), 0);
             rad.transform.Rotate(0, (rot + 45), 0);
 
         }
@@ -59,12 +59,12 @@ public class Quiz4 : MonoBehaviour
 
 
     // Update is called once per frame
-    void Update()
-    {
-        float step = Time.deltaTime * rotSpeed;
-        Vector3 targetDir = target.position - transform.position;
-        Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
-        transform.rotation = Quaternion.LookRotation(newDir);
-        //transform.rotation.Lerp(rot.z, targetAngleA, step);
-    }
+    //void Update()
+    //{
+    //    float step = Time.deltaTime * rotSpeed;
+    //    Vector3 targetDir = target.position - transform.position;
+    //    Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
+    //    transform.rotation = Quaternion.LookRotation(newDir);
+    //    //transform.rotation.Lerp(rot.z, targetAngleA, step);
+    //}
 }

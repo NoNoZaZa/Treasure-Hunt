@@ -140,8 +140,25 @@ public class Interaktion : MonoBehaviour {
                     float p = hit.point.x;
                     float radP = rad.transform.position.x;
 
-                    quiz4.Drehen(rad, p, radP);
-                    
+                    //quiz4.Drehen(rad, p, radP);
+
+                    //Rechtsdrehung
+                    if (p > radP)
+                    {
+                        float rot = rad.transform.rotation.z;
+                        //targetAngleA = new Vector3(0, (rot + 45), 0);
+                        rad.transform.Rotate(0, (rot + 45), 0);
+
+                    }
+                    //Linkssdrehung
+                    if (p < radP)
+                    {
+                        float rot = rad.transform.rotation.z;
+                        rad.transform.Rotate(0, (rot - 45), 0);
+                    }
+
+
+
                 }
 #endregion
 
