@@ -4,31 +4,27 @@ using UnityEngine;
 using System.Threading;
 using UnityEngine.UI;
 
-public class Timer : MonoBehaviour
+public class TimerQuiz1 : MonoBehaviour
 {
     public Interaktion interaktion;
-    public float zeitGesamt = 10f;
-    float timerNeu = 5f;
+    public float zeitGesamt = 15f;
     public float timer = 0f;
-    public float timerNeuAnzeige = 0f;
     public Text countDownText;
     public Text winText;
-    public GameObject quiz3Cube;
+    public GameObject quiz1Cube;
 
 
     // Use this for initialization
     void Start()
     {
         timer = zeitGesamt;
-        timerNeuAnzeige = timerNeu;
         winText.text = "";
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (quiz3Cube.activeInHierarchy)
+        if (quiz1Cube.activeInHierarchy)
         {
             timer -= Time.deltaTime;
 
@@ -41,32 +37,23 @@ public class Timer : MonoBehaviour
             countDownText.text = timer.ToString("0.00");
         }
 
-        if (interaktion.zaehlercubes == 6 && timer > 0)
+        if (interaktion.quiz1zaehler == 8 && timer > 0)
         {
             winText.text = "Gewonnen!";
-
-            timerNeuAnzeige -= Time.deltaTime;
-            if (timerNeuAnzeige < 0)
-            {
-                winText.enabled = false;
-
-            }
-
+            Abbruch();
         }
-        //abbruchVerloren();
+
+        if (interaktion.zaehlercubes < 8 && timer < 0)
+        {
+            winText.text = "Verloren";
+            Abbruch();
+        }
     }
 
-    //Quiz3
-    //void abbruchGewonnen()
-    //{
 
-    //}
-
-        //void abbruchVerloren() {
-        //    if (interaktion.zaehlercubes < 6 && timer < 0)
-        //    {
-        //        winText.text = "Verloren";
-        //    }
-
-        //}
+    IEnumerable Abbruch()
+    {
+        yield return new WaitForSeconds(5);
+        winText.enabled = false;
     }
+}

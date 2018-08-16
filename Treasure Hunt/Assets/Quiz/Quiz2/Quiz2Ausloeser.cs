@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Quiz2Ausloeser : MonoBehaviour
 {
-
     public GameObject quiz2Cube;
+    public Text text;
 
     // Use this for initialization
     void Start()
@@ -20,8 +21,9 @@ public class Quiz2Ausloeser : MonoBehaviour
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        Destroy(this.gameObject);
+        Debug.Log("Collide!");
         quiz2Cube.SetActive(true);
+        text.enabled = true;
         Destroy(this.gameObject);
 
     }
