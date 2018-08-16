@@ -8,9 +8,6 @@ public class Puzzle : MonoBehaviour {
     Vector3 pos;
     public int i;
     public int j;
-    Transform slot;
-    int xtemp;
-    int ytemp;
 
 
     // Use this for initialization
@@ -50,13 +47,6 @@ public class Puzzle : MonoBehaviour {
         
     
     }
-
-    //private void OnMouseUp()
-    //{
-    //    xtemp = transform.position.x;
-    //    ytemp = transform.position.y;
-    //}
-
 
     // Update is called once per frame
     void Update () {
