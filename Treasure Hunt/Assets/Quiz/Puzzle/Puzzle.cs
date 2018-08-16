@@ -20,6 +20,8 @@ public class Puzzle : MonoBehaviour {
                 pos = new Vector3(i, j, 5f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
                 farbe = puzzle.GetComponent<Renderer>().material.color;
+                if (!puzzle.activeInHierarchy) puzzle.SetActive(true);
+
                 if (farbe == Color.red)
                 { 
                     puzzle.GetComponent<Renderer>().material.color = Color.cyan;
@@ -28,9 +30,10 @@ public class Puzzle : MonoBehaviour {
                 {
                     puzzle.GetComponent<Renderer>().material.color = Color.red;
                 }
-                if (!puzzle.activeInHierarchy) puzzle.SetActive(true);
-        
-                if (i==3 && j== 2)
+                
+                
+                //Puzzlelücke
+                if (i == 3 && j== 2)
                 {
                     ++j;
                     GameObject empty = new GameObject();
