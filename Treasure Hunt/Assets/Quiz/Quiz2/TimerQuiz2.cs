@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class TimerQuiz2 : MonoBehaviour
 {
     public Interaktion interaktion;
-    public float zeitGesamt = 20f;
-    public float timer = 0f;
+    public float zeitGesamt2 = 20f;
+    public float timer2 = 0f;
     public Text countDownText;
     public Text winText;
     public GameObject quiz2Cube;
@@ -17,7 +17,7 @@ public class TimerQuiz2 : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        timer = zeitGesamt;
+        timer2 = zeitGesamt2;
         winText.text = "";
     }
 
@@ -26,15 +26,15 @@ public class TimerQuiz2 : MonoBehaviour
     {
         if (quiz2Cube.activeInHierarchy)
         {
-            timer -= Time.deltaTime;
+            timer2 -= Time.deltaTime;
 
-            if (timer < 0)
+            if (timer2 < 0)
             {
                 gameObject.SetActive(false);
                 countDownText.enabled = false;
             }
 
-            countDownText.text = timer.ToString("0.00");
+            countDownText.text = timer2.ToString("0.00");
         }
 
     }
