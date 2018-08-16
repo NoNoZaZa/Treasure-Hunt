@@ -22,7 +22,7 @@ public class Quiz2Ausloeser : MonoBehaviour
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
         Debug.Log("Collide!");
-       // quiz2.SetActive(true);
+        quiz2Cube.SetActive(true);
         text.enabled = true;
         Destroy(this.gameObject);
 
