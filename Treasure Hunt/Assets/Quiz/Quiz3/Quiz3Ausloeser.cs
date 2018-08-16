@@ -21,7 +21,6 @@ public class Quiz3Ausloeser : MonoBehaviour
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        Debug.Log("Collide!");
         quiz3Cube.SetActive(true);
         text.enabled = true;
         Destroy(this.gameObject);
