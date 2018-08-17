@@ -5,7 +5,6 @@ using UnityEngine;
 public class PuzzleMovement : MonoBehaviour {
     
     GameObject emptySlot;
-    Transform slot;
     float xtemp;
     float ytemp;
 
@@ -16,14 +15,12 @@ public class PuzzleMovement : MonoBehaviour {
 
         private void OnMouseUp()
     {
-        if (Vector3.Distance(transform.position, slot.position) == 1)
+        if (Vector3.Distance(transform.position, emptySlot.transform.position) == 1)
         {
             xtemp = transform.position.x;
             ytemp = transform.position.y;
-            //transform.position.x = slot.position.x;
-            //transform.position.y = slot.position.y;
-            //slot.position.x = xtemp;
-            //slot.position.y = ytemp;
+            this.transform.Translate(emptySlot.transform.position.x, emptySlot.transform.position.y, 5f);
+            emptySlot.transform.Translate(xtemp, ytemp, 5f);
         }
 
 

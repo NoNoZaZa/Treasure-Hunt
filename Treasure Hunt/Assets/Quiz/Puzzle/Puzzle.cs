@@ -5,7 +5,9 @@ using UnityEngine;
 public class Puzzle : MonoBehaviour {
 
     public GameObject puzzlestein;
+    GameObject empty;
     Vector3 pos;
+    Vector3 posE;
     public int i;
     public int j;
 
@@ -39,8 +41,10 @@ public class Puzzle : MonoBehaviour {
                 if (i == 3 && j == 2)
                 {
                     ++j;
-                    GameObject empty = new GameObject();
-                    Instantiate(empty, pos, Quaternion.identity);
+                    posE = new Vector3(i, j, 5f);
+                    empty = new GameObject();
+                    empty = Instantiate(empty, posE, Quaternion.identity);
+                    empty.name = "empty";
                     return;
                 }
             }
