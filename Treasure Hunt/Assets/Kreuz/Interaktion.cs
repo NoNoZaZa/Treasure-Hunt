@@ -168,7 +168,21 @@ public class Interaktion : MonoBehaviour {
 
         }
 
+        //Zusatz Quiz4:
+        GameObject[] raeder;
+        raeder = GameObject.FindGameObjectsWithTag("rad");
+        if (raeder[0].transform.rotation.y == 0 && raeder[1].transform.rotation.y == 0 && raeder[2].transform.rotation.y == 0)
+        {
+            GameObject keil = GameObject.FindWithTag("keil");
+            keil.transform.position = new Vector3(0, -0.2f, 1.8f);
+            keil.transform.Rotate(0, 0, 180);
+            keil.transform.parent = this.transform;
 
+        }
+
+
+        #region Quiz2-Zusatz
+        //Zusatz Quiz2:
         if (IsWearing)
         {
             quiz2.Wearing();
@@ -198,7 +212,7 @@ public class Interaktion : MonoBehaviour {
 
         if (!obj) return;
         //Debug.Log(obj.GetComponent<Rigidbody>().useGravity);
-
+        #endregion
 
     }
 
