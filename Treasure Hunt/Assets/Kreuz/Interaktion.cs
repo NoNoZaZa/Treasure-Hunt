@@ -137,8 +137,8 @@ public class Interaktion : MonoBehaviour {
                 {
                     Debug.Log("Ich bin ein Rad");
                     GameObject rad = hit.collider.gameObject;
-                    float p = hit.point.x;
-                    float radP = rad.transform.position.x;
+                    float p = hit.point.z;
+                    float radP = rad.transform.position.z;
 
                     //quiz4.Drehen(rad, p, radP);
 
@@ -147,20 +147,21 @@ public class Interaktion : MonoBehaviour {
                     {
                         float rot = rad.transform.rotation.z;
                         //targetAngleA = new Vector3(0, (rot + 45), 0);
-                        rad.transform.Rotate(0, (rot + 45), 0);
+                        rad.transform.Rotate(0, (rot - 45), 0);
 
                     }
                     //Linkssdrehung
                     if (p < radP)
                     {
                         float rot = rad.transform.rotation.z;
-                        rad.transform.Rotate(0, (rot - 45), 0);
+                        rad.transform.Rotate(0, (rot + 45), 0);
                     }
 
 
 
+
                 }
-#endregion
+                #endregion
 
             }
 
