@@ -2,87 +2,72 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-static class Constants
-{
-    public const int HoechstanzahlRaeume = 10;
-    public const int Seed1 = 43;
-    //Groesse der Raeume (Breite und Länge)
-    public const int raumgroesse = 17;
-}
-
 public class RoomGeneration : MonoBehaviour
 {
-    public List<Room> raumListe = new List<Room>();
 
-    public GameObject RaumMitVierTueren;
-    public GameObject RaumMitDreiTueren;
-    public GameObject RaumMitNebeneinanderLiegendenTueren;
-    public GameObject RaumMitHintereinanderLiegendenTueren;
-    public GameObject RaumMitEinerTuer;
-    public GameObject[] raumArtenArray;
+    public GameObject raumPrefab;
+    public GameObject wandPrefab;
+    Vector3 raumposition = new Vector3(0, 1, 0);
+    int successRaeume;
+    int successWaende;
+    static int maximaleRaumzahl = 10;
 
-    //speichert die relative Position der generierten Räume und zeigt an, welche Positionen belegt sind
-    //o: die Position ist leer
-    //x: die Position ist belegt
-    private char[,] generierteRaeume;
+    int hilfsvariableNachbarfindung = 0;
 
-    //speichert die Koordinaten der generierten Räume, der mittlerste Raum ist in der Mitte des Arrays
-    private char[,] raumPositionen;
+    //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
+    Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
-    //speichert die Positionen, an denen die Türen platziert werden müssen
-    public List<Vector3> tuerpositionen;
+    List<Vector3> raumpositionen = new List<Vector3>();
+    Vector3 norden = new Vector3(-17, 0, 0);
+    Vector3 osten = new Vector3(0, 0, 17);
+    Vector3 sueden = new Vector3(17, 0, 0);
+    Vector3 westen = new Vector3(0, 0, -17);
 
-    private Vector3 center;
-    private Vector3 size;
-    public bool randomizeSeed = true;
+    public List<Vector3> tuerpositionen = new List<Vector3>();
 
-    private int raumzaehler = 0;
+    //1 = norden, 2 = osten, 3 = sueden, 4 = westen
+    int naechsteRaumPosition = 0;
 
     // Use this for initialization
     void Start()
     {
-        //Raum 1: Raum mit Vier Tueren
-        //Raum 2: Raum mit Zwei hintereinanderliegenden Tueren (gerader Durchgang)
-        //Raum 3: Raum mit Drei Tueren
-        //Raum 4: Raum mit Zwei nebeneinanderliegenden Tueren (Ecke)
-        //Raum 5: Raum mit einer Tuer (quasi Dead End)
 
-        raumArtenArray = new GameObject[5];
-        raumArtenArray[0] = RaumMitVierTueren;
-        raumArtenArray[1] = RaumMitHintereinanderLiegendenTueren;
-        raumArtenArray[2] = RaumMitDreiTueren;
-        raumArtenArray[3] = RaumMitNebeneinanderLiegendenTueren;
-        raumArtenArray[4] = RaumMitEinerTuer;
-
-        center = new Vector3(0, -1, 0);
-
-        if (randomizeSeed == false)
+        while (successRaeume < maximaleRaumzahl)
         {
-            Random.InitState(Constants.Seed1);
+            successRaeume = successRaeume + RaumGenerieren();
+            //Debug.Log(success);
         }
 
-        //raumPositionen = new char[Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2), Constants.HoechstanzahlRaeume + (Constants.HoechstanzahlRaeume / 2)];
-        //Positionen der Raeume ohne Koordinaten
-        generierteRaeume = new char[Constants.HoechstanzahlRaeume, Constants.HoechstanzahlRaeume];
-        tuerpositionen = new List<Vector3>();
-
-        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++)
+        //Raumpositionen durchgehen und Raeume mit Nachbarraeumen finden
+        foreach (var raumposition in raumpositionen)
         {
-            for (int j = 0; j < Constants.HoechstanzahlRaeume; j++)
+            if (raumpositionen.Contains(raumposition + norden))
             {
-                generierteRaeume[i, j] = 'o';
+                wandpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
+                //Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung, 0]);
             }
-        }
+            if (raumpositionen.Contains(raumposition + osten))
+            {
+                wandpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 1, 0]);
+            }
+            if (raumpositionen.Contains(raumposition + sueden))
+            {
+                wandpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 2, 0]);
+            }
+            if (raumpositionen.Contains(raumposition + westen))
+            {
+                wandpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 3, 0]);
+            }
 
-        while (raumzaehler < Constants.HoechstanzahlRaeume) {
-            FindRoomPosition(); 
-            raumzaehler++;
+            hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
         }
+        successWaende = successWaende + WaendeGenerieren();
+        Debug.Log("Platzieren der Waende war erfolgreich, es wurden " + successWaende + " Waende platziert.");
 
-        for (int i = 0; i < Constants.HoechstanzahlRaeume; i++) {
-
-            SpawnRoom(i);
-        }
     }
 
     // Update is called once per frame
@@ -91,86 +76,141 @@ public class RoomGeneration : MonoBehaviour
 
     }
 
-    void FindRoomPosition()
+    int RaumGenerieren()
     {
-        bool raumPositionGefunden = false;
-        Vector3 pos = center;
+        int zufallszahl = Random.Range(0, 100);
 
-        while (raumPositionGefunden == false && raumzaehler != 0) {
-            int zufallsraumKoordinateX = Random.Range(0, Constants.HoechstanzahlRaeume - 1);
-            int zufallsraumKoordinateZ = Random.Range(0, Constants.HoechstanzahlRaeume - 1);
+        //Debug.Log("zufallszahl: " + zufallszahl);
+        //Debug.Log("naechsteRaumPosition am Anfang: " + naechsteRaumPosition);
 
-            if (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ] == 'o') {
-                if ((generierteRaeume[zufallsraumKoordinateX - 1, zufallsraumKoordinateZ] != 'o') ||
-                    (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ - 1] != 'o') ||
-                    (generierteRaeume[zufallsraumKoordinateX + 1, zufallsraumKoordinateZ] != 'o') ||
-                    (generierteRaeume[zufallsraumKoordinateX, zufallsraumKoordinateZ + 1] != 'o')
-                    ) {
-                    raumPositionGefunden = true;
+
+        if (zufallszahl > 25)
+        {
+            naechsteRaumPosition = 2;
+            //Debug.Log("naechsteRaumPosition nach > 25 Vergleich: " + naechsteRaumPosition);
+
+            if (zufallszahl > 50)
+            {
+                naechsteRaumPosition = 3;
+                //Debug.Log("naechsteRaumPosition nach > 50 Vergleich: " + naechsteRaumPosition);
+
+                if (zufallszahl > 75)
+                {
+                    naechsteRaumPosition = 4;
+                    //Debug.Log("naechsteRaumPosition nach > 75 Vergleich: " + naechsteRaumPosition);
+
                 }
             }
-            pos = new Vector3((float)zufallsraumKoordinateX, 0, (float)zufallsraumKoordinateZ);
         }
-        
-        generierteRaeume[(int)pos.x + Constants.HoechstanzahlRaeume/2, (int)pos.y + Constants.HoechstanzahlRaeume/2] = 'x';
-
-    }
-
-    void SpawnRoom(int uebergebeneRaumNummer)
-    {
-        Room raum = new Room();
-        raum.raumNummer = uebergebeneRaumNummer;
-        raumListe.Add(raum);
-    }
-
-    int CreateDoor(float xKoordinate, float zKoordinate) {
-        Vector3 neuePosition = new Vector3(xKoordinate, -1, zKoordinate);
-        
-        //Wenn es die Tür schon von einem anderen Raum aus gibt 
-        //wird sie nicht in das Array eingefügt damit sie nicht doppelt eingefügt wird
-        if (tuerpositionen.Contains(neuePosition))
+        else if (zufallszahl < 25)
         {
-            //1 = quasi Errorcode
-            return (1);
+            naechsteRaumPosition = 1;
+            //Debug.Log("naechsteRaumPosition nach < 25 Vergleich: " + naechsteRaumPosition);
+
         }
-        else {
-            tuerpositionen.Add(neuePosition);
-            return (0);
+
+        switch (naechsteRaumPosition)
+        {
+            case 1:
+                raumposition = new Vector3(raumposition.x + norden.x, raumposition.y + norden.y, raumposition.z + norden.z);
+                break;
+            case 2:
+                raumposition = new Vector3(raumposition.x + osten.x, raumposition.y + osten.y, raumposition.z + osten.z);
+                break;
+            case 3:
+                raumposition = new Vector3(raumposition.x + sueden.x, raumposition.y + sueden.y, raumposition.z + sueden.z);
+                break;
+            case 4:
+                raumposition = new Vector3(raumposition.x + westen.x, raumposition.y + westen.y, raumposition.z + westen.z);
+                break;
+
         }
-        
+
+        if (raumpositionen.Contains(raumposition))
+        {
+            //Raum existiert bereits an der Stelle, return 0 als "Fehler"
+            return 0;
+        }
+        else
+        {
+            if (raumpositionen.Contains(new Vector3(0, 1, 0)))
+            {
+                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raumpositionen.Add(raumposition);
+            }
+            else
+            {
+                //Sicherstellen, dass ein Raum an den Ursprungskoordinaten existiert
+                raumposition = new Vector3(0, 1, 0);
+                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raumpositionen.Add(raumposition);
+            }
+
+
+            int hilfsvariableWandpositionen = successRaeume * 4;
+
+            Vector3 wandpositionNorden = raumposition + new Vector3(-8, 0, 1);
+            Vector3 wandpositionOsten = raumposition + new Vector3(1, 0, 8);
+            Vector3 wandpositionSueden = raumposition + new Vector3(8, 0, 1);
+            Vector3 wandpositionWesten = raumposition + new Vector3(1, 0, -8);
+
+            wandpositionenArray[hilfsvariableWandpositionen, 0] = wandpositionNorden;
+            wandpositionenArray[hilfsvariableWandpositionen, 1] = new Vector3(1, 0, 0);
+
+            wandpositionenArray[hilfsvariableWandpositionen + 1, 0] = wandpositionOsten;
+            wandpositionenArray[hilfsvariableWandpositionen + 1, 1] = new Vector3(2, 0, 0);
+
+            wandpositionenArray[hilfsvariableWandpositionen + 2, 0] = wandpositionSueden;
+            wandpositionenArray[hilfsvariableWandpositionen + 2, 1] = new Vector3(3, 0, 0);
+
+            wandpositionenArray[hilfsvariableWandpositionen + 3, 0] = wandpositionWesten;
+            wandpositionenArray[hilfsvariableWandpositionen + 3, 1] = new Vector3(4, 0, 0);
+
+
+        }
+
+
+        return 1;
     }
 
-    private void OnDrawGizmosSelected()
+    int WaendeGenerieren()
     {
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(center, size);
-    }
-
-}
-
-public class Room {
-    public Vector3 raumPosition;
-    public int raumNummer;
-
-    bool hatRaumDrueber = false;
-    bool hatRaumRechts = false;
-    bool hatRaumUnten = false;
-    bool hatRaumLinks = false;
-
-    void setRaumDrueberTrue() {
-        hatRaumDrueber = true;
-    }
-
-    void setRaumRechtsTrue() {
-        hatRaumRechts = true;
-    }
-
-    void setRaumUntenTrue() {
-        hatRaumUnten = true;
-    }
-
-    void setRaumLinksTrue() {
-        hatRaumLinks = true;
+        int wandzaehler = 0;
+        for (int j = 0; j < maximaleRaumzahl * 4; j++)
+        {
+            //Debug.Log("Wandgenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
+            //Debug.Log("WandpositonenArray[" + j + "]: " + wandpositionenArray[j, 0]);
+            //if (tuerpositionenArray[j, 0] != new Vector3(0, 0, 0)) {
+            switch ((int)wandpositionenArray[j, 1].magnitude)
+            {
+                case 1:
+                    Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
+                    //Debug.Log("Wand erfolgreich platziert");
+                    wandzaehler++;
+                    break;
+                case 2:
+                    Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
+                    //Debug.Log("Wand erfolgreich platziert");
+                    wandzaehler++;
+                    break;
+                case 3:
+                    Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
+                    //Debug.Log("Wand erfolgreich platziert");
+                    wandzaehler++;
+                    break;
+                case 4:
+                    Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
+                    //Debug.Log("Wand erfolgreich platziert");
+                    wandzaehler++;
+                    break;
+                case 5:
+                    //Tuer wuerde den Weg in einen Nachbarraum versperren, deswegen wird keine instantiiert.
+                    //Debug.Log("Keine Wand platziert.");
+                    break;
+            }
+            //}
+        }
+        return wandzaehler;
     }
 
 }
