@@ -5,16 +5,16 @@ using UnityEngine;
 public class CubeGenerator : MonoBehaviour {
 
     public GameObject raumPrefab;
-    public GameObject tuerPrefab;
+    public GameObject wandPrefab;
     Vector3 raumposition = new Vector3(0, 1, 0);
     int successRaeume;
-    int successTueren;
+    int successWaende;
     static int maximaleRaumzahl = 10;
     
     int hilfsvariableNachbarfindung = 0;
     
-    //x = 0 speichert die Position der Tueren, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Tueren
-    Vector3[,] tuerpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
+    //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
+    Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
     List<Vector3> raumpositionen = new List<Vector3>();
     Vector3 norden = new Vector3(-17, 0, 0);
@@ -38,26 +38,26 @@ public class CubeGenerator : MonoBehaviour {
         {
             if (raumpositionen.Contains(raumposition + norden))
             {
-                tuerpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
+                wandpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
                 Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
             }
             if (raumpositionen.Contains(raumposition + osten))
             {
-                tuerpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
+                wandpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
             }
             if (raumpositionen.Contains(raumposition + sueden))
             {
-                tuerpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
+                wandpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
             }
             if (raumpositionen.Contains(raumposition + westen))
             {
-                tuerpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
+                wandpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
             }
 
             hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
         }
-            successTueren = successTueren + TuerenGenerieren();
-        Debug.Log("Platzieren der Tueren war erfolgreich, es wurden " + successTueren + " Tueren platziert.");    
+        successWaende = successWaende + WaendeGenerieren();
+        Debug.Log("Platzieren der Waende war erfolgreich, es wurden " + successWaende + " Waende platziert.");    
 
 	}
 	
@@ -135,24 +135,24 @@ public class CubeGenerator : MonoBehaviour {
             }
             
 
-            int hilfsvariableTuerpositionen = successRaeume * 4;
+            int hilfsvariableWandpositionen = successRaeume * 4;
 
-            Vector3 tuerpositionNorden = raumposition + new Vector3(-8, 0, 1);
-            Vector3 tuerpositionOsten = raumposition + new Vector3(1, 0, 8);
-            Vector3 tuerpositionSueden = raumposition + new Vector3(8, 0, 1);
-            Vector3 tuerpositionWesten = raumposition + new Vector3(1, 0, -8);
+            Vector3 wandpositionNorden = raumposition + new Vector3(-8, 0, 1);
+            Vector3 wandpositionOsten = raumposition + new Vector3(1, 0, 8);
+            Vector3 wandpositionSueden = raumposition + new Vector3(8, 0, 1);
+            Vector3 wandpositionWesten = raumposition + new Vector3(1, 0, -8);
 
-            tuerpositionenArray[hilfsvariableTuerpositionen, 0] = tuerpositionNorden;
-            tuerpositionenArray[hilfsvariableTuerpositionen, 1] = new Vector3(1, 0, 0);
+            wandpositionenArray[hilfsvariableWandpositionen, 0] = wandpositionNorden;
+            wandpositionenArray[hilfsvariableWandpositionen, 1] = new Vector3(1, 0, 0);
 
-            tuerpositionenArray[hilfsvariableTuerpositionen + 1, 0] = tuerpositionOsten;
-            tuerpositionenArray[hilfsvariableTuerpositionen + 1, 1] = new Vector3(2, 0, 0);
+            wandpositionenArray[hilfsvariableWandpositionen + 1, 0] = wandpositionOsten;
+            wandpositionenArray[hilfsvariableWandpositionen + 1, 1] = new Vector3(2, 0, 0);
 
-            tuerpositionenArray[hilfsvariableTuerpositionen + 2, 0] = tuerpositionSueden;
-            tuerpositionenArray[hilfsvariableTuerpositionen + 2, 1] = new Vector3(3, 0, 0);
+            wandpositionenArray[hilfsvariableWandpositionen + 2, 0] = wandpositionSueden;
+            wandpositionenArray[hilfsvariableWandpositionen + 2, 1] = new Vector3(3, 0, 0);
 
-            tuerpositionenArray[hilfsvariableTuerpositionen + 3, 0] = tuerpositionWesten;
-            tuerpositionenArray[hilfsvariableTuerpositionen + 3, 1] = new Vector3(4, 0, 0);
+            wandpositionenArray[hilfsvariableWandpositionen + 3, 0] = wandpositionWesten;
+            wandpositionenArray[hilfsvariableWandpositionen + 3, 1] = new Vector3(4, 0, 0);
 
 
         }
@@ -161,41 +161,41 @@ public class CubeGenerator : MonoBehaviour {
         return 1;
     }
 
-    int TuerenGenerieren() {
-        int tuerenzaehler = 0;
+    int WaendeGenerieren() {
+        int wandzaehler = 0;
         for (int j = 0; j < maximaleRaumzahl * 4; j++) {
-            Debug.Log("Tuergenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
-            Debug.Log("TuerpositonenArray[" + j + "]: " + tuerpositionenArray[j, 0]);
+            Debug.Log("Wandgenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
+            Debug.Log("WandpositonenArray[" + j + "]: " + wandpositionenArray[j, 0]);
             //if (tuerpositionenArray[j, 0] != new Vector3(0, 0, 0)) {
-                switch ((int)tuerpositionenArray[j, 1].magnitude) {
+                switch ((int)wandpositionenArray[j, 1].magnitude) {
                     case 1:
-                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
-                        Debug.Log("Tuer erfolgreich platziert");
-                        tuerenzaehler++;
+                        Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
+                        Debug.Log("Wand erfolgreich platziert");
+                        wandzaehler++;
                         break;
                     case 2:
-                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
-                        Debug.Log("Tuer erfolgreich platziert");
-                        tuerenzaehler++;
+                        Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
+                        Debug.Log("Wand erfolgreich platziert");
+                        wandzaehler++;
                         break;
                     case 3:
-                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
-                        Debug.Log("Tuer erfolgreich platziert");
-                        tuerenzaehler++;
+                        Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
+                        Debug.Log("Wand erfolgreich platziert");
+                        wandzaehler++;
                         break;
                     case 4:
-                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
-                        Debug.Log("Tuer erfolgreich platziert");
-                        tuerenzaehler++;
+                        Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
+                        Debug.Log("Wand erfolgreich platziert");
+                        wandzaehler++;
                         break;
                     case 5:
                         //Tuer wuerde den Weg in einen Nachbarraum versperren, deswegen wird keine instantiiert.
-                        Debug.Log("Keine Tuer platziert.");
+                        Debug.Log("Keine Wand platziert.");
                         break;
                 }
             //}
         }
-        return tuerenzaehler;
+        return wandzaehler;
     }
 
 }
