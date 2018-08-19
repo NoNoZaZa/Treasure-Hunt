@@ -17,7 +17,7 @@ public class RoomGeneration : MonoBehaviour
     //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
     Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
-    List<Vector3> raumpositionen = new List<Vector3>();
+    public List<Vector3> raumpositionen = new List<Vector3>();
     Vector3 norden = new Vector3(-17, 0, 0);
     Vector3 osten = new Vector3(0, 0, 17);
     Vector3 sueden = new Vector3(17, 0, 0);
