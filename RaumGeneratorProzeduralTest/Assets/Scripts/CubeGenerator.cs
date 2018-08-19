@@ -4,10 +4,15 @@ using UnityEngine;
 
 public class CubeGenerator : MonoBehaviour {
 
-    public GameObject prefab;
-    Vector3 raumposition;
-    int success;
-    int maximaleRaumzahl = 10;
+    public GameObject raumPrefab;
+    public GameObject tuerPrefab;
+    Vector3 raumposition = new Vector3(0, 1, 0);
+    int successRaeume;
+    int successTueren;
+    static int maximaleRaumzahl = 10;
+    
+    //x = 0 speichert die Position der Tueren, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Tueren
+    Vector3[,] tuerpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
     List<Vector3> raumpositionen = new List<Vector3>();
     Vector3 norden = new Vector3(-17, 0, 0);
@@ -21,11 +26,13 @@ public class CubeGenerator : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        while (success < maximaleRaumzahl) {
-            success = success + RaumGenerieren();
+        while (successRaeume < maximaleRaumzahl) {
+            successRaeume = successRaeume + RaumGenerieren();
             //Debug.Log(success);
         }
         
+        successTueren = successTueren + TuerenGenerieren();
+        Debug.Log("Platzieren der Tueren war erfolgreich: " + successTueren);    
 
 	}
 	
@@ -86,15 +93,64 @@ public class CubeGenerator : MonoBehaviour {
 
         if (raumpositionen.Contains(raumposition))
         {
-            //Raum existiert bereits an der Stelle, return 1 als "Fehler"
+            //Raum existiert bereits an der Stelle, return 0 als "Fehler"
             return 0;
         }
         else {
-            Instantiate(prefab, raumposition, Quaternion.identity);
+            Instantiate(raumPrefab, raumposition, Quaternion.identity);
             raumpositionen.Add(raumposition);
+
+            int hilfsvariableTuerpositionen = successRaeume * 4;
+
+            Vector3 tuerpositionNorden = raumposition + new Vector3(-8, 0, 1);
+            Vector3 tuerpositionOsten = raumposition + new Vector3(1, 0, 8);
+            Vector3 tuerpositionSueden = raumposition + new Vector3(8, 0, 1);
+            Vector3 tuerpositionWesten = raumposition + new Vector3(1, 0, -8);
+
+            tuerpositionenArray[hilfsvariableTuerpositionen, 0] = tuerpositionNorden;
+            tuerpositionenArray[hilfsvariableTuerpositionen, 1] = new Vector3(1, 0, 0);
+
+            tuerpositionenArray[hilfsvariableTuerpositionen + 1, 0] = tuerpositionOsten;
+            tuerpositionenArray[hilfsvariableTuerpositionen + 1, 1] = new Vector3(2, 0, 0);
+
+            tuerpositionenArray[hilfsvariableTuerpositionen + 2, 0] = tuerpositionSueden;
+            tuerpositionenArray[hilfsvariableTuerpositionen + 2, 1] = new Vector3(3, 0, 0);
+
+            tuerpositionenArray[hilfsvariableTuerpositionen + 3, 0] = tuerpositionWesten;
+            tuerpositionenArray[hilfsvariableTuerpositionen + 3, 1] = new Vector3(4, 0, 0);
+
+
         }
 
 
+        return 1;
+    }
+
+    int TuerenGenerieren() {
+        for (int j = 0; j < maximaleRaumzahl * 4; j++) {
+            Debug.Log("Tuergenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
+            Debug.Log("TuerpositonenArray[" + j + "]: " + tuerpositionenArray[j, 0]);
+            //if (tuerpositionenArray[j, 0] != new Vector3(0, 0, 0)) {
+                switch ((int)tuerpositionenArray[j, 1].magnitude) {
+                    case 1:
+                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
+                        Debug.Log("Tuer erfolgreich platziert");
+                        break;
+                    case 2:
+                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
+                        Debug.Log("Tuer erfolgreich platziert");
+                        break;
+                    case 3:
+                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
+                        Debug.Log("Tuer erfolgreich platziert");
+                        break;
+                    case 4:
+                        Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
+                        Debug.Log("Tuer erfolgreich platziert");
+                        break;
+                }
+            //}
+        }
         return 1;
     }
 
