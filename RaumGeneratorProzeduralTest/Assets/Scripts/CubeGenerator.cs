@@ -41,7 +41,7 @@ public class CubeGenerator : MonoBehaviour {
             if (raumpositionen.Contains(raumposition + norden))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
-                Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
+                //Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
                 tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung, 0]);
             }
             if (raumpositionen.Contains(raumposition + osten))
@@ -76,24 +76,24 @@ public class CubeGenerator : MonoBehaviour {
     {
         int zufallszahl = Random.Range(0, 100);
 
-        Debug.Log("zufallszahl: " + zufallszahl);
-        Debug.Log("naechsteRaumPosition am Anfang: " + naechsteRaumPosition);
+        //Debug.Log("zufallszahl: " + zufallszahl);
+        //Debug.Log("naechsteRaumPosition am Anfang: " + naechsteRaumPosition);
 
 
             if (zufallszahl > 25)
             {
                 naechsteRaumPosition = 2;
-                Debug.Log("naechsteRaumPosition nach > 25 Vergleich: " + naechsteRaumPosition);
+                //Debug.Log("naechsteRaumPosition nach > 25 Vergleich: " + naechsteRaumPosition);
 
                 if (zufallszahl > 50)
                 {
                     naechsteRaumPosition = 3;
-                    Debug.Log("naechsteRaumPosition nach > 50 Vergleich: " + naechsteRaumPosition);
+                    //Debug.Log("naechsteRaumPosition nach > 50 Vergleich: " + naechsteRaumPosition);
 
                     if (zufallszahl > 75)
                     {
                         naechsteRaumPosition = 4;
-                        Debug.Log("naechsteRaumPosition nach > 75 Vergleich: " + naechsteRaumPosition);
+                        //Debug.Log("naechsteRaumPosition nach > 75 Vergleich: " + naechsteRaumPosition);
 
                     }
                 }
@@ -101,7 +101,7 @@ public class CubeGenerator : MonoBehaviour {
             else if (zufallszahl < 25)
             {
                 naechsteRaumPosition = 1;
-                Debug.Log("naechsteRaumPosition nach < 25 Vergleich: " + naechsteRaumPosition);
+                //Debug.Log("naechsteRaumPosition nach < 25 Vergleich: " + naechsteRaumPosition);
 
             }
         
@@ -170,33 +170,33 @@ public class CubeGenerator : MonoBehaviour {
     int WaendeGenerieren() {
         int wandzaehler = 0;
         for (int j = 0; j < maximaleRaumzahl * 4; j++) {
-            Debug.Log("Wandgenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
-            Debug.Log("WandpositonenArray[" + j + "]: " + wandpositionenArray[j, 0]);
+            //Debug.Log("Wandgenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
+            //Debug.Log("WandpositonenArray[" + j + "]: " + wandpositionenArray[j, 0]);
             //if (tuerpositionenArray[j, 0] != new Vector3(0, 0, 0)) {
                 switch ((int)wandpositionenArray[j, 1].magnitude) {
                     case 1:
                         Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
-                        Debug.Log("Wand erfolgreich platziert");
+                        //Debug.Log("Wand erfolgreich platziert");
                         wandzaehler++;
                         break;
                     case 2:
                         Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
-                        Debug.Log("Wand erfolgreich platziert");
+                        //Debug.Log("Wand erfolgreich platziert");
                         wandzaehler++;
                         break;
                     case 3:
                         Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
-                        Debug.Log("Wand erfolgreich platziert");
+                        //Debug.Log("Wand erfolgreich platziert");
                         wandzaehler++;
                         break;
                     case 4:
                         Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
-                        Debug.Log("Wand erfolgreich platziert");
+                        //Debug.Log("Wand erfolgreich platziert");
                         wandzaehler++;
                         break;
                     case 5:
                         //Tuer wuerde den Weg in einen Nachbarraum versperren, deswegen wird keine instantiiert.
-                        Debug.Log("Keine Wand platziert.");
+                        //Debug.Log("Keine Wand platziert.");
                         break;
                 }
             //}
