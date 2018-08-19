@@ -13,6 +13,7 @@ public class PuzzleMovement : MonoBehaviour {
         emptySlot = GameObject.Find("empty");
     }
 
+    //Anklicken der Puzzlesteine mit Maus teilweise schwierig, wenn der Cursor nicht auf der Mitte des Puzzlesteins liegt...
         private void OnMouseUp()
     {
         if (Vector3.Distance(transform.position, emptySlot.transform.position) == 1)
