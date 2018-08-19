@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Quiz4 : MonoBehaviour
 {
-    public GameObject rad1, rad2, rad3;
-    private float rotSpeed = 1;
+    public GameObject rad1, rad2, rad3, keil;
+    private float rotSpeed = 0.0011f;
     private Vector3 targetAngleA;
     private Vector3 targetAngleB;
     private Vector3 targetAngleC;
-    Transform target;
+    //Transform 
+    Quaternion targetRotation;
+
 
 
     // Use this for initialization
@@ -34,6 +36,15 @@ public class Quiz4 : MonoBehaviour
         rad3.transform.parent = this.transform;
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
+        keil = Instantiate(keil, keil.transform.position, Quaternion.identity);
+        //keil.transform.Translate(0, 0, 5f);
+        keil.transform.parent = this.transform;
+        if (!keil.activeInHierarchy) keil.SetActive(true);
+
+        //Quiz aufstellen
+        this.transform.Translate(10, 5, 0);
+        this.transform.Rotate(0, 0, 90);
+
     }
 
 
@@ -52,19 +63,50 @@ public class Quiz4 : MonoBehaviour
         //Linkssdrehung
         if (p < radP)
         {
-            float rot = rad.transform.rotation.z;
-            rad.transform.Rotate(0, (rot - 45), 0);
+            FixedUpdate(rad);
         }
+
+        
+    }
+
+    public void FixedUpdate(GameObject rad)
+    {
+        float rot = rad.transform.rotation.z;
+        //rad.transform.Rotate(0, (rot - 45), 0);
+
+        //get rotation
+        Vector3 curr = new Vector3(rad.transform.rotation.x, rad.transform.rotation.y, rad.transform.rotation.z);
+        Vector3 desti = new Vector3(0, (rot - 45), 0);
+        targetRotation = Quaternion.FromToRotation(curr, (Vector3)desti);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
+
+
+
     }
 
 
     // Update is called once per frame
-    //void Update()
-    //{
-    //    float step = Time.deltaTime * rotSpeed;
-    //    Vector3 targetDir = target.position - transform.position;
-    //    Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
-    //    transform.rotation = Quaternion.LookRotation(newDir);
-    //    //transform.rotation.Lerp(rot.z, targetAngleA, step);
-    //}
+    void Update()
+    {
+        //    float step = Time.deltaTime * rotSpeed;
+        //    Vector3 targetDir = target.position - transform.position;
+        //    Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
+        //    transform.rotation = Quaternion.LookRotation(newDir);
+        //    //transform.rotation.Lerp(rot.z, targetAngleA, step);
+
+        //Smooth rotation
+        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime* rotSpeed);
+        //BZW anstatt Lerp:
+        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotSpeed* Time.deltaTime);
+
+        //Keil soll sich in Radmitte schieben & drehen (Schlüsselprinzip)
+        if (rad1.transform.rotation.y == 0 && rad2.transform.rotation.y == 0 && rad3.transform.rotation.y == 0)
+        {
+            keil.transform.position = new Vector3(0, -0.2f, 1.8f);
+            keil.transform.Rotate(0, 0, 180);
+            keil.transform.parent = this.transform;
+
+        }
+
+    }
 }
