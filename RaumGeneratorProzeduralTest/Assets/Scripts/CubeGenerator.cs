@@ -11,6 +11,8 @@ public class CubeGenerator : MonoBehaviour {
     int successTueren;
     static int maximaleRaumzahl = 10;
     
+    int hilfsvariableNachbarfindung = 0;
+    
     //x = 0 speichert die Position der Tueren, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Tueren
     Vector3[,] tuerpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
@@ -30,9 +32,32 @@ public class CubeGenerator : MonoBehaviour {
             successRaeume = successRaeume + RaumGenerieren();
             //Debug.Log(success);
         }
-        
-        successTueren = successTueren + TuerenGenerieren();
-        Debug.Log("Platzieren der Tueren war erfolgreich: " + successTueren);    
+
+        //Raumpositionen durchgehen und Raeume mit Nachbarraeumen finden
+        foreach (var raumposition in raumpositionen)
+        {
+            if (raumpositionen.Contains(raumposition + norden))
+            {
+                tuerpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
+                Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
+            }
+            if (raumpositionen.Contains(raumposition + osten))
+            {
+                tuerpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
+            }
+            if (raumpositionen.Contains(raumposition + sueden))
+            {
+                tuerpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
+            }
+            if (raumpositionen.Contains(raumposition + westen))
+            {
+                tuerpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
+            }
+
+            hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
+        }
+            successTueren = successTueren + TuerenGenerieren();
+        Debug.Log("Platzieren der Tueren war erfolgreich, es wurden " + successTueren + " Tueren platziert.");    
 
 	}
 	
@@ -127,6 +152,7 @@ public class CubeGenerator : MonoBehaviour {
     }
 
     int TuerenGenerieren() {
+        int tuerenzaehler = 0;
         for (int j = 0; j < maximaleRaumzahl * 4; j++) {
             Debug.Log("Tuergenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
             Debug.Log("TuerpositonenArray[" + j + "]: " + tuerpositionenArray[j, 0]);
@@ -135,23 +161,31 @@ public class CubeGenerator : MonoBehaviour {
                     case 1:
                         Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
                         Debug.Log("Tuer erfolgreich platziert");
+                        tuerenzaehler++;
                         break;
                     case 2:
                         Instantiate(tuerPrefab, tuerpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
                         Debug.Log("Tuer erfolgreich platziert");
+                        tuerenzaehler++;
                         break;
                     case 3:
                         Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
                         Debug.Log("Tuer erfolgreich platziert");
+                        tuerenzaehler++;
                         break;
                     case 4:
                         Instantiate(tuerPrefab, tuerpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
                         Debug.Log("Tuer erfolgreich platziert");
+                        tuerenzaehler++;
+                        break;
+                    case 5:
+                        //Tuer wuerde den Weg in einen Nachbarraum versperren, deswegen wird keine instantiiert.
+                        Debug.Log("Keine Tuer platziert.");
                         break;
                 }
             //}
         }
-        return 1;
+        return tuerenzaehler;
     }
 
 }
