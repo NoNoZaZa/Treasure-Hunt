@@ -22,12 +22,11 @@ public class Quiz3 : MonoBehaviour {
     {
         cubeListe = new List<GameObject>();
         ErzeugungCubes();
-
-        
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 10f;
+        
     }
 
     // Update is called once per frame
@@ -48,8 +47,9 @@ public class Quiz3 : MonoBehaviour {
             GameObject cube = Instantiate(cubeForm, transform.position, transform.rotation);
             cube.transform.parent = this.transform;
             cube.transform.localScale = new Vector3(groesse, groesse, groesse);
-            cube.transform.Translate(0,i,0);
+            cube.transform.Translate(0,i,0);         
             cubeListe.Add(cube);
+            cube.tag = "Quiz3";
         }
     }
 
@@ -57,26 +57,29 @@ public class Quiz3 : MonoBehaviour {
 
     void CubesBewegen()
     {
+        //muss noch rein, ob das Objekt in der Liste überhaupt noch existiert
         float cubeX;
-        foreach (GameObject cube in cubeListe)
-        {
-            //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze) + offset, 0, 0);
-            //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
-            //cube.transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
-            cubeX = cube.transform.position.x;
             
-            if (cubeX > transform.position.x + 4f)
+            foreach (GameObject cube in cubeListe)
             {
-                //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(1, 0, 0), 0.1f);
-                dir = new Vector3(-1, 0, 0);
-            }
-            if (cubeX < transform.position.x - 4f)
-            {
-                //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(-1,0,0), 0.1f);
-                dir = new Vector3(+1, 0, 0);
-            }
-            cube.transform.Translate(dir * geschwindigkeit);
+                //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze) + offset, 0, 0);
+                //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
+                //cube.transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
+                cubeX = cube.transform.position.x;
 
+                if (cubeX > transform.position.x + 4f)
+                {
+                    //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(1, 0, 0), 0.1f);
+                    dir = new Vector3(-1, 0, 0);
+                }
+                if (cubeX < transform.position.x - 4f)
+                {
+                    //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(-1,0,0), 0.1f);
+                    dir = new Vector3(+1, 0, 0);
+                }
+
+                cube.transform.Translate(dir * Random.Range(0.2f, 0.4f));
+            
         }
     }
 
