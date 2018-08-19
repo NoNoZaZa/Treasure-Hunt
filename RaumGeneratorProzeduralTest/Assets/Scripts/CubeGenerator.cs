@@ -122,8 +122,18 @@ public class CubeGenerator : MonoBehaviour {
             return 0;
         }
         else {
-            Instantiate(raumPrefab, raumposition, Quaternion.identity);
-            raumpositionen.Add(raumposition);
+            if (raumpositionen.Contains(new Vector3(0, 1, 0)))
+            {
+                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raumpositionen.Add(raumposition);
+            }
+            else {
+                //Sicherstellen, dass ein Raum an den Ursprungskoordinaten existiert
+                raumposition = new Vector3(0, 1, 0);
+                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raumpositionen.Add(raumposition);
+            }
+            
 
             int hilfsvariableTuerpositionen = successRaeume * 4;
 
