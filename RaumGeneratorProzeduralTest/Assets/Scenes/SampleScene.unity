@@ -210,7 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 904ea7531164938408d73365664f4940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1998925354833350, guid: fa2b3fcce02aa92498ddb742f784ec2e, type: 2}
+  raumPrefab: {fileID: 1998925354833350, guid: fa2b3fcce02aa92498ddb742f784ec2e, type: 2}
+  wandPrefab: {fileID: 1084348735520886, guid: 9ab223a586a4e5d48a54e09d76c98219, type: 2}
+  tuerpositionen: []
 --- !u!1 &170076733
 GameObject:
   m_ObjectHideFlags: 0

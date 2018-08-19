@@ -22,6 +22,8 @@ public class CubeGenerator : MonoBehaviour {
     Vector3 sueden = new Vector3(17, 0, 0);
     Vector3 westen = new Vector3(0, 0, -17);
 
+    public List<Vector3> tuerpositionen = new List<Vector3>();
+
     //1 = norden, 2 = osten, 3 = sueden, 4 = westen
     int naechsteRaumPosition = 0;
 
@@ -40,18 +42,22 @@ public class CubeGenerator : MonoBehaviour {
             {
                 wandpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
                 Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung, 0]);
             }
             if (raumpositionen.Contains(raumposition + osten))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 1, 0]);
             }
             if (raumpositionen.Contains(raumposition + sueden))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 2, 0]);
             }
             if (raumpositionen.Contains(raumposition + westen))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
+                tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 3, 0]);
             }
 
             hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
