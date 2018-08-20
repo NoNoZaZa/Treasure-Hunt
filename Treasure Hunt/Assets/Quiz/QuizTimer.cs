@@ -10,7 +10,7 @@ public class QuizTimer : MonoBehaviour
     public Text countDownText;
     public Text winText;
     public bool hasWon = false;
-
+    public GameObject quiz;
 
 
     // Use this for initialization
@@ -23,29 +23,29 @@ public class QuizTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer -= Time.deltaTime;
+        countDownText.text = timer.ToString("0.00");
 
-            timer -= Time.deltaTime;
-
-            if (timer <= 0)
+        if (timer < 0)
+        {
+            countDownText.enabled = false;
+            Destroy(quiz.gameObject);
+            if (hasWon == false)
             {
-                countDownText.enabled = false;
-                if( hasWon == false)
-                {
-                  winText.text = "Verloren";
-                } 
-            }
+                winText.text = "Verloren";
+            } 
+        }
 
-            countDownText.text = timer.ToString("0.00");
-
-        if (hasWon == true)
+        if (hasWon == true && timer>0)
         {
             winText.text = "Gewonnen!";
             timer = 0;
         }
+
         if (timer <= -3)
         {
-            winText.text = "";
-            Destroy(this); 
+            winText.text = "";            
+            Destroy(this.gameObject);
         }
     }
 }

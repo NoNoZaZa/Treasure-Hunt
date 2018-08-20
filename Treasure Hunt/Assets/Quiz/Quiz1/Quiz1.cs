@@ -29,6 +29,7 @@ using UnityEngine;
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 15f;
+        quiztimer.quiz = this.gameObject;
     }
 	
 	// Update is called once per frame
@@ -105,5 +106,4 @@ using UnityEngine;
         bloecke[i, j] = (GameObject)liste[zahl];
         liste.RemoveAt(zahl);
     }
-
 }
