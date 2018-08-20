@@ -137,7 +137,6 @@ public class Interaktion : MonoBehaviour {
                 #region Quiz4
                 if (hit.collider.gameObject.tag == "rad")
                 {
-                    Debug.Log("Ich bin ein Rad");
                     GameObject rad = hit.collider.gameObject;
                     float p = hit.point.z;
                     float radP = rad.transform.position.z;
@@ -147,15 +146,25 @@ public class Interaktion : MonoBehaviour {
                     //Rechtsdrehung
                     if (p > radP)
                     {
-                        //float rot = rad.transform.rotation.z;
-                        //targetAngleA = new Vector3(0, (rot + 45), 0);
-                        rad.transform.Rotate(0, (-45), 0);
+                        //rad.transform.Rotate(0, (-45), 0);
+                        if (rad.name == "RingA")
+                        { quiz4.targetAngleA = -45; }
+                        else if (rad.name == "RingB")
+                        { quiz4.targetAngleB = -45; }
+                        else if (rad.name == "RingC")
+                        { quiz4.targetAngleC = -45; }
 
                     }
                     //Linkssdrehung
                     if (p < radP)
                     {
-                        rad.transform.Rotate(0, (+45), 0);
+                        //rad.transform.Rotate(0, (+45), 0);
+                        if (rad.name == "RingA")
+                        { quiz4.targetAngleA = 45; }
+                        else if (rad.name == "RingB")
+                        { quiz4.targetAngleB = 45; }
+                        else if (rad.name == "RingC")
+                        { quiz4.targetAngleC = 45; }
                     }
 
 
@@ -175,13 +184,13 @@ public class Interaktion : MonoBehaviour {
         GameObject radA = raeder[0];
         GameObject radB = raeder[1];
         GameObject radC = raeder[2];
-        //Debug.Log((int)(radA.transform.rotation.y * 100));
         if (sperre && Mathf.Approximately(0f, (int)(radA.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radB.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radC.transform.rotation.y * 100)))
         {
-            Debug.Log("Ich bin ein Keil");
             GameObject keil = GameObject.FindWithTag("keil");
             keil.transform.Translate(0, 0, -2.3f);
-            keil.transform.Rotate(0, 0, 90);
+            Vector3 ziel = new Vector3(0,0,0);
+            if (keil.transform.position == ziel)
+            { keil.transform.Rotate(0, 0, 90); }
             //keil.transform.parent = this.transform;
             sperre = false;
         }
