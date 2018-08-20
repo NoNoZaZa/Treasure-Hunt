@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class QuizTimer : MonoBehaviour
 {
     public float zeitGesamt;
-    public float timer = 0f;
+    public float timer;
     public Text countDownText;
     public Text winText;
     public bool hasWon = false;
@@ -26,7 +26,7 @@ public class QuizTimer : MonoBehaviour
 
             timer -= Time.deltaTime;
 
-            if (timer < 0)
+            if (timer <= 0)
             {
                 countDownText.enabled = false;
                 if( hasWon == false)
@@ -41,12 +41,11 @@ public class QuizTimer : MonoBehaviour
         {
             winText.text = "Gewonnen!";
             timer = 0;
-            
         }
-
         if (timer <= -3)
         {
-            Destroy(this);
+            winText.text = "";
+            Destroy(this); 
         }
     }
 }

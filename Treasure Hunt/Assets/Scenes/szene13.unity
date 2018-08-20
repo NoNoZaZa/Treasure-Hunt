@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -542,6 +542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   quiz2: {fileID: 274620684}
+  quiz3: {fileID: 1564485576}
   quiz4: {fileID: 0}
   kreuz: {fileID: 2800000, guid: 171316fb5dfbeba49b0cfc087f4ab124, type: 3}
   geklickt: []
@@ -577,6 +578,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raumPrefab: {fileID: 1998925354833350, guid: fa2b3fcce02aa92498ddb742f784ec2e, type: 2}
   wandPrefab: {fileID: 1084348735520886, guid: 9ab223a586a4e5d48a54e09d76c98219, type: 2}
+  raumpositionen: []
   tuerpositionen: []
 --- !u!4 &300618893
 Transform:
@@ -1376,74 +1378,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &717054231 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1830549150576994, guid: a98c4ee15b2186e46a57865eb6f9c09b,
-    type: 2}
-  m_PrefabInternal: {fileID: 873234284}
---- !u!114 &717054232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 717054231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3314b54ffece3d34d83641ee2757af73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interaktion: {fileID: 282840816}
-  zeitGesamt1: 15
-  timer1: 0
-  countDownText: {fileID: 640815429}
-  winText: {fileID: 1899497468}
-  quiz1Cube: {fileID: 717054231}
---- !u!1001 &741345805
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4747839702141708, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_RootOrder
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!108 &843952652 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
@@ -1581,7 +1515,8 @@ Prefab:
         type: 2}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 1361963125}
+      objectReference: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff,
+        type: 2}
     - target: {fileID: 114254878735232714, guid: a98c4ee15b2186e46a57865eb6f9c09b,
         type: 2}
       propertyPath: interaktion
@@ -1808,51 +1743,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1361963125
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1361963127}
-  - component: {fileID: 1361963126}
-  m_Layer: 0
-  m_Name: TimerQuizze
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1361963126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1361963125}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27023ed4466a86443ad10c9caa560007, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zeitGesamt: 0
-  timer: 0
-  countDownText: {fileID: 640815429}
-  winText: {fileID: 1899497468}
-  hasWon: 0
---- !u!4 &1361963127
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1361963125}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.117437, y: 0.08160259, z: 7.071028}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1375126629
 Prefab:
   m_ObjectHideFlags: 0
@@ -1933,7 +1823,8 @@ Prefab:
         type: 2}
       propertyPath: timer
       value: 
-      objectReference: {fileID: 1361963125}
+      objectReference: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4885d23b540be4bb8a46c11c7be905, type: 2}
   m_IsPrefabAsset: 0
@@ -2024,6 +1915,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1564485576 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114023761205975668, guid: fa4885d23b540be4bb8a46c11c7be905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1375126629}
+  m_Script: {fileID: 11500000, guid: 4a9ac51fe28de3b40a3150f1b19f36e2, type: 3}
 --- !u!1001 &1600353177
 Prefab:
   m_ObjectHideFlags: 0
@@ -2277,7 +2174,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1647447329}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 6, z: 0}
+  m_LocalPosition: {x: 0, y: 8, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 0}

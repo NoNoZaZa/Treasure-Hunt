@@ -8,6 +8,8 @@ public class Quiz2 : MonoBehaviour {
     public Vector3 groesse = new Vector3(0.8f, 0.8f, 0.8f);
     public float holdDistance = 1f;
     public float moveDelay = 2f;
+    public GameObject timer;
+    private QuizTimer quiztimer;
 
     private Vector3 target = Vector3.zero;
 
@@ -17,8 +19,11 @@ public class Quiz2 : MonoBehaviour {
         cube = Instantiate(cube, transform.position, Quaternion.identity);
         cube.transform.parent = this.transform;
         //if (!cubeInstance.activeInHierarchy) cubeInstance.SetActive(true);
+        timer = Instantiate(timer);
+        timer.transform.parent = GameObject.Find("UI").transform;
+        quiztimer = timer.GetComponent<QuizTimer>();
+        quiztimer.zeitGesamt = 20f;
 
-        
     }
 	
 	// Update is called once per frame

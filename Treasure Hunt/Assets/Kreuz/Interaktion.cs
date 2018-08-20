@@ -8,9 +8,10 @@ public class Interaktion : MonoBehaviour {
     private bool IsWearing = false;
     private GameObject obj;
     private GameObject objekt3;
-
+    
 
     public Quiz2 quiz2;
+    public Quiz3 quiz3;
     public Quiz4 quiz4;
 
     public Texture2D kreuz;
@@ -126,6 +127,7 @@ public class Interaktion : MonoBehaviour {
                 {
                     objekt3 = hit.collider.gameObject;
                     zaehlercubes++;
+                    quiz3.cubeListe.Remove(objekt3);
                     Destroy(objekt3);
                     Debug.Log(zaehlercubes);
                 }

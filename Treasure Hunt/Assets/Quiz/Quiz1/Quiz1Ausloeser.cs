@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Quiz1Ausloeser : MonoBehaviour {
 
     public GameObject quiz1Cube;
-    public GameObject quiz1ausloeser;
-    public Text text;
+    //public GameObject quiz1ausloeser;
 
     // Use this for initialization
     void Start () {
@@ -22,7 +21,5 @@ public class Quiz1Ausloeser : MonoBehaviour {
     {
         Destroy(this.gameObject);
         quiz1Cube.SetActive(true);
-        text.enabled = true;
-
     }
 }

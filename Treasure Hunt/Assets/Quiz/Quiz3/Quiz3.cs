@@ -5,16 +5,18 @@ using UnityEngine.UI;
 
 public class Quiz3 : MonoBehaviour {
     public Interaktion interaktion;
-    public float minGeschw = 1f;
-    public float maxGeschw = 6f;
-    public float geschwindigkeit = 0.5f;
-    public float grenze = 3f;
-    public float offset;
+    //public float minGeschw = 1f;
+    //public float maxGeschw = 6f;
+    //private float geschwindigkeit;
+    //public float grenze = 3f;
+    //public float offset;
     public GameObject timer;
     private QuizTimer quiztimer;
-    private float groesse = 0.8f;
+    private float groesse = 0.4f;
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
+    private float geschwindigkeit;
+    
 
 
     // Use this for initialization
@@ -26,7 +28,6 @@ public class Quiz3 : MonoBehaviour {
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 10f;
-        
     }
 
     // Update is called once per frame
@@ -47,7 +48,7 @@ public class Quiz3 : MonoBehaviour {
             GameObject cube = Instantiate(cubeForm, transform.position, transform.rotation);
             cube.transform.parent = this.transform;
             cube.transform.localScale = new Vector3(groesse, groesse, groesse);
-            cube.transform.Translate(0,i,0);         
+            cube.transform.Translate(0,-4+i,0);         
             cubeListe.Add(cube);
             cube.tag = "Quiz3";
         }
@@ -59,27 +60,29 @@ public class Quiz3 : MonoBehaviour {
     {
         //muss noch rein, ob das Objekt in der Liste überhaupt noch existiert
         float cubeX;
-            
-            foreach (GameObject cube in cubeListe)
-            {
+        
+        foreach (GameObject cube in cubeListe)
+        {
+                geschwindigkeit = Random.Range(0.1f, 0.2f);
+
                 //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze) + offset, 0, 0);
                 //cube.transform.Translate(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
                 //cube.transform.position = new Vector3(Mathf.PingPong(Time.time * geschwindigkeit, grenze), 0, 0);
                 cubeX = cube.transform.position.x;
 
-                if (cubeX > transform.position.x + 4f)
+                if (cubeX > transform.position.x + 3f)
                 {
                     //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(1, 0, 0), 0.1f);
                     dir = new Vector3(-1, 0, 0);
+
                 }
-                if (cubeX < transform.position.x - 4f)
+                if (cubeX < transform.position.x - 3f)
                 {
                     //cube.transform.position = Vector3.Lerp(cube.transform.position, cube.transform.position + new Vector3(-1,0,0), 0.1f);
                     dir = new Vector3(+1, 0, 0);
-                }
 
-                cube.transform.Translate(dir * Random.Range(0.2f, 0.4f));
-            
+                }
+                cube.transform.Translate(dir * geschwindigkeit);
         }
     }
 
