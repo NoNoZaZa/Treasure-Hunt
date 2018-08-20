@@ -7,7 +7,7 @@ public class RoomGeneration : MonoBehaviour
 
     public GameObject raumPrefab;
     public GameObject wandPrefab;
-    Vector3 raumposition = new Vector3(0, 1, 0);
+    public Vector3 raumposition = new Vector3(0, 1, 0);
     int successRaeume;
     int successWaende;
     static int maximaleRaumzahl = 10;
