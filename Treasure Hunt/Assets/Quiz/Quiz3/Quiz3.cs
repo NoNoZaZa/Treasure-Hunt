@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+    struct Geschwindigkeit
+    {
+        private float geschw;
+    }
+
 public class Quiz3 : MonoBehaviour {
     public Interaktion interaktion;
     //public float minGeschw = 1f;
@@ -12,11 +18,10 @@ public class Quiz3 : MonoBehaviour {
     //public float offset;
     public GameObject timer;
     private QuizTimer quiztimer;
-    private float groesse = 0.4f;
+    private float groesse = 0.0045f;
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
-    public float geschwindigkeit;
-    
+    private float geschwindigkeit = 0.15f;
 
 
     // Use this for initialization
@@ -61,9 +66,6 @@ public class Quiz3 : MonoBehaviour {
 
     void CubesBewegen()
     {
-        //muss noch rein, ob das Objekt in der Liste überhaupt noch existiert
-       
-        
         foreach (GameObject cube in cubeListe)
         {
             //geschwindigkeit = Random.Range(0.0f, 0.2f);
@@ -92,5 +94,4 @@ public class Quiz3 : MonoBehaviour {
             cube.transform.Translate(0,0,geschwindigkeit);
         }
     }
-
 }
