@@ -42,8 +42,9 @@ public class Quiz4 : MonoBehaviour
         if (!keil.activeInHierarchy) keil.SetActive(true);
 
         //Quiz aufstellen
-        this.transform.Translate(10, 5, 0);
+        this.transform.Translate(10, 2.25f, 0);
         this.transform.Rotate(0, 0, 90);
+        this.transform.localScale += new Vector3(-0.5f, -0.5f, -0.5f);
 
     }
 

@@ -20,8 +20,8 @@ public class PuzzleMovement : MonoBehaviour {
         {
             xtemp = transform.position.x;
             ytemp = transform.position.y;
-            this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 5f);
-            emptySlot.transform.position = new Vector3(xtemp, ytemp, 5f);
+            this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
+            emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
         }
 
 
