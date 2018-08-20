@@ -16,15 +16,13 @@ public class PuzzleMovement : MonoBehaviour {
     //Anklicken der Puzzlesteine mit Maus teilweise schwierig, wenn der Cursor nicht auf der Mitte des Puzzlesteins liegt...
         private void OnMouseUp()
     {
-        if (Vector3.Distance(transform.position, emptySlot.transform.position) == 1)
-        {
-            xtemp = transform.position.x;
-            ytemp = transform.position.y;
-            this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
-            emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
-        }
-
-
+            if (Vector3.Distance(transform.position, emptySlot.transform.position) == 1)
+            {
+                xtemp = transform.position.x;
+                ytemp = transform.position.y;
+                this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
+                emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
+            }
 
     }
 }

@@ -8,7 +8,13 @@ public class Interaktion : MonoBehaviour {
     private bool IsWearing = false;
     private GameObject obj;
     private GameObject objekt3;
+
+    //für Quiz4:
     bool sperre = true;
+    float rotDir = 0;
+    float targetAngleA;
+    float targetAngleB;
+    float targetAngleC;
 
     public Quiz2 quiz2;
     public Quiz3 quiz3;
@@ -17,6 +23,7 @@ public class Interaktion : MonoBehaviour {
     public Texture2D kreuz;
     // Use this for initialization
 
+    //für Quiz2:
     int klicknum = 0;
     public GameObject[] geklickt;
     public Transform pickup;
@@ -147,23 +154,75 @@ public class Interaktion : MonoBehaviour {
                     if (p > radP)
                     {
                         //rad.transform.Rotate(0, (-45), 0);
-                        if (rad.name == "RingA")
-                        { quiz4.targetAngleA = -45; }
-                        else if (rad.name == "RingB")
-                        { quiz4.targetAngleB = -45; }
-                        else if (rad.name == "RingC")
-                        { quiz4.targetAngleC = -45; }
+                        if (rad.name == "rad1")
+                        {
+                            targetAngleA = -45;
+                            if (targetAngleA >= 45)
+                            {
+                                rotDir = 5;
+                            }
+                            else if (targetAngleA <= -45)
+                            {
+                                rotDir = -5;
+                            }
+
+                            if (targetAngleA != 0)
+                            {
+                                //rad1.transform.Rotate(transform.up, rotDir);
+                                rad.transform.Rotate(0, rotDir, 0);
+                                targetAngleA -= rotDir;
+                            }
+                        }
+                        else if (rad.name == "rad2")
+                        {
+                            targetAngleB = -45;
+                            if (targetAngleB >= 45)
+                            {
+                                rotDir = 5;
+                            }
+                            else if (targetAngleB <= -45)
+                            {
+                                rotDir = -5;
+                            }
+
+                            if (targetAngleB != 0)
+                            {
+                                //rad1.transform.Rotate(transform.up, rotDir);
+                                rad.transform.Rotate(0, rotDir, 0);
+                                targetAngleB -= rotDir;
+                            }
+                        }
+                        else if (rad.name == "rad3")
+                        {
+                            targetAngleC = -45;
+                            if (targetAngleC >= 45)
+                            {
+                                rotDir = 5;
+                            }
+                            else if (targetAngleC <= -45)
+                            {
+                                rotDir = -5;
+                            }
+
+                            if (targetAngleC != 0)
+                            {
+                                //rad1.transform.Rotate(transform.up, rotDir);
+                                rad.transform.Rotate(0, rotDir, 0);
+                                targetAngleC -= rotDir;
+                            }
+
+                        }
 
                     }
                     //Linkssdrehung
                     if (p < radP)
                     {
                         //rad.transform.Rotate(0, (+45), 0);
-                        if (rad.name == "RingA")
+                        if (rad.name == "rad1")
                         { quiz4.targetAngleA = 45; }
-                        else if (rad.name == "RingB")
+                        else if (rad.name == "rad2")
                         { quiz4.targetAngleB = 45; }
-                        else if (rad.name == "RingC")
+                        else if (rad.name == "rad3")
                         { quiz4.targetAngleC = 45; }
                     }
 

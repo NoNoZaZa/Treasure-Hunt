@@ -21,18 +21,21 @@ public class Quiz4 : MonoBehaviour
         //GameObject radChild1 = rad1.transform.GetChild(0).Find("rad").gameObject;
         rad1 = Instantiate(rad1);
         rad1.transform.Rotate(0, zufall, 0);
+        rad1.name = "rad1";
         rad1.transform.parent = this.transform;
         if (!rad1.activeInHierarchy) rad1.SetActive(true);
 
         zufall = (Random.Range(1, 8)) * 45;
         rad2 = Instantiate(rad2);
         rad2.transform.Rotate(0, zufall, 0);
+        rad2.name = "rad2";
         rad2.transform.parent = this.transform;
         if (!rad2.activeInHierarchy) rad2.SetActive(true);
 
         zufall = (Random.Range(1, 8)) * 45;
         rad3 = Instantiate(rad3);
         rad3.transform.Rotate(0, zufall, 0);
+        rad3.name = "rad3";
         rad3.transform.parent = this.transform;
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
