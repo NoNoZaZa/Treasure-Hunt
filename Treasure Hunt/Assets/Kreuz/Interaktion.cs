@@ -8,7 +8,7 @@ public class Interaktion : MonoBehaviour {
     private bool IsWearing = false;
     private GameObject obj;
     private GameObject objekt3;
-    
+    bool sperre = true;
 
     public Quiz2 quiz2;
     public Quiz3 quiz3;
@@ -147,16 +147,15 @@ public class Interaktion : MonoBehaviour {
                     //Rechtsdrehung
                     if (p > radP)
                     {
-                        float rot = rad.transform.rotation.z;
+                        //float rot = rad.transform.rotation.z;
                         //targetAngleA = new Vector3(0, (rot + 45), 0);
-                        rad.transform.Rotate(0, (rot - 45), 0);
+                        rad.transform.Rotate(0, (-45), 0);
 
                     }
                     //Linkssdrehung
                     if (p < radP)
                     {
-                        float rot = rad.transform.rotation.z;
-                        rad.transform.Rotate(0, (rot + 45), 0);
+                        rad.transform.Rotate(0, (+45), 0);
                     }
 
 
@@ -170,16 +169,21 @@ public class Interaktion : MonoBehaviour {
 
         }
 
-        //Zusatz Quiz4:
+        // Zusatz Quiz4 - Keil reinschieben & drehen:
         GameObject[] raeder;
         raeder = GameObject.FindGameObjectsWithTag("rad");
-        if (raeder[0].transform.rotation.y == 0 && raeder[1].transform.rotation.y == 0 && raeder[2].transform.rotation.y == 0)
+        GameObject radA = raeder[0];
+        GameObject radB = raeder[1];
+        GameObject radC = raeder[2];
+        //Debug.Log((int)(radA.transform.rotation.y * 100));
+        if (sperre && Mathf.Approximately(0f, (int)(radA.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radB.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radC.transform.rotation.y * 100)))
         {
+            Debug.Log("Ich bin ein Keil");
             GameObject keil = GameObject.FindWithTag("keil");
-            keil.transform.position = new Vector3(0, -0.2f, 1.8f);
-            keil.transform.Rotate(0, 0, 180);
-            keil.transform.parent = this.transform;
-
+            keil.transform.Translate(0, 0, -2.3f);
+            keil.transform.Rotate(0, 0, 90);
+            //keil.transform.parent = this.transform;
+            sperre = false;
         }
 
 

@@ -10,7 +10,7 @@ public class Puzzle : MonoBehaviour {
     Vector3 posE;
     public int i;
     public int j;
-
+    public int offsetY = 2;
 
     // Use this for initialization
     void Start()
@@ -19,7 +19,7 @@ public class Puzzle : MonoBehaviour {
         {
             for (j = 0; j < 4; j++)
             {
-                pos = new Vector3(i, j, 5f);
+                pos = new Vector3(i, j + offsetY, 7f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
                 puzzle.GetComponent("PuzzleMovement");
                 if (!puzzle.activeInHierarchy)
@@ -41,7 +41,7 @@ public class Puzzle : MonoBehaviour {
                 if (i == 3 && j == 2)
                 {
                     ++j;
-                    posE = new Vector3(i, j, 5f);
+                    posE = new Vector3(i, j + offsetY, 7f);
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
