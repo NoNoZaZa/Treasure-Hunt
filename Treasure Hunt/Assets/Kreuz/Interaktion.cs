@@ -169,7 +169,7 @@ public class Interaktion : MonoBehaviour {
 
         }
 
-        / Zusatz Quiz4 - Keil reinschieben & drehen:
+        // Zusatz Quiz4 - Keil reinschieben & drehen:
         GameObject[] raeder;
         raeder = GameObject.FindGameObjectsWithTag("rad");
         GameObject radA = raeder[0];
