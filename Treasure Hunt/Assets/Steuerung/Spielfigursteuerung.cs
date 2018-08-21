@@ -12,7 +12,7 @@ public class Spielfigursteuerung : MonoBehaviour {
 	void Start () {
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-           
+        Cursor.visible = false;   
 	
         Cursor.lockState = CursorLockMode.Locked;
 	}

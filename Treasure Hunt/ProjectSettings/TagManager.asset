@@ -12,6 +12,8 @@ TagManager:
   - TimerQuiz3
   - rad
   - keil
+  - infoquiz1
+  - infoquiz3
   layers:
   - Default
   - TransparentFX

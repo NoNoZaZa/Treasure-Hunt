@@ -5,32 +5,36 @@ using UnityEngine.UI;
 
 public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
-
     public Text meinText;
+    public GameObject infoquiz3;
+    public GameObject infoquiz1;
+    private Text quizText;
+    private GameObject obj;
 
-    public Queue<string> textLines;
-
-    public int aktuelleZeile;
-    public int endeZeile;
-
-    public GameObject player;
 
     // Use this for initialization
-    void Start () {
-        player = FindObjectOfType<GameObject>();
-        
-	}
+    public void Start() {
+        quizText = meinText.GetComponent<Text>();
+
+    }
 
     void Update()
     {
+    }
 
-        if (Input.GetKeyDown(KeyCode.Return))
+    public void TextZuweisung(GameObject obj)
+    {
+        
+        if (obj.tag == "infoquiz3")
         {
-            aktuelleZeile += 1;
+            quizText.text = "Schieße alle Teile ab um den Schlüssel zu bekommen.\nNutze zum schießen die linke Maustaste.";
+            Debug.Log("Quiz3");
         }
-        if(aktuelleZeile > endeZeile)
+
+        if (obj.tag == "infoquiz1")
         {
-            textBox.SetActive(false);
+            quizText.text = "Bescheibung Quiz1 ";
+            Debug.Log("Quiz1");
         }
     }
 
