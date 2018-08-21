@@ -27,13 +27,13 @@ public class TextBoxManager : MonoBehaviour {
         
         if (obj.tag == "infoquiz3")
         {
-            quizText.text = "Schieße alle Teile ab um den Schlüssel zu bekommen.\nNutze zum schießen die linke Maustaste.";
+            quizText.text = "ABSCHIEßEN \n \nSchieße alle Teile ab um den Schlüssel zu bekommen.\nNutze zum Schießen die linke Maustaste.";
             Debug.Log("Quiz3");
         }
 
         if (obj.tag == "infoquiz1")
         {
-            quizText.text = "Bescheibung Quiz1 ";
+            quizText.text = "PAARSUCHE \n \nKlicke die Paare an, damit sie verschwinden";
             Debug.Log("Quiz1");
         }
     }
