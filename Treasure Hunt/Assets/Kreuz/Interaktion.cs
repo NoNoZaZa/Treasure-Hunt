@@ -261,6 +261,9 @@ public class Interaktion : MonoBehaviour {
             quiz2.Wearing();
         }
 
+        if (GameObject.FindWithTag("hebObj") == null)
+        { IsWearing = false; }
+
         if (Input.GetMouseButtonDown(1))
         {
             IsWearing = false;

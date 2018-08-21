@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1639,6 +1639,12 @@ Prefab:
       propertyPath: cube
       value: 
       objectReference: {fileID: 1826486933155692, guid: b2ead3ac7ebcd30428de5916db5d1ff6,
+        type: 2}
+    - target: {fileID: 114049019652489302, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: druckplatte
+      value: 
+      objectReference: {fileID: 1930851992372642, guid: fc971c9fe2acbba43bff2a893c5bd90c,
         type: 2}
     m_RemovedComponents:
     - {fileID: 114076103111543262, guid: b32f30afbf0cea9428028222740d8c46, type: 2}

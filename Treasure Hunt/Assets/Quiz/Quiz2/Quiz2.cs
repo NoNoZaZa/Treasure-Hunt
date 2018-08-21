@@ -39,24 +39,17 @@ public class Quiz2 : MonoBehaviour {
         target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
     }
 
-    private void OnCollisionEnter(UnityEngine.Collision collision)
-    {
-        if (collision.collider.gameObject.tag == "hebObj")
-        {
-            Debug.Log("druckplatte");
-            druckplatte.transform.Translate(0, -0.5f, 0);
-            Destroy(cube);
-        }
-    }
+
 
 
     public void Wearing()
     {
-        
-
-        cube.transform.position = Vector3.Lerp(cube.transform.position, target, Time.deltaTime * moveDelay);
-        //cube.transform.position = 
-        cube.transform.rotation = player.transform.rotation;
+        if (cube != null)
+        {
+            cube.transform.position = Vector3.Lerp(cube.transform.position, target, Time.deltaTime * moveDelay);
+            //cube.transform.position = 
+            cube.transform.rotation = player.transform.rotation;
+        }
     }
 
 
