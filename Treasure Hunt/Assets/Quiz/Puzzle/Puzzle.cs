@@ -58,21 +58,21 @@ public class Puzzle : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
+ //   void Update () {
 
-        if (transform.hasChanged)
-        { tausche positionsinfo im array}
-
-
-
-        if (zeile12 blau && zeile34 rot)
-
-        else if(zeile12 rot && zeile34 blau)
-
-        else if (zeileL blau && zeileR rot)
-
-        else if (zeileL rot && zeileR blau)
+ //       if (transform.hasChanged)
+ //       { tausche positionsinfo im array}
 
 
-	}
+
+ //       if (zeile12 blau && zeile34 rot)
+
+ //       else if(zeile12 rot && zeile34 blau)
+
+ //       else if (zeileL blau && zeileR rot)
+
+ //       else if (zeileL rot && zeileR blau)
+
+
+	//}
 }

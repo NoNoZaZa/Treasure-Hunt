@@ -225,7 +225,19 @@ Prefab:
       value: 
       objectReference: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff,
         type: 2}
-    m_RemovedComponents: []
+    - target: {fileID: 114536680363711142, guid: 922566203e0acf640a6d6cb304c78176,
+        type: 2}
+      propertyPath: quiz4Cube
+      value: 
+      objectReference: {fileID: 714095347}
+    - target: {fileID: 114533331422885466, guid: 922566203e0acf640a6d6cb304c78176,
+        type: 2}
+      propertyPath: puzzlestein
+      value: 
+      objectReference: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40,
+        type: 2}
+    m_RemovedComponents:
+    - {fileID: 114533331422885466, guid: 922566203e0acf640a6d6cb304c78176, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: 922566203e0acf640a6d6cb304c78176, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1 &170076733
@@ -443,7 +455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quiz2: {fileID: 274620684}
   quiz3: {fileID: 1564485576}
-  drehrad: {fileID: 0}
+  drehrad: {fileID: 1657860156}
   kreuz: {fileID: 2800000, guid: 171316fb5dfbeba49b0cfc087f4ab124, type: 3}
   geklickt: []
   pickup: {fileID: 21095236}
@@ -1110,6 +1122,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &714095347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1898884641183066, guid: 922566203e0acf640a6d6cb304c78176,
+    type: 2}
+  m_PrefabInternal: {fileID: 91607373}
+--- !u!114 &714095348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 714095347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac56bf27ec6834c48949f1f2a9c34229, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  puzzlestein: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40,
+    type: 2}
+  i: 0
+  j: 0
+  offsetY: 2
+  timer: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff, type: 2}
 --- !u!108 &843952652 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
@@ -1973,7 +2007,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1657860155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac56bf27ec6834c48949f1f2a9c34229, type: 3}
+  m_Script: {fileID: 11500000, guid: 1ee6b1670a39dc6458a9165b97a5973a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rad1: {fileID: 1596116812750330, guid: fda70592daae1124ba53bb40d640287f, type: 2}
