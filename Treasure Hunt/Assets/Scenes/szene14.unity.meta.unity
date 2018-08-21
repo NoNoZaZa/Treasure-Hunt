@@ -2087,6 +2087,12 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1600697174}
+    - target: {fileID: 114049019652489302, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 1826486933155692, guid: b2ead3ac7ebcd30428de5916db5d1ff6,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114076103111543262, guid: b32f30afbf0cea9428028222740d8c46, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: b32f30afbf0cea9428028222740d8c46, type: 2}

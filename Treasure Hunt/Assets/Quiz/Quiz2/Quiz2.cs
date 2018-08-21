@@ -24,12 +24,27 @@ public class Quiz2 : MonoBehaviour {
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 20f;
 
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
 
+        //Druckplatte
+        druckplatte = Instantiate(druckplatte, transform.position, Quaternion.identity);
+        druckplatte.transform.parent = this.transform;
+        druckplatte.GetComponent<Renderer>().material.color = Color.magenta;
+        //druckplatte.transform.position = new Vector3(2f, 0f, 3f);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
+        target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.GetComponent<Collider>().tag == "hebObj")
+        {
+            druckplatte.transform.Translate(0, 0.5f, 0);
+            Destroy(cube);
+        }
     }
 
 
@@ -50,11 +65,7 @@ public class Quiz2 : MonoBehaviour {
         cube.AddComponent<Rigidbody>();
         cube.gameObject.GetComponent<Renderer>().material.color = Color.green;
         cube.tag = "hebObj";
-        //block.transform.position = ;
-        druckplatte = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        druckplatte.transform.localScale = new Vector3(1f, 0.25f, 1f);
-        druckplatte.gameObject.GetComponent<Renderer>().material.color = Color.blue;
-        druckplatte.transform.position = new Vector3(2f, 0f, 3f);
+        
     }
 
 }
