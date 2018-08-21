@@ -34,7 +34,6 @@ public class Spielfigursteuerung : MonoBehaviour {
         {
             if(onGround) {
                 rb.AddForce(new Vector3(0, 4f, 0), ForceMode.Impulse);
-                Debug.Log("Die Leertaste wird gedrueckt!");
                 onGround = false;
             }
 
