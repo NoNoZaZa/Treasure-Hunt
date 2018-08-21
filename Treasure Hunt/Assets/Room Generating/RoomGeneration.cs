@@ -7,7 +7,7 @@ public class RoomGeneration : MonoBehaviour
 
     public GameObject raumPrefab;
     public GameObject wandPrefab;
-    public Vector3 raumposition = new Vector3(0, 1, 0);
+    public Vector3 raumposition = new Vector3(0, 0, 0);
     int successRaeume;
     int successWaende;
     static int maximaleRaumzahl = 10;
@@ -18,10 +18,10 @@ public class RoomGeneration : MonoBehaviour
     Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
     public List<Vector3> raumpositionen = new List<Vector3>();
-    Vector3 norden = new Vector3(-17, 0, 0);
-    Vector3 osten = new Vector3(0, 0, 17);
-    Vector3 sueden = new Vector3(17, 0, 0);
-    Vector3 westen = new Vector3(0, 0, -17);
+    Vector3 norden = new Vector3(-34, 0, 0);
+    Vector3 osten = new Vector3(0, 0, 34);
+    Vector3 sueden = new Vector3(34, 0, 0);
+    Vector3 westen = new Vector3(0, 0, -34);
 
     public List<Vector3> tuerpositionen = new List<Vector3>();
 
@@ -133,7 +133,7 @@ public class RoomGeneration : MonoBehaviour
         }
         else
         {
-            if (raumpositionen.Contains(new Vector3(0, 1, 0)))
+            if (raumpositionen.Contains(new Vector3(0, 0, 0)))
             {
                 Instantiate(raumPrefab, raumposition, Quaternion.identity);
                 raumpositionen.Add(raumposition);
@@ -141,7 +141,7 @@ public class RoomGeneration : MonoBehaviour
             else
             {
                 //Sicherstellen, dass ein Raum an den Ursprungskoordinaten existiert
-                raumposition = new Vector3(0, 1, 0);
+                raumposition = new Vector3(0, 0, 0);
                 Instantiate(raumPrefab, raumposition, Quaternion.identity);
                 raumpositionen.Add(raumposition);
             }
@@ -149,10 +149,10 @@ public class RoomGeneration : MonoBehaviour
 
             int hilfsvariableWandpositionen = successRaeume * 4;
 
-            Vector3 wandpositionNorden = raumposition + new Vector3(-8, 0, 1);
-            Vector3 wandpositionOsten = raumposition + new Vector3(1, 0, 8);
-            Vector3 wandpositionSueden = raumposition + new Vector3(8, 0, 1);
-            Vector3 wandpositionWesten = raumposition + new Vector3(1, 0, -8);
+            Vector3 wandpositionNorden = raumposition + new Vector3(-16.475f, 2.9f, 2);
+            Vector3 wandpositionOsten = raumposition + new Vector3(2, 2.9f, 16.475f);
+            Vector3 wandpositionSueden = raumposition + new Vector3(16.475f, 2.9f, 0);
+            Vector3 wandpositionWesten = raumposition + new Vector3(0, 2.9f, -16.475f);
 
             wandpositionenArray[hilfsvariableWandpositionen, 0] = wandpositionNorden;
             wandpositionenArray[hilfsvariableWandpositionen, 1] = new Vector3(1, 0, 0);

@@ -1,15 +1,21 @@
 fileFormatVersion: 2
-guid: e7f796828f7a59a4e81cf7c25b2c1490
+guid: 4b1f2f4cb7b7aeb4f90ff6156ae5c3b4
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
-    2100000: No Name
+    2100000: WandMaterial
     2300000: //RootNode
     3300000: //RootNode
-    4300000: "T\xFCrHinten"
-  externalObjects: {}
+    4300000: Cube.001
+    6400000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: WandMaterial
+    second: {fileID: 2100000, guid: 8052aab28a2ad564db25e35de6466763, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -42,7 +48,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
