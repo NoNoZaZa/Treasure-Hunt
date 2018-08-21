@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Druckplatte : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public float moveDelay = 0.5f;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 
@@ -16,7 +18,9 @@ public class Druckplatte : MonoBehaviour {
         {
             GameObject hebObj = collision.collider.gameObject;
             Debug.Log("druckplatte");
-            this.transform.position = new Vector3( this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
+            //Vector3 target = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
+            //this.transform.position = Vector3.Lerp(this.transform.position, target, Time.deltaTime * moveDelay);
+            this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
             Destroy(hebObj);
         }
     }
