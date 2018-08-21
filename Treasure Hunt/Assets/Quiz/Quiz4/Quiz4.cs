@@ -55,10 +55,10 @@ public class Quiz4 : MonoBehaviour {
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
-                    steinPos[i, j] = empty.transform.position;
+                    //steinPos[i, j] = empty.transform.position;
                     return;
                 }
-                steinPos[i, j] = puzzle.transform.position;
+                //steinPos[i, j] = puzzle.transform.position;
             }
         }       
         
@@ -66,8 +66,8 @@ public class Quiz4 : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update () {
-        if (transform.hasChanged)
+    //void Update () {
+    //    if (transform.hasChanged)
  //       { tausche positionsinfo im array}
 
 
@@ -80,5 +80,5 @@ public class Quiz4 : MonoBehaviour {
 
             //       else if (zeileL rot && zeileR blau)
 
-    }
+    //}
 }
