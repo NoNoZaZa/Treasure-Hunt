@@ -13,6 +13,7 @@ public class Quiz4 : MonoBehaviour {
     public int offsetY = 2;
     public GameObject timer;
     private QuizTimer quiztimer;
+    Vector3[,] steinPos;
 
     // Use this for initialization
     void Start()
@@ -54,8 +55,10 @@ public class Quiz4 : MonoBehaviour {
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
+                    steinPos[i, j] = empty.transform.position;
                     return;
                 }
+                steinPos[i, j] = puzzle.transform.position;
             }
         }       
         
@@ -64,6 +67,18 @@ public class Quiz4 : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        if (transform.hasChanged)
+ //       { tausche positionsinfo im array}
+
+
+
+            //       if (zeile12 blau && zeile34 rot)
+
+            //       else if(zeile12 rot && zeile34 blau)
+
+            //       else if (zeileL blau && zeileR rot)
+
+            //       else if (zeileL rot && zeileR blau)
+
+    }
 }
