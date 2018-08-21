@@ -13,17 +13,18 @@ public class Quiz4 : MonoBehaviour {
     public int offsetY = 2;
     public GameObject timer;
     private QuizTimer quiztimer;
-    Vector3[,] steinPos;
+    public GameObject[] steinPos;
 
     // Use this for initialization
     void Start()
     {
+        steinPos = new GameObject[16];
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 30f;
         quiztimer.quiz = this.gameObject;
-
+        int index = 0;
 
         for (i = 0; i < 4; i++)
         {
@@ -31,7 +32,7 @@ public class Quiz4 : MonoBehaviour {
             {
                 pos = new Vector3(i, j + offsetY, 7f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
-                puzzle.GetComponent("PuzzleMovement");
+                
                 if (!puzzle.activeInHierarchy)
                 {
                     puzzle.SetActive(true);
@@ -45,7 +46,10 @@ public class Quiz4 : MonoBehaviour {
                 {
                     puzzle.GetComponent<Renderer>().material.color = Color.red;
                 }
-
+                steinPos[index] = puzzle;
+                //PuzzleMovement puzzlemovement = (PuzzleMovement) GetComponent("PuzzleMovement");
+                //puzzlemovement.steinPos[index] = steinPos[index];
+                puzzle.GetComponent("PuzzleMovement");
 
                 //Puzzlelücke
                 if (i == 3 && j == 2)
@@ -55,10 +59,12 @@ public class Quiz4 : MonoBehaviour {
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
-                    //steinPos[i, j] = empty.transform.position;
+                    steinPos[index] = empty;
                     return;
                 }
-                //steinPos[i, j] = puzzle.transform.position;
+                
+                Debug.Log(index);
+                index++;
             }
         }       
         
@@ -66,19 +72,34 @@ public class Quiz4 : MonoBehaviour {
     }
 
     // Update is called once per frame
-    //void Update () {
-    //    if (transform.hasChanged)
- //       { tausche positionsinfo im array}
+    void Update () {
+        
+        if (steinPos[0].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[2].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[3].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[4].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[6].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[7].GetComponent<Renderer>().material.color == Color.cyan )
+        {
+            quiztimer.hasWon = true;
+            Debug.Log("Gewonnen");
+        }
+        else if (steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[9].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[13].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[0].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[4].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[8].GetComponent<Renderer>().material.color == Color.cyan &&
+            steinPos[12].GetComponent<Renderer>().material.color == Color.cyan &&
+            quiztimer.timer > 0)
+        {
+            quiztimer.hasWon = true;
+        }
+        //else if (zeileL blau && zeileR rot)
+        //    else if (zeileL rot && zeileR blau)
 
-
-
-            //       if (zeile12 blau && zeile34 rot)
-
-            //       else if(zeile12 rot && zeile34 blau)
-
-            //       else if (zeileL blau && zeileR rot)
-
-            //       else if (zeileL rot && zeileR blau)
-
-    //}
+    }
 }

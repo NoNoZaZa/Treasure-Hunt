@@ -7,10 +7,14 @@ public class PuzzleMovement : MonoBehaviour {
     GameObject emptySlot;
     float xtemp;
     float ytemp;
+    public Quiz4 quiz4;
+    public GameObject[] steinPos;
 
     void Start()
     {
         emptySlot = GameObject.Find("empty");
+        steinPos = new GameObject[16];
+        steinPos = quiz4.steinPos;
     }
 
     //Anklicken der Puzzlesteine mit Maus teilweise schwierig, wenn der Cursor nicht auf der Mitte des Puzzlesteins liegt...
@@ -21,8 +25,13 @@ public class PuzzleMovement : MonoBehaviour {
                 xtemp = transform.position.x;
                 ytemp = transform.position.y;
                 this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
+                int c = System.Array.IndexOf(steinPos, this);
                 emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
-            }
+                int e = System.Array.IndexOf(steinPos, emptySlot);
+                GameObject tempS = steinPos[c];
+                steinPos[c] = emptySlot;
+                steinPos[e] = tempS;
+        }
 
     }
 }
