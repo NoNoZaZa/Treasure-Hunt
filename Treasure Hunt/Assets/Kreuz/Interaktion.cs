@@ -115,7 +115,6 @@ public class Interaktion : MonoBehaviour {
                 if (hit.collider.gameObject.tag == "hebObj")
                 {
                     IsWearing = true;
-                    Debug.Log("got it");
                     obj = hit.collider.gameObject;
                     obj.GetComponent<Rigidbody>().useGravity = false;
                     //obj.GetComponent<Rigidbody>().useGravity = false;

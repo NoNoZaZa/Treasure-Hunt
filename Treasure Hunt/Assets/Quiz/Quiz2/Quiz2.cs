@@ -19,6 +19,7 @@ public class Quiz2 : MonoBehaviour {
         cube = Instantiate(cube, transform.position, Quaternion.identity);
         cube.transform.parent = this.transform;
         //if (!cubeInstance.activeInHierarchy) cubeInstance.SetActive(true);
+
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
@@ -26,10 +27,10 @@ public class Quiz2 : MonoBehaviour {
 
 
         //Druckplatte
-        druckplatte = Instantiate(druckplatte, transform.position, Quaternion.identity);
+        druckplatte = Instantiate(druckplatte);
         druckplatte.transform.parent = this.transform;
-        druckplatte.GetComponent<Renderer>().material.color = Color.magenta;
-        //druckplatte.transform.position = new Vector3(2f, 0f, 3f);
+        //druckplatte.GetComponent<Renderer>().material.color = Color.magenta;
+        //druckplatte.transform.position = new Vector3(-10f, 2f, 30f);
 
     }
 
@@ -38,11 +39,12 @@ public class Quiz2 : MonoBehaviour {
         target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        if (collision.GetComponent<Collider>().tag == "hebObj")
+        if (collision.collider.gameObject.tag == "hebObj")
         {
-            druckplatte.transform.Translate(0, 0.5f, 0);
+            Debug.Log("druckplatte");
+            druckplatte.transform.Translate(0, -0.5f, 0);
             Destroy(cube);
         }
     }
