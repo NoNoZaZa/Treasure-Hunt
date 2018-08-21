@@ -12,6 +12,9 @@ public class RoomGeneration : MonoBehaviour
     int successWaende;
     static int maximaleRaumzahl = 10;
 
+    public bool pseudorandom = false;
+    public static int seed = 42;
+
     int hilfsvariableNachbarfindung = 0;
 
     //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
@@ -31,6 +34,10 @@ public class RoomGeneration : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        if (pseudorandom) {
+            Random.InitState(seed);
+        }
 
         while (successRaeume < maximaleRaumzahl)
         {

@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &300618892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,6 +477,7 @@ MonoBehaviour:
   raumPrefab: {fileID: 1176104312590356, guid: eebd8135b602818439b7392dd266ca42, type: 2}
   wandPrefab: {fileID: 1842561057642076, guid: 7d29dcd9422f11e48ad79d2118cf2088, type: 2}
   raumposition: {x: 0, y: 1, z: 0}
+  pseudorandom: 1
   raumpositionen: []
   tuerpositionen: []
 --- !u!4 &300618893
@@ -1348,6 +1349,12 @@ Prefab:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1361963125}
+    - target: {fileID: 114023761205975668, guid: fa4885d23b540be4bb8a46c11c7be905,
+        type: 2}
+      propertyPath: cubeForm
+      value: 
+      objectReference: {fileID: 1040011923997060, guid: a36d2e3cd58075845bd0e0f45381833f,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4885d23b540be4bb8a46c11c7be905, type: 2}
   m_IsPrefabAsset: 0

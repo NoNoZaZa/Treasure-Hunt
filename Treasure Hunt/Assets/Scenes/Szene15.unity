@@ -484,7 +484,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &300618892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -496,10 +496,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035f4ffcc44e12641bf93158a0ec3081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raumPrefab: {fileID: 1998925354833350, guid: fa2b3fcce02aa92498ddb742f784ec2e, type: 2}
-  wandPrefab: {fileID: 1084348735520886, guid: 9ab223a586a4e5d48a54e09d76c98219, type: 2}
+  raumPrefab: {fileID: 1176104312590356, guid: eebd8135b602818439b7392dd266ca42, type: 2}
+  wandPrefab: {fileID: 1842561057642076, guid: 7d29dcd9422f11e48ad79d2118cf2088, type: 2}
   raumposition: {x: 0, y: 1, z: 0}
-  pseudorandom: 0
+  pseudorandom: 1
   raumpositionen: []
   tuerpositionen: []
 --- !u!4 &300618893
@@ -1618,6 +1618,28 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1600697174}
+    - target: {fileID: 23229257394415778, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 802797fdf76534e4e86e1f3ae355a6f1, type: 3}
+    - target: {fileID: 33029985219674158, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 114049019652489302, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: timer
+      value: 
+      objectReference: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff,
+        type: 2}
+    - target: {fileID: 114049019652489302, guid: b32f30afbf0cea9428028222740d8c46,
+        type: 2}
+      propertyPath: cube
+      value: 
+      objectReference: {fileID: 1826486933155692, guid: b2ead3ac7ebcd30428de5916db5d1ff6,
+        type: 2}
     m_RemovedComponents:
     - {fileID: 114076103111543262, guid: b32f30afbf0cea9428028222740d8c46, type: 2}
   m_SourcePrefab: {fileID: 100100000, guid: b32f30afbf0cea9428028222740d8c46, type: 2}
@@ -2513,7 +2535,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1996490413
 MonoBehaviour:
   m_ObjectHideFlags: 0
