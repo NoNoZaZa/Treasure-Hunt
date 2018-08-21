@@ -37,6 +37,24 @@ public class TimerQuiz2 : MonoBehaviour
             countDownText.text = timer2.ToString("0.00");
         }
 
+        if (GameObject.FindWithTag("hebObj")==null && timer2 > 0)
+        {
+            winText.text = "Gewonnen!";
+            timer2 = 0;
+            Abbruch();
+        }
+
+        if (GameObject.FindWithTag("hebObj") != null && timer2 < 0)
+        {
+            winText.text = "Verloren";
+            Abbruch();
+        }
+
+    }
+    IEnumerable Abbruch()
+    {
+        yield return new WaitForSeconds(5);
+        winText.enabled = false;
     }
 
 }

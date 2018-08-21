@@ -50,6 +50,11 @@ public class Quiz2 : MonoBehaviour {
             //cube.transform.position = 
             cube.transform.rotation = player.transform.rotation;
         }
+        else if (cube != null && quiztimer.timer > 0)
+        {
+            quiztimer.hasWon = true;
+
+        }
     }
 
 
