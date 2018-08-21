@@ -152,64 +152,19 @@ public class Interaktion : MonoBehaviour {
                     //Rechtsdrehung
                     if (p > radP)
                     {
-                        //rad.transform.Rotate(0, (-45), 0);
                         if (rad.name == "rad1")
                         {
-                            targetAngleA = -45;
-                            if (targetAngleA >= 45)
-                            {
-                                rotDir = 5;
-                            }
-                            else if (targetAngleA <= -45)
-                            {
-                                rotDir = -5;
-                            }
-
-                            if (targetAngleA != 0)
-                            {
-                                //rad1.transform.Rotate(transform.up, rotDir);
-                                rad.transform.Rotate(0, rotDir, 0);
-                                targetAngleA -= rotDir;
-                            }
+                            quiz4.targetAngleA = -45;
+                            quiz4.Update();
+                            Debug.Log("Dreh rad1 rechts");
                         }
                         else if (rad.name == "rad2")
                         {
-                            targetAngleB = -45;
-                            if (targetAngleB >= 45)
-                            {
-                                rotDir = 5;
-                            }
-                            else if (targetAngleB <= -45)
-                            {
-                                rotDir = -5;
-                            }
-
-                            if (targetAngleB != 0)
-                            {
-                                //rad1.transform.Rotate(transform.up, rotDir);
-                                rad.transform.Rotate(0, rotDir, 0);
-                                targetAngleB -= rotDir;
-                            }
+                            quiz4.targetAngleB = -45;
                         }
                         else if (rad.name == "rad3")
                         {
-                            targetAngleC = -45;
-                            if (targetAngleC >= 45)
-                            {
-                                rotDir = 5;
-                            }
-                            else if (targetAngleC <= -45)
-                            {
-                                rotDir = -5;
-                            }
-
-                            if (targetAngleC != 0)
-                            {
-                                //rad1.transform.Rotate(transform.up, rotDir);
-                                rad.transform.Rotate(0, rotDir, 0);
-                                targetAngleC -= rotDir;
-                            }
-
+                            quiz4.targetAngleC = -45;
                         }
 
                     }
@@ -218,11 +173,19 @@ public class Interaktion : MonoBehaviour {
                     {
                         //rad.transform.Rotate(0, (+45), 0);
                         if (rad.name == "rad1")
-                        { quiz4.targetAngleA = 45; }
+                        {
+                            quiz4.targetAngleA = 45;
+                            quiz4.Update();
+                            Debug.Log("Dreh rad1 links");
+                        }
                         else if (rad.name == "rad2")
-                        { quiz4.targetAngleB = 45; }
+                        {
+                            quiz4.targetAngleB = 45;
+                        }
                         else if (rad.name == "rad3")
-                        { quiz4.targetAngleC = 45; }
+                        {
+                            quiz4.targetAngleC = 45;
+                        }
                     }
 
 

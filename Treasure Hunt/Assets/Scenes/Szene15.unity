@@ -463,7 +463,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   quiz2: {fileID: 274620684}
   quiz3: {fileID: 1564485576}
-  quiz4: {fileID: 0}
+  quiz4: {fileID: 1657860156}
   kreuz: {fileID: 2800000, guid: 171316fb5dfbeba49b0cfc087f4ab124, type: 3}
   geklickt: []
   pickup: {fileID: 21095236}
