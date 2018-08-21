@@ -18,7 +18,7 @@ public class Interaktion : MonoBehaviour {
 
     public Quiz2 quiz2;
     public Quiz3 quiz3;
-    public Quiz4 quiz4;
+    public Drehrad drehrad;
 
     public Texture2D kreuz;
     // Use this for initialization
@@ -141,6 +141,10 @@ public class Interaktion : MonoBehaviour {
                 #endregion
 
                 #region Quiz4
+                //Puzzle
+
+
+                #region DrehRad
                 if (hit.collider.gameObject.tag == "rad")
                 {
                     GameObject rad = hit.collider.gameObject;
@@ -154,17 +158,17 @@ public class Interaktion : MonoBehaviour {
                     {
                         if (rad.name == "rad1")
                         {
-                            quiz4.targetAngleA = -45;
-                            quiz4.Update();
+                            drehrad.targetAngleA = -45;
+                            drehrad.Update();
                             Debug.Log("Dreh rad1 rechts");
                         }
                         else if (rad.name == "rad2")
                         {
-                            quiz4.targetAngleB = -45;
+                            drehrad.targetAngleB = -45;
                         }
                         else if (rad.name == "rad3")
                         {
-                            quiz4.targetAngleC = -45;
+                            drehrad.targetAngleC = -45;
                         }
 
                     }
@@ -174,17 +178,17 @@ public class Interaktion : MonoBehaviour {
                         //rad.transform.Rotate(0, (+45), 0);
                         if (rad.name == "rad1")
                         {
-                            quiz4.targetAngleA = 45;
-                            quiz4.Update();
+                            drehrad.targetAngleA = 45;
+                            drehrad.Update();
                             Debug.Log("Dreh rad1 links");
                         }
                         else if (rad.name == "rad2")
                         {
-                            quiz4.targetAngleB = 45;
+                            drehrad.targetAngleB = 45;
                         }
                         else if (rad.name == "rad3")
                         {
-                            quiz4.targetAngleC = 45;
+                            drehrad.targetAngleC = 45;
                         }
                     }
 
