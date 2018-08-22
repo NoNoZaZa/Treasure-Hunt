@@ -14,6 +14,7 @@ public class Quiz4 : MonoBehaviour {
     public GameObject timer;
     private QuizTimer quiztimer;
     public GameObject[] steinPos;
+    bool win = false;
 
     // Use this for initialization
     void Start()
@@ -47,9 +48,7 @@ public class Quiz4 : MonoBehaviour {
                     puzzle.GetComponent<Renderer>().material.color = Color.red;
                 }
                 steinPos[index] = puzzle;
-                //PuzzleMovement puzzlemovement = (PuzzleMovement) GetComponent("PuzzleMovement");
-                //puzzlemovement.steinPos[index] = steinPos[index];
-                puzzle.GetComponent("PuzzleMovement");
+
 
                 //Puzzlelücke
                 if (i == 3 && j == 2)
@@ -59,8 +58,8 @@ public class Quiz4 : MonoBehaviour {
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
+                    index++;
                     steinPos[index] = empty;
-                    return;
                 }
                 
                 Debug.Log(index);
@@ -74,19 +73,12 @@ public class Quiz4 : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         
-        if (steinPos[0].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[2].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[3].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[4].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[6].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[7].GetComponent<Renderer>().material.color == Color.cyan )
+        if (win)
         {
             quiztimer.hasWon = true;
             Debug.Log("Gewonnen");
         }
-        else if (steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
+        if (steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
             steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
             steinPos[9].GetComponent<Renderer>().material.color == Color.cyan &&
             steinPos[13].GetComponent<Renderer>().material.color == Color.cyan &&

@@ -8,7 +8,7 @@ public class Quiz4Ausloeser : MonoBehaviour {
 
     private void OnCollisionEnter(UnityEngine.Collision collision)
     {
-        Destroy(this.gameObject);
         quiz4Cube.SetActive(true);
+        Destroy(this.gameObject);
     }
 }
