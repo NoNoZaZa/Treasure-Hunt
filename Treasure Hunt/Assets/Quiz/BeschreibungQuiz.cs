@@ -6,12 +6,10 @@ using UnityEngine.UI;
 public class BeschreibungQuiz : MonoBehaviour {
     public GameObject BeschrQuiz;
     public TextBoxManager manager;
-    public GameObject obj;
    
 
     // Use this for initialization
     void Start() {
-        BeschrQuiz.SetActive(false);
         manager = GameObject.Find("TextBoxManager").GetComponent<TextBoxManager>();
 
     }
