@@ -11,6 +11,7 @@ public class Quiz3 : MonoBehaviour {
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
     private float geschwindigkeit = 0.15f;
+    public GameObject schluesselpref;
 
 
     // Use this for initialization
@@ -32,6 +33,7 @@ public class Quiz3 : MonoBehaviour {
         if (interaktion.zaehlercubes == 6 && quiztimer.timer > 0)
         {
             quiztimer.hasWon = true;
+            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
     }
 
@@ -43,7 +45,7 @@ public class Quiz3 : MonoBehaviour {
             cube.transform.parent = this.transform;
             cube.transform.localScale = new Vector3(groesse, groesse, groesse);
             cube.transform.position = new Vector3( Random.Range(-3f, 3f) + transform.position.x, transform.position.y, transform.position.z);
-            cube.transform.Translate(0,-4+i,0);
+            cube.transform.Translate(0,i,0);
             cube.transform.forward = cube.transform.right;
             cubeListe.Add(cube);
             cube.tag = "Quiz3";

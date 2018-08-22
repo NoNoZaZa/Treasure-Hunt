@@ -16,6 +16,7 @@ TagManager:
   - infoquiz3
   - infoquiz2
   - infoquiz4
+  - Quiz1
   layers:
   - Default
   - TransparentFX

@@ -16,6 +16,7 @@ using UnityEngine;
     private Color[] farben = {Color.black, Color.blue, Color.red, Color.green, Color.magenta, Color.cyan, Color.yellow, Color.grey };
     public GameObject timer;
     private QuizTimer quiztimer;
+    public GameObject schluesselpref;
 
     // Use this for initialization
 
@@ -38,6 +39,7 @@ using UnityEngine;
         if (interaktion.quiz1zaehler == 8 && quiztimer.timer > 0)
         {
             quiztimer.hasWon = true;
+            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
 
     }

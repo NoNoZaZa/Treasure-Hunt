@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     int keysCollected = 0;
     Text scoreT;
 
+
+
     private void Awake()
     {
         if(instance == null)

@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 114254878735232714}
   m_Layer: 0
   m_Name: Quiz1Wand
-  m_TagString: Untagged
+  m_TagString: Quiz1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,6 +258,8 @@ MonoBehaviour:
   cubePref: {fileID: 1398991540440834, guid: a82f355a8e286c24a8373b2d686f8f40, type: 2}
   groesse: 0.8
   timer: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff, type: 2}
+  schluesselpref: {fileID: 1125712515727560, guid: f62e7c813afb4ff4eaeb634503f6fd3a,
+    type: 2}
 --- !u!114 &114842577665204420
 MonoBehaviour:
   m_ObjectHideFlags: 1

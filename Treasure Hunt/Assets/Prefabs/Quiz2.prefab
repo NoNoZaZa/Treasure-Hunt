@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1989794682048140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10, y: -1.5, z: -0.59}
+  m_LocalPosition: {x: -10, y: -1.5, z: 12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4574943012375176}
@@ -284,6 +284,8 @@ MonoBehaviour:
     type: 2}
   player: {fileID: 0}
   groesse: {x: 0.8, y: 0.8, z: 0.8}
-  holdDistance: 1
-  moveDelay: 2
+  holdDistance: 5
+  moveDelay: 10
   timer: {fileID: 1267958848990514, guid: 8982d3db3933b634a8270423ddd2fcff, type: 2}
+  schluesselpref: {fileID: 1125712515727560, guid: f62e7c813afb4ff4eaeb634503f6fd3a,
+    type: 2}
