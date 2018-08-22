@@ -152,7 +152,7 @@ public class Interaktion : MonoBehaviour {
                     float p = hit.point.z;
                     float radP = rad.transform.position.z;
 
-                    //quiz4.Drehen(rad, p, radP);
+                    
 
                     //Rechtsdrehung
                     if (p > radP)

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Drehrad : MonoBehaviour
 {
     public GameObject rad1, rad2, rad3, keil;
-    private float rotSpeed = 0.0011f;
     public float targetAngleA;
     public float targetAngleB;
     public float targetAngleC;
@@ -50,23 +49,6 @@ public class Drehrad : MonoBehaviour
         this.transform.localScale += new Vector3(-0.5f, -0.5f, -0.5f);
 
     }
-
-
-    //public void FixedUpdate(GameObject rad)
-    //{
-    //    float rot = rad.transform.rotation.z;
-    //    //rad.transform.Rotate(0, (rot - 45), 0);
-
-    //    //get rotation
-    //    Vector3 curr = new Vector3(rad.transform.rotation.x, rad.transform.rotation.y, rad.transform.rotation.z);
-    //    Vector3 desti = new Vector3(0, (rot - 45), 0);
-    //    targetRotation = Quaternion.FromToRotation(curr, (Vector3)desti);
-    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotSpeed * Time.deltaTime);
-
-
-
-    //}
-
 
     float rotDir = 0f;
     // Update is called once per frame
@@ -142,17 +124,6 @@ public class Drehrad : MonoBehaviour
             //keil.transform.parent = this.transform;
             sperre = false;
         }
-
-        //    float step = Time.deltaTime * rotSpeed;
-        //    Vector3 targetDir = target.position - transform.position;
-        //    Vector3 newDir = Vector3.RotateTowards(transform.forward, targetAngleA, step, 0.0f);
-        //    transform.rotation = Quaternion.LookRotation(newDir);
-        //    //transform.rotation.Lerp(rot.z, targetAngleA, step);
-
-        //Smooth rotation
-        //transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime* rotSpeed);
-        //BZW anstatt Lerp:
-        //transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotSpeed* Time.deltaTime);
 
     }
 }
