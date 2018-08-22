@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Quiz4 : MonoBehaviour {
+public class Quiz4 : MonoBehaviour
+{
 
     public GameObject puzzlestein;
     GameObject empty;
@@ -14,11 +15,11 @@ public class Quiz4 : MonoBehaviour {
     public GameObject timer;
     private QuizTimer quiztimer;
     public GameObject[] steinPos;
-<<<<<<< HEAD
+
     bool win = false;
-=======
+
     public GameObject schluesselpref;
->>>>>>> 0beff012cb04ab13d2381ffc243c6b616d6a9a90
+
 
     // Use this for initialization
     void Start()
@@ -37,13 +38,13 @@ public class Quiz4 : MonoBehaviour {
             {
                 pos = new Vector3(i, j + offsetY, 7f);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
-                
+
                 if (!puzzle.activeInHierarchy)
                 {
                     puzzle.SetActive(true);
                 }
 
-                if (((j==0 || j==2) && (i==0 || i == 2)) || ((j == 1 || j == 3) && (i == 1 || i == 3)))
+                if (((j == 0 || j == 2) && (i == 0 || i == 2)) || ((j == 1 || j == 3) && (i == 1 || i == 3)))
                 {
                     puzzle.GetComponent<Renderer>().material.color = Color.cyan;
                 }
@@ -65,18 +66,19 @@ public class Quiz4 : MonoBehaviour {
                     index++;
                     steinPos[index] = empty;
                 }
-                
+
                 Debug.Log(index);
                 index++;
             }
-        }       
-        
-    
+        }
+
+
     }
 
     // Update is called once per frame
-    void Update () {
-        
+    void Update()
+    {
+
         if (win)
         {
             quiztimer.hasWon = true;
