@@ -7,7 +7,9 @@ public class RoomGeneration : MonoBehaviour
 
     public GameObject raumPrefab;
     public GameObject wandPrefab;
-    public Vector3 raumposition = new Vector3(0, 0, 0);
+    public GameObject endraumPrefab;
+    public GameObject endraumWandPrefab;
+    Vector3 raumposition = new Vector3(0, 0, 0);
     int successRaeume;
     int successWaende;
     static int maximaleRaumzahl = 10;
@@ -34,6 +36,8 @@ public class RoomGeneration : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+        Debug.Log("Die RoomGeneration wurde gestartet");
 
         if (pseudorandom) {
             Random.InitState(seed);
@@ -142,14 +146,17 @@ public class RoomGeneration : MonoBehaviour
         {
             if (raumpositionen.Contains(new Vector3(0, 0, 0)))
             {
-                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                GameObject raum = Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raum.tag = "Raum" + successRaeume.ToString();
+                //Debug.Log(raum);
                 raumpositionen.Add(raumposition);
             }
             else
             {
                 //Sicherstellen, dass ein Raum an den Ursprungskoordinaten existiert
                 raumposition = new Vector3(0, 0, 0);
-                Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                GameObject raum = Instantiate(raumPrefab, raumposition, Quaternion.identity);
+                raum.tag = "Raum";
                 raumpositionen.Add(raumposition);
             }
 
