@@ -17,7 +17,6 @@ public class Druckplatte : MonoBehaviour {
         if (collision.collider.gameObject.tag == "hebObj")
         {
             GameObject hebObj = collision.collider.gameObject;
-            Debug.Log("druckplatte");
             //Vector3 target = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);
             //this.transform.position = Vector3.Lerp(this.transform.position, target, Time.deltaTime * moveDelay);
             this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y - 0.5f, this.transform.position.z);

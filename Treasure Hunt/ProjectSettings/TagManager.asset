@@ -19,6 +19,7 @@ TagManager:
   - stein
   - Quiz4
   - Quiz4Parent
+  - GameManager
   layers:
   - Default
   - TransparentFX

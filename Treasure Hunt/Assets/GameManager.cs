@@ -7,10 +7,13 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public GameObject scoreTextObj;
-    int keysCollected = 0;
+    public int keysCollected = 0;
     Text scoreT;
 
-
+    private void Start()
+    {
+        this.tag = "GameManager";
+    }
 
     private void Awake()
     {
