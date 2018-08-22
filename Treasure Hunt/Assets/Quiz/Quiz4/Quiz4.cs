@@ -17,6 +17,8 @@ public class Quiz4 : MonoBehaviour
     public GameObject[] steinPos;
 
     bool win = false;
+    bool reihe1 = false;
+    bool reihe2 = false;
 
     public GameObject schluesselpref;
 
@@ -84,21 +86,30 @@ public class Quiz4 : MonoBehaviour
             quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
-        if (steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[9].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[13].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[0].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[4].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[8].GetComponent<Renderer>().material.color == Color.cyan &&
-            steinPos[12].GetComponent<Renderer>().material.color == Color.cyan &&
-            quiztimer.timer > 0)
+        if (steinPos[0].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[4].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[8].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[12].GetComponent<Renderer>().material.color == Color.red)
+        { 
+            reihe1 = true;
+            Debug.Log("reihe1");
+        }
+        if (steinPos[1].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[5].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[9].GetComponent<Renderer>().material.color == Color.red &&
+            steinPos[13].GetComponent<Renderer>().material.color == Color.red)
         {
-            quiztimer.hasWon = true;
+            reihe2 = true;
+            Debug.Log("reihe2");
+        }
+        if(reihe1 && reihe2)
+        { 
+        quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
+            Debug.Log("GEWONNEN");
         }
         //else if (zeileL blau && zeileR rot)
         //    else if (zeileL rot && zeileR blau)
-
+        //quiztimer.timer > 0
     }
 }
