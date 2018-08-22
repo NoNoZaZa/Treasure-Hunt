@@ -27,10 +27,8 @@ public class PuzzleMovement : MonoBehaviour {
             ytemp = transform.position.y;
             this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
             int c = System.Array.IndexOf(steinPos, gameObject);
-            Debug.Log(c);
             emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
             int e = System.Array.IndexOf(steinPos, emptySlot);
-            Debug.Log("E ist " + e);
             GameObject tempS = steinPos[c];
             steinPos[c] = emptySlot;
             steinPos[e] = tempS;

@@ -94,6 +94,10 @@ public class Quiz4 : MonoBehaviour
             reihe1 = true;
             Debug.Log("reihe1");
         }
+        else
+        {
+            reihe1 = false;
+        }
         if (steinPos[1].GetComponent<Renderer>().material.color == Color.red &&
             steinPos[5].GetComponent<Renderer>().material.color == Color.red &&
             steinPos[9].GetComponent<Renderer>().material.color == Color.red &&
@@ -102,14 +106,15 @@ public class Quiz4 : MonoBehaviour
             reihe2 = true;
             Debug.Log("reihe2");
         }
-        if(reihe1 && reihe2)
+        else
+        {
+            reihe2 = false;
+        }
+        if(reihe1 && reihe2 && quiztimer.timer > 0)
         { 
         quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
             Debug.Log("GEWONNEN");
         }
-        //else if (zeileL blau && zeileR rot)
-        //    else if (zeileL rot && zeileR blau)
-        //quiztimer.timer > 0
     }
 }
