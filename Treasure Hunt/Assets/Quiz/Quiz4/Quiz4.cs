@@ -30,7 +30,7 @@ public class Quiz4 : MonoBehaviour
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
-        quiztimer.zeitGesamt = 30f;
+        quiztimer.zeitGesamt = 60f;
         quiztimer.quiz = this.gameObject;
         int index = 0;
 
@@ -38,7 +38,7 @@ public class Quiz4 : MonoBehaviour
         {
             for (j = 0; j < 4; j++)
             {
-                pos = new Vector3(i, j + offsetY, 7f);
+                pos = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, 7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
 
                 if (!puzzle.activeInHierarchy)
@@ -61,7 +61,7 @@ public class Quiz4 : MonoBehaviour
                 if (i == 3 && j == 2)
                 {
                     ++j;
-                    posE = new Vector3(i, j + offsetY, 7f);
+                    posE = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, 7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";
