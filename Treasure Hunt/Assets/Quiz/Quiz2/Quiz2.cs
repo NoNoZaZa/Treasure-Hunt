@@ -40,7 +40,6 @@ public class Quiz2 : MonoBehaviour {
         target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
         if (cube == null && quiztimer.timer > 0)
         {
-            Debug.Log("funktioniert");
             quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
