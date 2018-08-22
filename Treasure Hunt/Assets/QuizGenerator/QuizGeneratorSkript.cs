@@ -47,7 +47,7 @@ public class QuizGeneratorSkript : MonoBehaviour
             }
         }
 
-        quiz1.transform.position();
+        //quiz1.transform.position();
 
     }
 

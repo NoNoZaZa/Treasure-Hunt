@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -406,10 +406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035f4ffcc44e12641bf93158a0ec3081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  raumPrefab: {fileID: 1176104312590356, guid: eebd8135b602818439b7392dd266ca42, type: 2}
+  raumPrefab: {fileID: 1177584221661024, guid: 945c55a6d2011fb40bdbebdc71c3afd4, type: 2}
   wandPrefab: {fileID: 1842561057642076, guid: 7d29dcd9422f11e48ad79d2118cf2088, type: 2}
-  endraumPrefab: {fileID: 0}
-  endraumWandPrefab: {fileID: 0}
+  endraumPrefab: {fileID: 1530719998639062, guid: cd2582088417bda4a8a66ff63e5dc9ac,
+    type: 2}
+  endraumWandPrefab: {fileID: 1528283918997188, guid: 3b45fc14595810647a2e075d2b1215bf,
+    type: 2}
   pseudorandom: 1
   raumpositionen: []
   tuerpositionen: []
@@ -425,6 +427,52 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &329184309
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 329184311}
+  - component: {fileID: 329184310}
+  m_Layer: 0
+  m_Name: QuizGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &329184310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329184309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14922e0f4c640c48a1b04253e59bf47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raumGenerator: {fileID: 300618892}
+  quiz1: {fileID: 1404054621}
+  quiz2: {fileID: 865277828}
+  quiz3: {fileID: 891795143}
+  quiz4: {fileID: 1372835752}
+  raumpositionenInQuizGenerator: []
+--- !u!4 &329184311
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329184309}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 20, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &363851952
 GameObject:
@@ -1202,6 +1250,11 @@ Light:
   m_CorrespondingSourceObject: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
     type: 2}
   m_PrefabInternal: {fileID: 376469796}
+--- !u!1 &865277828 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1833904521954132, guid: b32f30afbf0cea9428028222740d8c46,
+    type: 2}
+  m_PrefabInternal: {fileID: 1600353177}
 --- !u!1001 &873234284
 Prefab:
   m_ObjectHideFlags: 0
@@ -1259,6 +1312,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a98c4ee15b2186e46a57865eb6f9c09b, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &891795143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1749959918994234, guid: fa4885d23b540be4bb8a46c11c7be905,
+    type: 2}
+  m_PrefabInternal: {fileID: 1375126629}
 --- !u!1 &943337847
 GameObject:
   m_ObjectHideFlags: 0
@@ -1760,6 +1818,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa4885d23b540be4bb8a46c11c7be905, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1404054621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1480007419521720, guid: a98c4ee15b2186e46a57865eb6f9c09b,
+    type: 2}
+  m_PrefabInternal: {fileID: 873234284}
 --- !u!1 &1475457479
 GameObject:
   m_ObjectHideFlags: 0
