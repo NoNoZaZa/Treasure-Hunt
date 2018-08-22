@@ -120,7 +120,7 @@ public class Drehrad : MonoBehaviour
             GameObject keil = GameObject.FindWithTag("keil");
             keil.transform.Translate(0, -1.3f, 0);
             Vector3 ziel = new Vector3(0, 0, 0);
-            //StartCoroutine(StartCounter());
+            StartCoroutine(StartCounter());
             //keil.transform.Rotate(0, 90, 0);
             //if (keil.transform.position == ziel)
             //{ keil.transform.Rotate(0, 0, 90); }
@@ -130,7 +130,7 @@ public class Drehrad : MonoBehaviour
     }
     private IEnumerator StartCounter()
     {
-        float countDown = 3f;
+        float countDown = 1f;
         for (int i = 0; i < 10000; i++)
         {
             while (countDown >= 0)
@@ -140,7 +140,9 @@ public class Drehrad : MonoBehaviour
                 yield return null;
             }
         }
-        keil.transform.rotation = Quaternion.Euler(0, 0, 90);
+        //keil.transform.rotation = Quaternion.Euler(0,90,0 );
+        keil.transform.eulerAngles = new Vector3(180, -90, -89);
+        keil.transform.position = new Vector3(10.3f, 4, 12.1f);
         //keil.transform.Rotate(0, 0, 45);
     }
 
