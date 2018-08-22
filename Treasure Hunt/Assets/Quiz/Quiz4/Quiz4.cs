@@ -14,7 +14,11 @@ public class Quiz4 : MonoBehaviour {
     public GameObject timer;
     private QuizTimer quiztimer;
     public GameObject[] steinPos;
+<<<<<<< HEAD
     bool win = false;
+=======
+    public GameObject schluesselpref;
+>>>>>>> 0beff012cb04ab13d2381ffc243c6b616d6a9a90
 
     // Use this for initialization
     void Start()
@@ -76,7 +80,7 @@ public class Quiz4 : MonoBehaviour {
         if (win)
         {
             quiztimer.hasWon = true;
-            Debug.Log("Gewonnen");
+            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
         if (steinPos[1].GetComponent<Renderer>().material.color == Color.cyan &&
             steinPos[5].GetComponent<Renderer>().material.color == Color.cyan &&
@@ -89,6 +93,7 @@ public class Quiz4 : MonoBehaviour {
             quiztimer.timer > 0)
         {
             quiztimer.hasWon = true;
+            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
         //else if (zeileL blau && zeileR rot)
         //    else if (zeileL rot && zeileR blau)

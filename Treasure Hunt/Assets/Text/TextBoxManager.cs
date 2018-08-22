@@ -27,14 +27,22 @@ public class TextBoxManager : MonoBehaviour {
         
         if (obj.tag == "infoquiz3")
         {
-            quizText.text = "ABSCHIEßEN \n \nSchieße alle Teile ab um den Schlüssel zu bekommen.\nNutze zum Schießen die linke Maustaste.";
-            Debug.Log("Quiz3");
+            quizText.text = "ABSCHIEßEN \n \nSchieße alle Teile ab, um den Schlüssel zu bekommen.\nNutze zum Schießen die linke Maustaste.";          
+        }
+
+        if(obj.tag == "infoquiz2")
+        {
+            quizText.text = "TRAGEN \n \nTrage den Würfel auf die Druckplatte, um den Schlüssel anzeigen zu lassen.\nNutze zum Tragen die linke Maustaste " +
+                "und zum Loslassen die rechte Maustaste.";
         }
 
         if (obj.tag == "infoquiz1")
         {
-            quizText.text = "PAARSUCHE \n \nKlicke die Paare an, damit sie verschwinden";
-            Debug.Log("Quiz1");
+            quizText.text = "PAARSUCHE \n \nKlicke die Paare an, damit sie verschwinden.\nNur wenn alle Paare verschwunden sind\nwird der Schlüssel freigeschaltet.";
+        }
+        if(obj.tag == "infoquiz4")
+        {
+            quizText.text = "SORTIEREN \n\nBringe die Würfel einheitlich auf eine Seite, um an den Schlüssel freizuschalten.";
         }
     }
 

@@ -10,6 +10,7 @@ public class Quiz2 : MonoBehaviour {
     public float moveDelay = 2f;
     public GameObject timer;
     private QuizTimer quiztimer;
+    public GameObject schluesselpref;
 
     private Vector3 target = Vector3.zero;
 
@@ -37,6 +38,12 @@ public class Quiz2 : MonoBehaviour {
     // Update is called once per frame
     void Update () {
         target = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2, Screen.height / 2, holdDistance));
+        if (cube == null && quiztimer.timer > 0)
+        {
+            Debug.Log("funktioniert");
+            quiztimer.hasWon = true;
+            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
+        }
     }
 
 
@@ -50,11 +57,7 @@ public class Quiz2 : MonoBehaviour {
             //cube.transform.position = 
             cube.transform.rotation = player.transform.rotation;
         }
-        else if (cube != null && quiztimer.timer > 0)
-        {
-            quiztimer.hasWon = true;
 
-        }
     }
 
 

@@ -80,6 +80,7 @@ MonoBehaviour:
   countDownText: {fileID: 114971543325664196}
   winText: {fileID: 114098798114071104}
   hasWon: 0
+  quiz: {fileID: 0}
 --- !u!114 &114098798114071104
 MonoBehaviour:
   m_ObjectHideFlags: 1
