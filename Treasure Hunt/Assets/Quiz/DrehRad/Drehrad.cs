@@ -10,7 +10,7 @@ public class Drehrad : MonoBehaviour
     public float targetAngleC;
     bool sperre = true;
     Quaternion targetRotation;
-
+    bool drehen = true;
 
 
     // Use this for initialization
@@ -60,59 +60,60 @@ public class Drehrad : MonoBehaviour
         //Quaternion target1 =  rad1.transform.rotation * Quaternion.Euler(new Vector3(0, targetAngleA, 0));
         //rad1.transform.rotation = Quaternion.Lerp(rad1.transform.rotation, target1, Time.deltaTime);
         //rad1.transform.Rotate(rad1.transform.up, Mathf.Lerp(rad1.transform.rotation.y, rad1.transform.rotation.y + targetAngleA, Time.deltaTime));
+        if (drehen)
+        {
+            //RadA
+            if (targetAngleA >= 45)
+            {
+                rotDir = 5;
+            }
+            else if (targetAngleA <= -45)
+            {
+                rotDir = -5;
+            }
 
-        //RadA
-        if (targetAngleA >= 45)
-        {
-            rotDir = 5;
-        }
-        else if (targetAngleA <= -45)
-        {
-            rotDir = -5;
-        }
+            if (targetAngleA != 0)
+            {
+                //rad1.transform.Rotate(transform.up, rotDir);
+                rad1.transform.Rotate(0, rotDir, 0);
+                targetAngleA -= rotDir;
+            }
 
-        if (targetAngleA != 0)
-        {
-            //rad1.transform.Rotate(transform.up, rotDir);
-            rad1.transform.Rotate(0, rotDir, 0);
-            targetAngleA -= rotDir;
-        }
+            //RadB
+            if (targetAngleB >= 45)
+            {
+                rotDir = 5;
+            }
+            else if (targetAngleB <= -45)
+            {
+                rotDir = -5;
+            }
 
-        //RadB
-        if (targetAngleB >= 45)
-        {
-            rotDir = 5;
-        }
-        else if (targetAngleB <= -45)
-        {
-            rotDir = -5;
-        }
+            if (targetAngleB != 0)
+            {
+                //rad1.transform.Rotate(transform.up, rotDir);
+                rad2.transform.Rotate(0, rotDir, 0);
+                targetAngleB -= rotDir;
+            }
 
-        if (targetAngleB != 0)
-        {
-            //rad1.transform.Rotate(transform.up, rotDir);
-            rad2.transform.Rotate(0, rotDir, 0);
-            targetAngleB -= rotDir;
-        }
+            //RadC
+            if (targetAngleC >= 45)
+            {
+                rotDir = 5;
+            }
+            else if (targetAngleC <= -45)
+            {
+                rotDir = -5;
+            }
 
-        //RadC
-        if (targetAngleC >= 45)
-        {
-            rotDir = 5;
-        }
-        else if (targetAngleC <= -45)
-        {
-            rotDir = -5;
-        }
+            if (targetAngleC != 0)
+            {
+                //rad1.transform.Rotate(transform.up, rotDir);
+                rad3.transform.Rotate(0, rotDir, 0);
+                targetAngleC -= rotDir;
+            }
 
-        if (targetAngleC != 0)
-        {
-            //rad1.transform.Rotate(transform.up, rotDir);
-            rad3.transform.Rotate(0, rotDir, 0);
-            targetAngleC -= rotDir;
         }
-
-
 
         //Keil soll sich in Radmitte schieben & drehen (Schlüsselprinzip)
         if (sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
@@ -120,6 +121,7 @@ public class Drehrad : MonoBehaviour
             GameObject keil = GameObject.FindWithTag("keil");
             keil.transform.Translate(0, -1.3f, 0);
             Vector3 ziel = new Vector3(0, 0, 0);
+            drehen = false;
             StartCoroutine(StartCounter());
             //keil.transform.Rotate(0, 90, 0);
             //if (keil.transform.position == ziel)
@@ -130,7 +132,7 @@ public class Drehrad : MonoBehaviour
     }
     private IEnumerator StartCounter()
     {
-        float countDown = 1f;
+        float countDown = 0.5f;
         for (int i = 0; i < 10000; i++)
         {
             while (countDown >= 0)
@@ -140,10 +142,11 @@ public class Drehrad : MonoBehaviour
                 yield return null;
             }
         }
-        //keil.transform.rotation = Quaternion.Euler(0,90,0 );
         keil.transform.eulerAngles = new Vector3(180, -90, -89);
         keil.transform.position = new Vector3(10.3f, 4, 12.1f);
-        //keil.transform.Rotate(0, 0, 45);
+        //keil.transform.Translate(-1.2f, 2.13f, -1.3f);
+        //keil.transform.rotation = Quaternion.Euler(85, 10, -9);   
+        //keil.transform.rotation = Quaternion.Euler(0,90,0 );     
     }
 
 }
