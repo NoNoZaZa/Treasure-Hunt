@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4173038285168584}
   m_Layer: 0
   m_Name: Drehschluessel
-  m_TagString: Untagged
+  m_TagString: keil
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -62,14 +62,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1387759519442220}
-  m_LocalRotation: {x: -0.14353138, y: -0.82830566, z: -0.5222139, w: 0.14353116}
-  m_LocalPosition: {x: 12, y: 3.5, z: 12}
+  m_LocalRotation: {x: -0.14755891, y: -0.8331337, z: -0.5040096, w: 0.17346153}
+  m_LocalPosition: {x: 12, y: 3.2, z: 12.7}
   m_LocalScale: {x: 0.5, y: 0.3, z: 0.5}
   m_Children:
   - {fileID: 4055214831114080}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -65, y: -528, z: -1068}
+  m_LocalEulerAnglesHint: {x: -63, y: -522, z: -1071}
 --- !u!23 &23275053533112264
 MeshRenderer:
   m_ObjectHideFlags: 1

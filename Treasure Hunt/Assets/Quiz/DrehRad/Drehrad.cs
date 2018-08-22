@@ -38,7 +38,7 @@ public class Drehrad : MonoBehaviour
         rad3.transform.parent = this.transform;
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
-        keil = Instantiate(keil, keil.transform.position, Quaternion.identity);
+        keil = Instantiate(keil);
         //keil.transform.Translate(0, 0, 5f);
         keil.transform.parent = this.transform;
         if (!keil.activeInHierarchy) keil.SetActive(true);
@@ -51,7 +51,8 @@ public class Drehrad : MonoBehaviour
     }
 
     float rotDir = 0f;
-    // Update is called once per frame
+    //Update is called once per frame
+
     public void Update()
     {
 
@@ -124,6 +125,6 @@ public class Drehrad : MonoBehaviour
             //keil.transform.parent = this.transform;
             sperre = false;
         }
-
     }
+
 }

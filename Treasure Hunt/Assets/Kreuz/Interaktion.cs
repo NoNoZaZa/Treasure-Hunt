@@ -141,7 +141,7 @@ public class Interaktion : MonoBehaviour {
                 #endregion
 
                 #region Quiz4
-                //Puzzle
+                //Puzzle wird über PuzzleMovement.cs gesteuert
                 #endregion
 
 
@@ -160,8 +160,7 @@ public class Interaktion : MonoBehaviour {
                         if (rad.name == "rad1")
                         {
                             drehrad.targetAngleA = -45;
-                            drehrad.Update();
-                            Debug.Log("Dreh rad1 rechts");
+                            
                         }
                         else if (rad.name == "rad2")
                         {
@@ -180,8 +179,6 @@ public class Interaktion : MonoBehaviour {
                         if (rad.name == "rad1")
                         {
                             drehrad.targetAngleA = 45;
-                            drehrad.Update();
-                            Debug.Log("Dreh rad1 links");
                         }
                         else if (rad.name == "rad2")
                         {
@@ -204,22 +201,7 @@ public class Interaktion : MonoBehaviour {
 
         }
 
-        // Zusatz Quiz4 - Keil reinschieben & drehen:
-        GameObject[] raeder;
-        raeder = GameObject.FindGameObjectsWithTag("rad");
-        GameObject radA = raeder[0];
-        GameObject radB = raeder[1];
-        GameObject radC = raeder[2];
-        if (sperre && Mathf.Approximately(0f, (int)(radA.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radB.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(radC.transform.rotation.y * 100)))
-        {
-            GameObject keil = GameObject.FindWithTag("keil");
-            keil.transform.Translate(0, 0, -2.3f);
-            Vector3 ziel = new Vector3(0,0,0);
-            if (keil.transform.position == ziel)
-            { keil.transform.Rotate(0, 0, 90); }
-            //keil.transform.parent = this.transform;
-            sperre = false;
-        }
+
 
 
         #region Quiz2-Zusatz
