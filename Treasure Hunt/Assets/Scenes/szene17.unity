@@ -408,7 +408,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raumPrefab: {fileID: 1176104312590356, guid: eebd8135b602818439b7392dd266ca42, type: 2}
   wandPrefab: {fileID: 1842561057642076, guid: 7d29dcd9422f11e48ad79d2118cf2088, type: 2}
-  raumposition: {x: 0, y: 1, z: 0}
+  endraumPrefab: {fileID: 0}
+  endraumWandPrefab: {fileID: 0}
   pseudorandom: 1
   raumpositionen: []
   tuerpositionen: []
@@ -2147,7 +2148,7 @@ MonoBehaviour:
   rad1: {fileID: 1596116812750330, guid: fda70592daae1124ba53bb40d640287f, type: 2}
   rad2: {fileID: 1925637679652262, guid: ad97c1dd73805694196f5c8b9e1390a8, type: 2}
   rad3: {fileID: 1525500245327452, guid: 03e007430c5ab7c40ba8b6e16b67dc4b, type: 2}
-  keil: {fileID: 1390377304638024, guid: e72b01f9c2b5f5b4c9a8abe6276ab609, type: 2}
+  keil: {fileID: 1242653677433118, guid: a8308f45722bd8946ae7638d7d493eba, type: 2}
   targetAngleA: 0
   targetAngleB: 0
   targetAngleC: 0

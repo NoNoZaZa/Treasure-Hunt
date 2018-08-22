@@ -40,7 +40,7 @@ public class Drehrad : MonoBehaviour
 
         keil = Instantiate(keil);
         //keil.transform.Translate(0, 0, 5f);
-        keil.transform.parent = this.transform;
+        //keil.transform.parent = this.transform;
         if (!keil.activeInHierarchy) keil.SetActive(true);
 
         //Quiz aufstellen
@@ -118,13 +118,30 @@ public class Drehrad : MonoBehaviour
         if (sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
         {
             GameObject keil = GameObject.FindWithTag("keil");
-            keil.transform.Translate(0, 0, -2.3f);
+            keil.transform.Translate(0, -1.3f, 0);
             Vector3 ziel = new Vector3(0, 0, 0);
-            if (keil.transform.position == ziel)
-            { keil.transform.Rotate(0, 0, 90); }
+            //StartCoroutine(StartCounter());
+            //keil.transform.Rotate(0, 90, 0);
+            //if (keil.transform.position == ziel)
+            //{ keil.transform.Rotate(0, 0, 90); }
             //keil.transform.parent = this.transform;
             sperre = false;
         }
+    }
+    private IEnumerator StartCounter()
+    {
+        float countDown = 3f;
+        for (int i = 0; i < 10000; i++)
+        {
+            while (countDown >= 0)
+            {
+                Debug.Log(i++);
+                countDown -= Time.smoothDeltaTime;
+                yield return null;
+            }
+        }
+        keil.transform.rotation = Quaternion.Euler(0, 0, 90);
+        //keil.transform.Rotate(0, 0, 45);
     }
 
 }
