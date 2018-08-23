@@ -11,6 +11,7 @@ public class Drehrad : MonoBehaviour
     bool sperre = true;
     Quaternion targetRotation;
     bool drehen = true;
+    public float posX, posY, posZ;
 
 
     // Use this for initialization
@@ -39,12 +40,13 @@ public class Drehrad : MonoBehaviour
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
         keil = Instantiate(keil);
-        keil.transform.Translate(0.5f, 4, 0.22f);
-        //keil.transform.parent = this.transform;
+        //keil.transform.Translate(3.7f, 0f, 0f);
+        keil.transform.parent = this.transform;
+        //keil.transform.Rotate(0, -90,0);
         if (!keil.activeInHierarchy) keil.SetActive(true);
 
         //Quiz aufstellen
-        this.transform.Translate(0, 2, 0);
+        this.transform.Translate(0 + posX, 2 + posY, 0 + posZ);
         this.transform.Rotate(0, 0, 90);
         this.transform.localScale += new Vector3(-0.5f, -0.5f, -0.5f);
 
@@ -119,7 +121,7 @@ public class Drehrad : MonoBehaviour
         if (sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
         {
             GameObject keil = GameObject.FindWithTag("keil");
-            keil.transform.Translate(0, -2.02f, 0);
+            keil.transform.Translate(0, 0, -1.8f);
             Vector3 ziel = new Vector3(0, 0, 0);
             drehen = false;
             StartCoroutine(StartCounter());
@@ -142,8 +144,9 @@ public class Drehrad : MonoBehaviour
                 yield return null;
             }
         }
-        keil.transform.eulerAngles = new Vector3(185, -270, 90);
-        keil.transform.position = new Vector3(1.5f, 1.4f, 2f);
+        //keil.transform.eulerAngles = new Vector3(185, -270, 90);
+        //keil.transform.position = new Vector3(1.5f + posX, 1.4f + posY, 2f + posZ);
+        keil.transform.Rotate(0,0,-90);
         //keil.transform.Translate(-1.2f, 2.13f, -1.3f);
         //keil.transform.rotation = Quaternion.Euler(85, 10, -9);   
         //keil.transform.rotation = Quaternion.Euler(0,90,0 );     
