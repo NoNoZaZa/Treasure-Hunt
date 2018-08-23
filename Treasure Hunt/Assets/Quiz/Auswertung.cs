@@ -20,39 +20,39 @@ public class Auswertung : MonoBehaviour {
         keysCollected = gameManager.keysCollected;
         if (keysCollected == 1)
         {
-            Debug.Log("Schatzkammer öffnet sich, 1Taler");
-            GameObject drehschloss = Instantiate(drehrad, radPos1, Quaternion.identity);
-            drehschloss.SetActive(true);
+            //Debug.Log("Schatzkammer öffnet sich, 1Taler");
+            //GameObject drehschloss = Instantiate(drehrad, radPos1, Quaternion.identity);
+            //drehschloss.SetActive(true);
         }
         else if (keysCollected == 2)
         {
-            Debug.Log("Schatzkammer öffnet sich, 3.Platz");
-            GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
-            drehschloss1.SetActive(true);
-            GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
-            drehschloss2.SetActive(true);
+            //Debug.Log("Schatzkammer öffnet sich, 3.Platz");
+            //GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
+            //drehschloss1.SetActive(true);
+            //GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
+            //drehschloss2.SetActive(true);
         }
         else if (keysCollected == 3)
         {
-            Debug.Log("Schatzkammer öffnet sich, 2.Platz");
-            GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
-            drehschloss1.SetActive(true);
-            GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
-            drehschloss2.SetActive(true);
-            GameObject drehschloss3 = Instantiate(drehrad, radPos3, Quaternion.identity);
-            drehschloss3.SetActive(true);
+            //Debug.Log("Schatzkammer öffnet sich, 2.Platz");
+            //GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
+            //drehschloss1.SetActive(true);
+            //GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
+            //drehschloss2.SetActive(true);
+            //GameObject drehschloss3 = Instantiate(drehrad, radPos3, Quaternion.identity);
+            //drehschloss3.SetActive(true);
         }
         else if (keysCollected == 4)
         {
-            Debug.Log("Schatzkammer öffnet sich, Hauptgewinn");
-            GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
-            drehschloss1.SetActive(true);
-            GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
-            drehschloss2.SetActive(true);
-            GameObject drehschloss3 = Instantiate(drehrad, radPos3, Quaternion.identity);
-            drehschloss3.SetActive(true);
-            GameObject drehschloss4 = Instantiate(drehrad, radPos4, Quaternion.identity);
-            drehschloss4.SetActive(true);
+            //Debug.Log("Schatzkammer öffnet sich, Hauptgewinn");
+            //GameObject drehschloss1 = Instantiate(drehrad, radPos1, Quaternion.identity);
+            //drehschloss1.SetActive(true);
+            //GameObject drehschloss2 = Instantiate(drehrad, radPos2, Quaternion.identity);
+            //drehschloss2.SetActive(true);
+            //GameObject drehschloss3 = Instantiate(drehrad, radPos3, Quaternion.identity);
+            //drehschloss3.SetActive(true);
+            //GameObject drehschloss4 = Instantiate(drehrad, radPos4, Quaternion.identity);
+            //drehschloss4.SetActive(true);
         }
         else
         {
