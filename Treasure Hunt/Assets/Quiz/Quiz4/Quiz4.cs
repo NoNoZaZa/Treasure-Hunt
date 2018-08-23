@@ -16,7 +16,6 @@ public class Quiz4 : MonoBehaviour
     private QuizTimer quiztimer;
     public GameObject[] steinPos;
 
-    bool win = false;
     bool reihe1 = false;
     bool reihe2 = false;
 
@@ -80,12 +79,6 @@ public class Quiz4 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (win)
-        {
-            quiztimer.hasWon = true;
-            GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
-        }
         if (steinPos[0].GetComponent<Renderer>().material.color == Color.red &&
             steinPos[4].GetComponent<Renderer>().material.color == Color.red &&
             steinPos[8].GetComponent<Renderer>().material.color == Color.red &&
@@ -114,7 +107,11 @@ public class Quiz4 : MonoBehaviour
         { 
         quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
-            Debug.Log("GEWONNEN");
+            foreach(GameObject puzzle in steinPos)
+            {
+                Destroy(puzzle);
+            }
+           
         }
     }
 }
