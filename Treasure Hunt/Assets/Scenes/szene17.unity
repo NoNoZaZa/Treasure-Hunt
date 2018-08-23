@@ -192,7 +192,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -5.980652, y: 1}
-  m_SizeDelta: {x: 500, y: 200}
+  m_SizeDelta: {x: 580, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161545083
 MonoBehaviour:
@@ -1369,6 +1369,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 803393562}
+  scoreText: {fileID: 1348490320}
+  scoreAnzeige: {fileID: 428883072}
 --- !u!108 &843952652 stripped
 Light:
   m_CorrespondingSourceObject: {fileID: 108390659713938322, guid: 91de66de50ac94488abb3b2cc94e0a5b,
@@ -2595,13 +2597,15 @@ MonoBehaviour:
   rad1: {fileID: 1596116812750330, guid: fda70592daae1124ba53bb40d640287f, type: 2}
   rad2: {fileID: 1925637679652262, guid: ad97c1dd73805694196f5c8b9e1390a8, type: 2}
   rad3: {fileID: 1525500245327452, guid: 03e007430c5ab7c40ba8b6e16b67dc4b, type: 2}
-  keil: {fileID: 1242653677433118, guid: a8308f45722bd8946ae7638d7d493eba, type: 2}
+  keil: {fileID: 1390377304638024, guid: e72b01f9c2b5f5b4c9a8abe6276ab609, type: 2}
   targetAngleA: 0
   targetAngleB: 0
   targetAngleC: 0
   posX: 0
   posY: 0
   posZ: 0
+  scoreText: {fileID: 1348490320}
+  scoreAnzeige: {fileID: 428883072}
 --- !u!4 &1657860157
 Transform:
   m_ObjectHideFlags: 0

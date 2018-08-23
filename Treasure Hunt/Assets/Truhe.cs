@@ -1,41 +1,53 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Truhe : MonoBehaviour {
 
     public Animation anim;
     int keysCollected;
     GameManager gameManager;
-    int offen;
+    bool offen = false;
+    public Text scoreText;
+    public GameObject scoreAnzeige;
 
     // Use this for initialization
     void Start () {
         anim = anim = GetComponent<Animation>();
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        keysCollected = gameManager.keysCollected;
+        
     }
 	
 	// Update is called once per frame
 	void Update () {
-
-        if (offen == 4)
+        keysCollected = gameManager.keysCollected;
+        if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("ENDE!");
+            if (keysCollected > 0)
+            {
+                anim.Play();
+                offen = true;
+                keysCollected--;
+                GameManager.instance.Eingesetzt(keysCollected);
+            }
         }
-
-
-    }
-
-    private void OnMouseUp()
-    {
-        if(keysCollected > 0)
+        if (offen && keysCollected == 0)
         {
-            anim.Play();
-            offen++;
-            keysCollected--;
-            GameManager.instance.Eingesetzt(keysCollected);
+            scoreAnzeige.SetActive(true);
+            scoreText.text = "SPIELENDE\n\nDrücke ESC zum Verlassen.";
         }
     }
+
+    //private void OnMouseUp()
+    //{
+    //    if(keysCollected > 0)
+    //    {
+    //        anim.Play();
+    //        offen++;
+    //        keysCollected--;
+    //        GameManager.instance.Eingesetzt(keysCollected);
+    //    }
+    //}
  }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Drehrad : MonoBehaviour
 {
@@ -12,11 +13,16 @@ public class Drehrad : MonoBehaviour
     Quaternion targetRotation;
     bool drehen = true;
     public float posX, posY, posZ;
-
+    GameManager gameManager;
+    int keysCollected;
+    public Text scoreText;
+    public GameObject scoreAnzeige;
 
     // Use this for initialization
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+
         int zufall = (Random.Range(1, 8)) * 45;
         //GameObject radChild1 = rad1.transform.GetChild(0).Find("rad").gameObject;
         rad1 = Instantiate(rad1);
@@ -57,7 +63,7 @@ public class Drehrad : MonoBehaviour
 
     public void Update()
     {
-
+        keysCollected = gameManager.keysCollected;
 
         //Quaternion target1 =  rad1.transform.rotation * Quaternion.Euler(new Vector3(0, targetAngleA, 0));
         //rad1.transform.rotation = Quaternion.Lerp(rad1.transform.rotation, target1, Time.deltaTime);
@@ -118,7 +124,7 @@ public class Drehrad : MonoBehaviour
         }
 
         //Keil soll sich in Radmitte schieben & drehen (Schlüsselprinzip)
-        if (sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
+        if (keysCollected > 0 && sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
         {
             GameObject keil = GameObject.FindWithTag("keil");
             keil.transform.Translate(0, 0, -1.8f);
@@ -129,6 +135,17 @@ public class Drehrad : MonoBehaviour
             //if (keil.transform.position == ziel)
             //{ keil.transform.Rotate(0, 0, 90); }
             //keil.transform.parent = this.transform;
+            sperre = false;
+        }
+        else if (keysCollected == 0 && sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
+        {
+            GameObject keil = GameObject.FindWithTag("keil");
+            keil.transform.Translate(0, 0, -1.8f);
+            Vector3 ziel = new Vector3(0, 0, 0);
+            drehen = false;
+            StartCoroutine(StartCounter());
+            scoreAnzeige.SetActive(true);
+            scoreText.text = "SPIELENDE\n\nDu hast leider keine Schlüssel gesammelt & kommst somit nicht in die Schatzkammer :( \nDrücke ESC zum Verlassen.";
             sperre = false;
         }
     }
