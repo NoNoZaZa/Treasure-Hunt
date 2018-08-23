@@ -208,6 +208,8 @@ public class Interaktion : MonoBehaviour {
                     if (keysCollected > 0)
                     {
                         GameObject truhe = hit.collider.gameObject;
+                        AudioSource src = truhe.GetComponent<AudioSource>();
+                        src.Play();
                         truhe.GetComponent<Animation>().Play();
                         offen = true;
                         keysCollected--;

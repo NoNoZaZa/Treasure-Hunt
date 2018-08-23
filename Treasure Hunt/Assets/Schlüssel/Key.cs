@@ -21,7 +21,7 @@ public class Key : MonoBehaviour {
         //Collect-Fkt aufrufen
         GameManager.instance.Collect(value, gameObject);
         //Sound
-        AudioSource src = GetComponent<AudioSource>();
+        AudioSource src = this.GetComponent<AudioSource>();
         src.Play();
     }
 }
