@@ -35,9 +35,24 @@ public class Truhe : MonoBehaviour {
         }
         if (offen && keysCollected == 0)
         {
-            scoreAnzeige.SetActive(true);
-            scoreText.text = "SPIELENDE\n\nDrücke ESC zum Verlassen.";
+            StartCoroutine(StartCounter());
         }
+    }
+
+    private IEnumerator StartCounter()
+    {
+        float countDown = 8f;
+        for (int i = 0; i < 10000; i++)
+        {
+            while (countDown >= 0)
+            {
+                Debug.Log(i++);
+                countDown -= Time.smoothDeltaTime;
+                yield return null;
+            }
+        }
+        scoreAnzeige.SetActive(true);
+        scoreText.text = "SPIELENDE\n\nDrücke ESC zum Verlassen.";
     }
 
     //private void OnMouseUp()
@@ -50,4 +65,4 @@ public class Truhe : MonoBehaviour {
     //        GameManager.instance.Eingesetzt(keysCollected);
     //    }
     //}
- }
+}
