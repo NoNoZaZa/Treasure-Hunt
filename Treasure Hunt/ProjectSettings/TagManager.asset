@@ -20,6 +20,7 @@ TagManager:
   - Quiz4
   - Quiz4Parent
   - GameManager
+  - Raum
   layers:
   - Default
   - TransparentFX

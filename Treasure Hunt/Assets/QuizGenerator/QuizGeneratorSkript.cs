@@ -20,6 +20,7 @@ public class QuizGeneratorSkript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        Random.InitState((int)System.DateTime.Now.Ticks);
         int[] quizPositionenArray = { 0, 0, 0 };
         Debug.Log("Das QuizGeneratorSkript wurde gestartet");
 
@@ -37,17 +38,27 @@ public class QuizGeneratorSkript : MonoBehaviour
             zaehlVariable++;
         }
 
-        while (anzahlQuizzes < 4)
+        while (anzahlQuizzes < 3)
         {
             int zufallszahl = zufallszahlGenerieren();
-            if(quizPositionenArray[zufallszahl] == 0)
+            if(quizPositionenArray.Contains(zufallszahl) == false)
             {
-                quizPositionenArray[zufallszahl] = zufallszahl;
+                quizPositionenArray[anzahlQuizzes] = zufallszahl;
+                Debug.Log(quizPositionenArray[anzahlQuizzes]);
+
                 anzahlQuizzes++;
+
             }
         }
 
-        //quiz1.transform.position();
+        Vector3 quiz2position = raumpositionenInQuizGenerator[quizPositionenArray[0]];
+        Vector3 quiz3position = raumpositionenInQuizGenerator[quizPositionenArray[1]];
+        Vector3 quiz4position = raumpositionenInQuizGenerator[quizPositionenArray[2]];
+        
+        quiz1.transform.position = new Vector3(0,0,0);
+        quiz2.transform.position = quiz2position;
+        quiz3.transform.position = quiz3position;
+        quiz4.transform.position = quiz4position;
 
     }
 

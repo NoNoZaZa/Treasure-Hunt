@@ -147,7 +147,7 @@ public class RoomGeneration : MonoBehaviour
             if (raumpositionen.Contains(new Vector3(0, 0, 0)))
             {
                 GameObject raum = Instantiate(raumPrefab, raumposition, Quaternion.identity);
-                raum.tag = "Raum" + successRaeume.ToString();
+                raum.tag = "Raum";
                 //Debug.Log(raum);
                 raumpositionen.Add(raumposition);
             }
