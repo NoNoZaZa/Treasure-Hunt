@@ -145,7 +145,7 @@ public class Drehrad : MonoBehaviour
             drehen = false;
             StartCoroutine(StartCounter());
             scoreAnzeige.SetActive(true);
-            scoreText.text = "SPIELENDE\n\nDu hast leider keine Schlüssel gesammelt & kommst somit nicht in die Schatzkammer :( \nDrücke ESC zum Verlassen.";
+            scoreText.text = "SPIELENDE\n\nDu hast leider keine Schlüssel gesammelt & kommst somit nicht in die Schatzkammer :( \n\nDrücke ESC zum Verlassen.";
             sperre = false;
         }
     }
