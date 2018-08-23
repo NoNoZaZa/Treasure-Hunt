@@ -21,6 +21,7 @@ TagManager:
   - Quiz4Parent
   - GameManager
   - Raum
+  - Truhe
   layers:
   - Default
   - TransparentFX

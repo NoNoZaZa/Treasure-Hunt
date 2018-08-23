@@ -41,5 +41,10 @@ public class GameManager : MonoBehaviour
         scoreT.text = "Schlüssel: " + keysCollected.ToString();
     }
 
+    public void Eingesetzt(int keyNum)
+    {
+        keysCollected = keyNum;
+        scoreT.text = "Schlüssel: " + keysCollected.ToString();
+    }
 
 }

@@ -27,7 +27,6 @@ public class Spielfigursteuerung : MonoBehaviour {
         seitlich = Input.GetAxis("Horizontal") * speed * Time.deltaTime*2;
 
         bool huepf = Input.GetKey(KeyCode.Space);
-        Debug.Log(speed);
 
         if(Input.GetKeyDown(KeyCode.LeftShift))
         {

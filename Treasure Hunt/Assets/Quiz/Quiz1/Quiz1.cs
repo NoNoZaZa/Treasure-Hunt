@@ -78,7 +78,6 @@ using UnityEngine;
             for (j = 0; j < 4; j++)
             {
                 ArrayRandomzuweisen();
-                Debug.Log("Zahl");
             }
         }
 
@@ -92,9 +91,7 @@ using UnityEngine;
             for (j = 0; j < 4; j++)
             {
                 //bloecke[i, j].transform.localPosition = new Vector3(i,j, 0);
-                bloecke[i, j].transform.Translate(i, j, 0);
-                Debug.Log("Anordnung");
-               
+                bloecke[i, j].transform.Translate(i, j, 0);           
                 
             }
         }

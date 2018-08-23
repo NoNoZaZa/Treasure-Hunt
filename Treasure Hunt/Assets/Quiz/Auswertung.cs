@@ -20,9 +20,8 @@ public class Auswertung : MonoBehaviour {
         keysCollected = gameManager.keysCollected;
         if (keysCollected == 1)
         {
-            //Debug.Log("Schatzkammer öffnet sich, 1Taler");
-            //GameObject drehschloss = Instantiate(drehrad, radPos1, Quaternion.identity);
-            //drehschloss.SetActive(true);
+            Debug.Log("Schatzkammer öffnet sich, 1Taler");
+            enabled = false;
         }
         else if (keysCollected == 2)
         {
