@@ -11,7 +11,7 @@ public class QuizTimer : MonoBehaviour
     public Text winText;
     public bool hasWon = false;
     public GameObject quiz;
-    public bool solved;
+    public bool solved = false;
 
 
     // Use this for initialization

@@ -21,6 +21,8 @@ public class TuerAuf : MonoBehaviour {
             transform.position = Vector3.Lerp((transform.position), pos, Time.deltaTime);
             AudioSource src = this.GetComponent<AudioSource>();
             src.Play();
+            src.Stop();
+            //enabled = false;
         }
 	}
 }
