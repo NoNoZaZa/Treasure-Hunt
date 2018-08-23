@@ -107,11 +107,14 @@ public class Quiz4 : MonoBehaviour
         { 
         quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
+        }
+
+        if (quiztimer.hasWon)
+        {
             foreach(GameObject puzzle in steinPos)
             {
                 Destroy(puzzle);
             }
-           
         }
     }
 }
