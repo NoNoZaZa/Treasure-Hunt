@@ -20,18 +20,13 @@ public class Schatzkammer : MonoBehaviour
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         keysCollected = gameManager.keysCollected;
-        if (keysCollected == 1)
+        if (keysCollected == 0)
         {
             scoreAnzeige.SetActive(true);
-            scoreText.text = "SPIELENDE \n\nErreichte Punkte: 500 \n\nDrücke ESC zum Verlassen.";
+            scoreText.text = "SPIELENDE\n\nDrücke ESC zum Verlassen.";
+
+
         }
-
-
     }
-    private void OnCollisionEnter(UnityEngine.Collision collision)
-    {
-        
 
-
-    }
 }
