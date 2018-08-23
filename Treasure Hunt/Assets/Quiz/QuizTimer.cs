@@ -11,6 +11,7 @@ public class QuizTimer : MonoBehaviour
     public Text winText;
     public bool hasWon = false;
     public GameObject quiz;
+    public bool solved;
 
 
     // Use this for initialization
@@ -33,12 +34,14 @@ public class QuizTimer : MonoBehaviour
             if (hasWon == false)
             {
                 winText.text = "Verloren";
+                solved = true;
             } 
         }
 
         if (hasWon == true && timer>0)
         {
             winText.text = "Gewonnen!";
+            solved = true;
             timer = 0;
         }
 

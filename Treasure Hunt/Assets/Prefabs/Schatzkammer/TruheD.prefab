@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 4722157534089872}
   - component: {fileID: 111384053033141280}
   - component: {fileID: 114851712070287764}
+  - component: {fileID: 65420345768730798}
   m_Layer: 0
   m_Name: TruheD
   m_TagString: Truhe
@@ -553,6 +554,18 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &65420345768730798
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1572724385444024}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!95 &95324642722708706
 Animator:
   serializedVersion: 3
@@ -598,6 +611,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 111384053033141280}
+  offen: 0
   scoreText: {fileID: 0}
   scoreAnzeige: {fileID: 0}
 --- !u!137 &137506473466376706

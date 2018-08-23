@@ -34,11 +34,16 @@ public class Interaktion : MonoBehaviour {
 
     //fuer Quiz 3 Zaehler zerstoerter Objekte
     public float zaehlercubes = 0;
- 
+
+    //Für Truhe
+    GameManager gameManager;
+    public bool offen = false;
+    int keysCollected;
 
     void Start()
     {
         geklickt = new GameObject[2];
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
 
@@ -53,6 +58,7 @@ public class Interaktion : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        keysCollected = gameManager.keysCollected;
         RaycastHit hit;
         Ray ray = Camera.main.ScreenPointToRay(new Vector2(Screen.width / 2, Screen.height / 2));
 
@@ -196,7 +202,21 @@ public class Interaktion : MonoBehaviour {
                 }
                 #endregion
 
+                #region Truhe
+                if (hit.collider.gameObject.tag == "Truhe")
+                {
+                    if (keysCollected > 0)
+                    {
+                        GameObject truhe = hit.collider.gameObject;
+                        truhe.GetComponent<Animation>().Play();
+                        offen = true;
+                        keysCollected--;
+                        GameManager.instance.Eingesetzt(keysCollected);
+                        truhe.GetComponent<Truhe>().offen = offen;
+                    }
+                }
 
+                #endregion
             }
 
 

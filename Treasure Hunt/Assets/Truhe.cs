@@ -8,7 +8,7 @@ public class Truhe : MonoBehaviour {
     public Animation anim;
     int keysCollected;
     GameManager gameManager;
-    bool offen = false;
+    public bool offen = false;
     public Text scoreText;
     public GameObject scoreAnzeige;
 
@@ -23,16 +23,17 @@ public class Truhe : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         keysCollected = gameManager.keysCollected;
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (keysCollected > 0)
-            {
-                anim.Play();
-                offen = true;
-                keysCollected--;
-                GameManager.instance.Eingesetzt(keysCollected);
-            }
-        }
+        offen = GameObject.FindWithTag("MainCamera").GetComponent<Interaktion>().offen;
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    if (keysCollected > 0)
+        //    {
+        //        anim.Play();
+        //        offen = true;
+        //        keysCollected--;
+        //        GameManager.instance.Eingesetzt(keysCollected);
+        //    }
+        //}
         if (offen && keysCollected == 0)
         {
             StartCoroutine(StartCounter());
