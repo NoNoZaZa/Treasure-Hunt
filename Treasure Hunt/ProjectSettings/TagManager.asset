@@ -23,6 +23,7 @@ TagManager:
   - Raum
   - Truhe
   - QuizTimer
+  - Tuer
   layers:
   - Default
   - TransparentFX

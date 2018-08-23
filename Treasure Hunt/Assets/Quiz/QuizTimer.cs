@@ -35,6 +35,7 @@ public class QuizTimer : MonoBehaviour
             {
                 winText.text = "Verloren";
                 solved = true;
+                GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerAuf>().solved = solved;
             } 
         }
 
@@ -42,6 +43,7 @@ public class QuizTimer : MonoBehaviour
         {
             winText.text = "Gewonnen!";
             solved = true;
+            GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerAuf>().solved = solved;
             timer = 0;
         }
 

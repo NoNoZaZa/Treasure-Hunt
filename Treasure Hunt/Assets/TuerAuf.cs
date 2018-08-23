@@ -4,24 +4,23 @@ using UnityEngine;
 
 public class TuerAuf : MonoBehaviour {
 
-    bool solved = false;
+    public bool solved = false;
     QuizTimer quiz;
 
 	// Use this for initialization
 	void Start () {
-        quiz = GameObject.FindGameObjectWithTag("QuizTimer").GetComponent<QuizTimer>();
+        //quiz = GameObject.FindGameObjectWithTag("QuizTimer").GetComponent<QuizTimer>();
     }
 	
 	// Update is called once per frame
 	void Update () {
-        solved = quiz.solved;
-        Debug.Log("Juhu" + solved);
-        if (solved)
+        //solved = quiz.solved;
+        if (solved == true)
         {
-            this.transform.Translate(-13, 0, 0);
-            AudioSource src = GetComponent<AudioSource>();
+            Vector3 pos = new Vector3(transform.position.x - 13, transform.position.y, transform.position.z);
+            transform.position = Vector3.Lerp((transform.position), pos, Time.deltaTime);
+            AudioSource src = this.GetComponent<AudioSource>();
             src.Play();
         }
-        Debug.Log(solved);
 	}
 }
