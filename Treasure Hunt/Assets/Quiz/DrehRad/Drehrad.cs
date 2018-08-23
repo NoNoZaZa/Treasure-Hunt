@@ -39,12 +39,12 @@ public class Drehrad : MonoBehaviour
         if (!rad3.activeInHierarchy) rad3.SetActive(true);
 
         keil = Instantiate(keil);
-        //keil.transform.Translate(0, 0, 5f);
+        keil.transform.Translate(0.5f, 4, 0.22f);
         //keil.transform.parent = this.transform;
         if (!keil.activeInHierarchy) keil.SetActive(true);
 
         //Quiz aufstellen
-        this.transform.Translate(10, 2.25f, 0);
+        this.transform.Translate(0, 2, 0);
         this.transform.Rotate(0, 0, 90);
         this.transform.localScale += new Vector3(-0.5f, -0.5f, -0.5f);
 
@@ -119,7 +119,7 @@ public class Drehrad : MonoBehaviour
         if (sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
         {
             GameObject keil = GameObject.FindWithTag("keil");
-            keil.transform.Translate(0, -1.3f, 0);
+            keil.transform.Translate(0, -2.02f, 0);
             Vector3 ziel = new Vector3(0, 0, 0);
             drehen = false;
             StartCoroutine(StartCounter());
@@ -132,7 +132,7 @@ public class Drehrad : MonoBehaviour
     }
     private IEnumerator StartCounter()
     {
-        float countDown = 0.5f;
+        float countDown = 1f;
         for (int i = 0; i < 10000; i++)
         {
             while (countDown >= 0)
@@ -142,8 +142,8 @@ public class Drehrad : MonoBehaviour
                 yield return null;
             }
         }
-        keil.transform.eulerAngles = new Vector3(180, -90, -89);
-        keil.transform.position = new Vector3(10.3f, 4, 12.1f);
+        keil.transform.eulerAngles = new Vector3(185, -270, 90);
+        keil.transform.position = new Vector3(1.5f, 1.4f, 2f);
         //keil.transform.Translate(-1.2f, 2.13f, -1.3f);
         //keil.transform.rotation = Quaternion.Euler(85, 10, -9);   
         //keil.transform.rotation = Quaternion.Euler(0,90,0 );     
