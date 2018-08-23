@@ -25,9 +25,9 @@ public class PuzzleMovement : MonoBehaviour {
         {
             xtemp = transform.position.x;
             ytemp = transform.position.y;
-            this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, 7f);
+            this.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, emptySlot.transform.position.z);
             int c = System.Array.IndexOf(steinPos, gameObject);
-            emptySlot.transform.position = new Vector3(xtemp, ytemp, 7f);
+            emptySlot.transform.position = new Vector3(xtemp, ytemp, 7 + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
             int e = System.Array.IndexOf(steinPos, emptySlot);
             GameObject tempS = steinPos[c];
             steinPos[c] = emptySlot;
