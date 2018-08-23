@@ -40,7 +40,7 @@ public class TextBoxManager : MonoBehaviour {
         }
         if(obj.tag == "infoquiz4")
         {
-            quizText.text = "SORTIEREN \n\nBringe die blauen Würfel alle nach unten, um den Schlüssel freizuschalten.\n" +
+            quizText.text = "SORTIEREN \n\nBringe die roten Würfel nach unten, um den Schlüssel freizuschalten.\n" +
                 "Klicke die Würfel hierzu mit der Maus an.";
         }
     }

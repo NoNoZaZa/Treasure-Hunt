@@ -56,7 +56,7 @@ public class Auswertung : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Du hast leider keine Schlüssel und kannst so die Schatzkammer nicht öffnen :(");
+           // Debug.Log("Du hast leider keine Schlüssel und kannst so die Schatzkammer nicht öffnen :(");
         }
 
     }

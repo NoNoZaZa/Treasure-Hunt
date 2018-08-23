@@ -3,31 +3,48 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spielfigursteuerung : MonoBehaviour {
-
-    public float speed = 8f;
     public Rigidbody rb;
     private bool onGround;
-    
-// Use this for initialization
-	void Start () {
+    float translation;
+    float seitlich;
+    float speed;
+
+
+    // Use this for initialization
+    void Start () {
+        speed = 4f;
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         Cursor.visible = false;   
 	
         Cursor.lockState = CursorLockMode.Locked;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
-        float translation = Input.GetAxis("Vertical") * speed * Time.deltaTime *2;
-        float straffe = Input.GetAxis("Horizontal") * speed * Time.deltaTime *2;
-        bool huepf = Input.GetKey(KeyCode.Space);
+        
+        translation = Input.GetAxis("Vertical") * speed * Time.deltaTime*2;
+        seitlich = Input.GetAxis("Horizontal") * speed * Time.deltaTime*2;
 
-        transform.Translate(straffe, 0, translation);
+        bool huepf = Input.GetKey(KeyCode.Space);
+        Debug.Log(speed);
+
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            speed = 6f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            speed = 4f;
+        }
+
+        transform.Translate(seitlich, 0, translation);
+
 
         if (Input.GetKeyDown("escape"))
         {
             Cursor.lockState = CursorLockMode.None;
+            Application.Quit();
         }
 
         if (huepf)
