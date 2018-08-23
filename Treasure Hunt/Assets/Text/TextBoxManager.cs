@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class TextBoxManager : MonoBehaviour {
     public GameObject textBox;
     public Text meinText;
-    public GameObject infoquiz3;
-    public GameObject infoquiz1;
     private Text quizText;
     private GameObject obj;
 
@@ -42,7 +40,8 @@ public class TextBoxManager : MonoBehaviour {
         }
         if(obj.tag == "infoquiz4")
         {
-            quizText.text = "SORTIEREN \n\nBringe die Würfel einheitlich auf eine Seite, um an den Schlüssel freizuschalten.";
+            quizText.text = "SORTIEREN \n\nBringe die blauen Würfel alle nach unten, um den Schlüssel freizuschalten.\n" +
+                "Klicke die Würfel hierzu mit der Maus an.";
         }
     }
 

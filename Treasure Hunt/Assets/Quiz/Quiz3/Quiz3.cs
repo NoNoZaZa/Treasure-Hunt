@@ -58,7 +58,6 @@ public class Quiz3 : MonoBehaviour {
     {
         foreach (GameObject cube in cubeListe)
         {
-            //geschwindigkeit = Random.Range(0.0f, 0.2f);
             Vector3 dir = Vector3.zero;
             float cubeX = cube.transform.position.x;
 
