@@ -5,7 +5,6 @@ using UnityEngine;
 public class Minimap : MonoBehaviour {
 
     public Transform spieler;
-    Light pixelLight;
 
 
     void LateUpdate () {
@@ -18,21 +17,16 @@ public class Minimap : MonoBehaviour {
         //transform.rotation = Quaternion.Euler(90f, spieler.eulerAngles.y, 0f);
 	}
 
- 
-    void OnPreCull()
-    {
-        
-    }
+
 
     private void OnPreRender()
     {
         RenderSettings.ambientLight = Color.white;
-        pixelLight.enabled = true;
     }
 
     void OnPostRender()
     {
-        
+        RenderSettings.ambientLight = Color.black;
     }
 
 }
