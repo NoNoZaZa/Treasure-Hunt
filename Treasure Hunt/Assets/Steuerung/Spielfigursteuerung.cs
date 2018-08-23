@@ -12,7 +12,7 @@ public class Spielfigursteuerung : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        speed = 4f;
+        speed = 3f;
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         Cursor.visible = false;   
@@ -35,7 +35,7 @@ public class Spielfigursteuerung : MonoBehaviour {
         }
         if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            speed = 4f;
+            speed = 3f;
         }
 
         transform.Translate(seitlich, 0, translation);
