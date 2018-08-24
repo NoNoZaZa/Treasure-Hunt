@@ -24,26 +24,26 @@ public class TextBoxManager : MonoBehaviour {
     {
         if (obj.tag == "infoquiz1")
         {
-            quizText.text = "PAARSUCHE \n \nKlicke die Paare an, damit sie verschwinden.\nNur wenn alle Paare verschwunden sind\nwird der Schlüssel freigeschaltet.";
+            quizText.text = "PAARSUCHE \n\n \nKlicke die Paare an, damit sie verschwinden.\nNur wenn alle Paare verschwunden sind,\nwird der Schlüssel freigeschaltet.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
 
 
         if(obj.tag == "infoquiz2")
         {
-            quizText.text = "TRAGEN \n \nTrage den Würfel auf die Druckplatte, um den Schlüssel anzeigen zu lassen.\nNutze zum Tragen die linke Maustaste " +
-                "und zum Loslassen die rechte Maustaste.";
+            quizText.text = "TRAGEN \n\n \nTrage den Würfel auf die Druckplatte, um den Schlüssel anzeigen zu lassen.\nKlicke zum Würfel Aufnehmen die linke Maustaste " +
+                "und zum Loslassen die rechte Maustaste.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
 
         if (obj.tag == "infoquiz3")
         {
-            quizText.text = "ABSCHIEßEN \n \nSchieße alle Teile ab, um den Schlüssel zu bekommen.\nNutze zum Schießen die linke Maustaste.";          
+            quizText.text = "ABSCHIEßEN \n\n \nSchieße alle Würfel ab, um den Schlüssel zu bekommen.\nNutze zum Schießen die linke Maustaste.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";          
         }
 
 
         if(obj.tag == "infoquiz4")
         {
-            quizText.text = "SORTIEREN \n\nBringe die roten Würfel nach unten, um den Schlüssel freizuschalten.\n" +
-                "Klicke die Würfel, die sich neben der Lücke befinden, mit der Maus an, um sie in die Lücke zu verschieben.";
+            quizText.text = "SORTIEREN \n\n\nBringe die roten Würfel nach unten, um den Schlüssel freizuschalten.\n" +
+                "Klicke die Würfel, die sich neben der Lücke befinden, mit der Maus an, um sie in die Lücke zu verschieben.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
     }
 
