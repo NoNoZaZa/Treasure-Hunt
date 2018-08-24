@@ -19,6 +19,9 @@ public class QuizTimer : MonoBehaviour
     {
         timer = zeitGesamt;
         winText.text = "";
+        AudioSource src = this.GetComponent<AudioSource>();
+        src.loop = true;
+        src.Play();
     }
 
     // Update is called once per frame
