@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CamMouseLook : MonoBehaviour {
+    //Quelle: https://www.youtube.com/watch?v=blO039OzUZc&t=157s
 
     Vector2 mouseLook; 
     Vector2 smoothMovement;

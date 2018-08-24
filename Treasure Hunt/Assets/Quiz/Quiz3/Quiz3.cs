@@ -22,7 +22,7 @@ public class Quiz3 : MonoBehaviour {
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
-        quiztimer.zeitGesamt = 10f;
+        quiztimer.zeitGesamt = 20f;
         quiztimer.quiz = this.gameObject;
     }
 

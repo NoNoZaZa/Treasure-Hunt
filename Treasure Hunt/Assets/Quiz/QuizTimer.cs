@@ -12,6 +12,7 @@ public class QuizTimer : MonoBehaviour
     public bool hasWon = false;
     public GameObject quiz;
     public bool solved = false;
+    private AudioSource src;
 
 
     // Use this for initialization
@@ -19,7 +20,7 @@ public class QuizTimer : MonoBehaviour
     {
         timer = zeitGesamt;
         winText.text = "";
-        AudioSource src = this.GetComponent<AudioSource>();
+        src = this.GetComponent<AudioSource>();
         src.loop = true;
         src.Play();
     }
@@ -54,6 +55,10 @@ public class QuizTimer : MonoBehaviour
         {
             winText.text = "";            
             Destroy(this.gameObject);
+        }
+        if(timer <= 0)
+        {
+            src.Stop();
         }
     }
 }

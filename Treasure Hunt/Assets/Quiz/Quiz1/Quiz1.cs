@@ -29,7 +29,7 @@ using UnityEngine;
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
-        quiztimer.zeitGesamt = 15f;
+        quiztimer.zeitGesamt = 20f;
         quiztimer.quiz = this.gameObject;
     }
 	
