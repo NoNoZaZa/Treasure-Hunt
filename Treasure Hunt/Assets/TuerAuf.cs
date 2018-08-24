@@ -6,6 +6,7 @@ public class TuerAuf : MonoBehaviour {
 
     public bool solved = false;
     QuizTimer quiz;
+    bool sound = true;
 
 	// Use this for initialization
 	void Start () {
@@ -20,8 +21,11 @@ public class TuerAuf : MonoBehaviour {
             Vector3 pos = new Vector3(transform.position.x - 13, transform.position.y, transform.position.z);
             transform.position = Vector3.Lerp((transform.position), pos, Time.deltaTime);
             AudioSource src = this.GetComponent<AudioSource>();
-            src.Play();
-            src.Stop();
+            if(sound)
+            {
+                src.Play();
+                sound = false;
+            }
             //enabled = false;
         }
 	}
