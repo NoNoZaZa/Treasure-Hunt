@@ -25,6 +25,7 @@ public class Quiz2 : MonoBehaviour {
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 20f;
+        quiztimer.quiz = this.gameObject;
 
 
         //Druckplatte
