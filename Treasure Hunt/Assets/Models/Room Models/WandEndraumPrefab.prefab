@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 23601794897114086}
   - component: {fileID: 64607928375664824}
   m_Layer: 0
-  m_Name: WandEndraumPrefab 1 1
+  m_Name: WandEndraumPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
