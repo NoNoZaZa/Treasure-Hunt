@@ -24,6 +24,7 @@ TagManager:
   - Truhe
   - QuizTimer
   - Tuer
+  - stone
   layers:
   - Default
   - TransparentFX

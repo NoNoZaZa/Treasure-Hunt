@@ -9,7 +9,7 @@ public class Interaktion : MonoBehaviour {
     private GameObject obj;
     private GameObject objekt3;
 
-    //für Quiz4:
+    //für Drehrad:
     bool sperre = true;
     float rotDir = 0;
     float targetAngleA;
@@ -34,6 +34,14 @@ public class Interaktion : MonoBehaviour {
 
     //fuer Quiz 3 Zaehler zerstoerter Objekte
     public float zaehlercubes = 0;
+
+    //Für Quiz4
+    GameObject emptySlot;
+    float xtemp;
+    float ytemp;
+    private Quiz4 quiz4;
+    public GameObject[] steinPos;
+    GameObject stone;
 
     //Für Truhe
     GameManager gameManager;
@@ -148,6 +156,26 @@ public class Interaktion : MonoBehaviour {
 
                 #region Quiz4
                 //Puzzle wird über PuzzleMovement.cs gesteuert
+                if(hit.collider.gameObject.tag == "stone")
+                {
+                    stone = hit.collider.gameObject;
+                    quiz4 = GameObject.FindGameObjectWithTag("Quiz4").GetComponent<Quiz4>();
+                    emptySlot = GameObject.Find("empty");
+                    steinPos = new GameObject[16];
+                    steinPos = quiz4.steinPos;
+                    if (Vector3.Distance(stone.transform.position, emptySlot.transform.position) == 1)
+                    {
+                        xtemp = stone.transform.position.x;
+                        ytemp = stone.transform.position.y;
+                        stone.transform.position = new Vector3(emptySlot.transform.position.x, emptySlot.transform.position.y, emptySlot.transform.position.z);
+                        int c = System.Array.IndexOf(steinPos, stone);
+                        emptySlot.transform.position = new Vector3(xtemp, ytemp, -7 + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
+                        int e = System.Array.IndexOf(steinPos, emptySlot);
+                        GameObject tempS = steinPos[c];
+                        steinPos[c] = emptySlot;
+                        steinPos[e] = tempS;
+                    }
+                }
                 #endregion
 
 

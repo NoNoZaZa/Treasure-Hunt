@@ -37,9 +37,8 @@ public class Quiz4 : MonoBehaviour
         {
             for (j = 0; j < 4; j++)
             {
-                pos = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, 7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
+                pos = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, -7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
                 GameObject puzzle = Instantiate(puzzlestein, pos, Quaternion.identity);
-
                 if (!puzzle.activeInHierarchy)
                 {
                     puzzle.SetActive(true);
@@ -60,7 +59,7 @@ public class Quiz4 : MonoBehaviour
                 if (i == 3 && j == 2)
                 {
                     ++j;
-                    posE = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, 7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
+                    posE = new Vector3(i + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.x, j + offsetY, -7f + GameObject.FindGameObjectWithTag("Quiz4Parent").transform.position.z);
                     empty = new GameObject();
                     empty = Instantiate(empty, posE, Quaternion.identity);
                     empty.name = "empty";

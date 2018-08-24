@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114478509313398880}
   m_Layer: 0
   m_Name: Puzzlestein
-  m_TagString: Untagged
+  m_TagString: stone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,5 +108,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a484e8bd31ea9224e8900e30201cd5eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quiz4: {fileID: 0}
   steinPos: []
