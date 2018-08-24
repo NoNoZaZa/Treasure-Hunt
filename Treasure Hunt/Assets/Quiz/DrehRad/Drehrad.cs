@@ -149,6 +149,8 @@ public class Drehrad : MonoBehaviour
             sperre = false;
         }
     }
+
+    //Quelle von IEnumerator: https://answers.unity.com/questions/1040630/do-something-for-10-sec.html
     private IEnumerator StartCounter()
     {
         float countDown = 1f;

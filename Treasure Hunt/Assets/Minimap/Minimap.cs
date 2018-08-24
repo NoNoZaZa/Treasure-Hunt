@@ -6,7 +6,7 @@ public class Minimap : MonoBehaviour {
 
     public Transform spieler;
 
-
+    //Quelle des Codes in LateUpdate/ Zur allgemeinen Erstellung der Minimap: https://www.youtube.com/watch?v=28JTTXqMvOU
     void LateUpdate () {
 
         Vector3 newPosition = spieler.position;
