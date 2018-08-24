@@ -6,13 +6,11 @@ public class RoomGeneration : MonoBehaviour
 {
 
     public GameObject raumPrefab;
-    public GameObject wandPrefab;
-    public GameObject endraumPrefab;
-    public GameObject endraumWandPrefab;
     Vector3 raumposition = new Vector3(0, 0, 0);
     int successRaeume;
     int successWaende;
-    static int maximaleRaumzahl = 10;
+    public static int maximaleRaumzahl = 10;
+    public int maximaleRaumzahlPublic = maximaleRaumzahl;
 
     public bool pseudorandom = false;
     public static int seed = 42;
@@ -20,7 +18,7 @@ public class RoomGeneration : MonoBehaviour
     int hilfsvariableNachbarfindung = 0;
 
     //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
-    Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
+    public Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
 
     public List<Vector3> raumpositionen = new List<Vector3>();
     Vector3 norden = new Vector3(-34, 0, 0);
@@ -76,9 +74,7 @@ public class RoomGeneration : MonoBehaviour
 
             hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
         }
-        successWaende = successWaende + WaendeGenerieren();
-        Debug.Log("Platzieren der Waende war erfolgreich, es wurden " + successWaende + " Waende platziert.");
-
+        
     }
 
     // Update is called once per frame
@@ -185,46 +181,6 @@ public class RoomGeneration : MonoBehaviour
 
 
         return 1;
-    }
-
-    int WaendeGenerieren()
-    {
-        int wandzaehler = 0;
-        for (int j = 0; j < maximaleRaumzahl * 4; j++)
-        {
-            //Debug.Log("Wandgenerieren-Schleife wird durchlaufen zum " + j + "-(s)ten Mal");
-            //Debug.Log("WandpositonenArray[" + j + "]: " + wandpositionenArray[j, 0]);
-            //if (tuerpositionenArray[j, 0] != new Vector3(0, 0, 0)) {
-            switch ((int)wandpositionenArray[j, 1].magnitude)
-            {
-                case 1:
-                    Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(0, 0, -2), Quaternion.Euler(0, 0, 0));
-                    //Debug.Log("Wand erfolgreich platziert");
-                    wandzaehler++;
-                    break;
-                case 2:
-                    Instantiate(wandPrefab, wandpositionenArray[j, 0] + new Vector3(-2, 0, 0), Quaternion.Euler(0, 90, 0));
-                    //Debug.Log("Wand erfolgreich platziert");
-                    wandzaehler++;
-                    break;
-                case 3:
-                    Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 180, 0));
-                    //Debug.Log("Wand erfolgreich platziert");
-                    wandzaehler++;
-                    break;
-                case 4:
-                    Instantiate(wandPrefab, wandpositionenArray[j, 0], Quaternion.Euler(0, 270, 0));
-                    //Debug.Log("Wand erfolgreich platziert");
-                    wandzaehler++;
-                    break;
-                case 5:
-                    //Tuer wuerde den Weg in einen Nachbarraum versperren, deswegen wird keine instantiiert.
-                    //Debug.Log("Keine Wand platziert.");
-                    break;
-            }
-            //}
-        }
-        return wandzaehler;
     }
 
 }

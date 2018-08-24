@@ -11,11 +11,23 @@ public class QuizGeneratorSkript : MonoBehaviour
     public GameObject quiz2;
     public GameObject quiz3;
     public GameObject quiz4;
+    public GameObject drehrad;
+    public GameObject endraumPrefab;
+    public GameObject endraumWandPrefab;
 
     public List<Vector3> raumpositionenInQuizGenerator;
     int[] quizPositionenArray = new int[3];
     int zaehlVariable = 0;
     int anzahlQuizzes = 0;
+
+    bool endRaumPosGefunden = false;
+    Vector3 positionWeitestEntfernterRaum = new Vector3(0,0,0);
+    public Vector3 positionEndraum = new Vector3(0,0,0);
+    //Hilfsvariable um im Wandgenerator zu übergeben, in welche Richtung der Endraum liegt um dort keine Wand zu generieren
+    //1 = norden (-x Richtung), 2 = osten (+z Richtung), 3 = sueden (+x Richtung), 4 = westen (-z Richtung)
+    public int ausrichtungDesEndraums = 0;
+    //Hilfsvariable um im Wandgenerator einfacher die Wand zu finden, die nicht generiert werden soll
+    public int zahlDesAmWeitestenEntferntenRaums = 0;
 
     // Use this for initialization
     void Start()
@@ -23,6 +35,9 @@ public class QuizGeneratorSkript : MonoBehaviour
         Random.InitState((int)System.DateTime.Now.Ticks);
         int[] quizPositionenArray = { 0, 0, 0 };
         Debug.Log("Das QuizGeneratorSkript wurde gestartet");
+
+        int raumpositionenMaximum = 0;
+
 
         //if (raumGenerator.raumpositionen.Count == 0) {
         //    Debug.Log("Die Liste ist leer.");
@@ -35,8 +50,59 @@ public class QuizGeneratorSkript : MonoBehaviour
         {
             //Debug.Log("Zugriff funktioniert");
             raumpositionenInQuizGenerator.Add(raumGenerator.raumpositionen.ElementAt(zaehlVariable));
+            //Debug.Log(("RaumKoordinaten: " + (raumGenerator.raumpositionen.ElementAt(zaehlVariable))));
+            float raumpositionenMaximumTemp = Mathf.Abs(raumpositionenInQuizGenerator.ElementAt(zaehlVariable).x) + Mathf.Abs(raumpositionenInQuizGenerator.ElementAt(zaehlVariable).z);
+            //Debug.Log("raumpositionenMaximumTemp" + raumpositionenMaximumTemp);
+            //Debug.Log("raumpositionenMaximum" + raumpositionenMaximum);
+            if (raumpositionenMaximumTemp > raumpositionenMaximum) {
+                raumpositionenMaximum = (int)raumpositionenMaximumTemp;
+                positionWeitestEntfernterRaum = raumpositionenInQuizGenerator.ElementAt(zaehlVariable);
+                zahlDesAmWeitestenEntferntenRaums = zaehlVariable;
+                //Debug.Log("Position des am weitesten vom Anfangsraum entfernten Raum: " + positionWeitestEntfernterRaum);
+            }
             zaehlVariable++;
         }
+
+        positionEndraum = positionWeitestEntfernterRaum;
+        positionEndraum = new Vector3(positionEndraum.x + 34, positionEndraum.y, positionEndraum.z);
+        if (!raumpositionenInQuizGenerator.Contains(positionEndraum))
+        {
+            GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
+            ausrichtungDesEndraums = 3;
+            endRaumPosGefunden = true;
+        } else
+        {
+            positionEndraum = new Vector3(positionEndraum.x - 68, positionEndraum.y, positionEndraum.z);
+            if (!raumpositionenInQuizGenerator.Contains(positionEndraum))
+            {
+                GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
+                ausrichtungDesEndraums = 1;
+                endRaumPosGefunden = true;
+            } else
+            {
+                positionEndraum = new Vector3(positionEndraum.x + 34, positionEndraum.y, positionEndraum.z + 34);
+                if (!raumpositionenInQuizGenerator.Contains(positionEndraum))
+                {
+                    GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
+                    ausrichtungDesEndraums = 2;
+                    endRaumPosGefunden = true;
+                }
+                else {
+                    positionEndraum = new Vector3(positionEndraum.x, positionEndraum.y, positionEndraum.z - 68);
+                    if (!raumpositionenInQuizGenerator.Contains(positionEndraum))
+                    {
+                        GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
+                        ausrichtungDesEndraums = 4;
+                        endRaumPosGefunden = true;
+                    }
+                    else {
+                        Debug.Log("Es wurde keine Position fuer den Endraum gefunden!");
+                    }
+                }
+            }
+        }
+        
+        
 
         while (anzahlQuizzes < 3)
         {
@@ -44,7 +110,7 @@ public class QuizGeneratorSkript : MonoBehaviour
             if(quizPositionenArray.Contains(zufallszahl) == false)
             {
                 quizPositionenArray[anzahlQuizzes] = zufallszahl;
-                Debug.Log(quizPositionenArray[anzahlQuizzes]);
+                //Debug.Log(quizPositionenArray[anzahlQuizzes]);
 
                 anzahlQuizzes++;
 
