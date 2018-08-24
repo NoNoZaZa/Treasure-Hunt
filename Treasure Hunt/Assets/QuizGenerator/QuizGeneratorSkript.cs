@@ -63,6 +63,8 @@ public class QuizGeneratorSkript : MonoBehaviour
             zaehlVariable++;
         }
 
+        drehrad.transform.position = new Vector3(positionWeitestEntfernterRaum.x, positionWeitestEntfernterRaum.y + 2, positionWeitestEntfernterRaum.z);
+
         positionEndraum = positionWeitestEntfernterRaum;
         positionEndraum = new Vector3(positionEndraum.x + 34, positionEndraum.y, positionEndraum.z);
         if (!raumpositionenInQuizGenerator.Contains(positionEndraum))

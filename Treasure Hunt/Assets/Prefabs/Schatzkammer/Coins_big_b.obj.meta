@@ -17,7 +17,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Coins_Big_bMat
-    second: {fileID: 2100000, guid: b2fad8bcdc98ad146964e8c591243071, type: 2}
+    second: {fileID: 2100000, guid: ca99941aa4cc8a446a5f4895fbf6167d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
