@@ -46,9 +46,9 @@ using UnityEngine;
 
     void ErzeugungObjekte()
     {
-        const float NUM_CUBES = 16;
+        const float AnzahlCubes = 16;
         int farbIndex = 0;
-        for (int i = 0; i < NUM_CUBES; i += 2)
+        for (int i = 0; i < AnzahlCubes; i += 2)
         {
             GameObject steinA = Instantiate(cubePref, transform.position, transform.rotation);
             GameObject steinB = Instantiate(cubePref, transform.position, transform.rotation);
@@ -90,16 +90,14 @@ using UnityEngine;
         {
             for (j = 0; j < 4; j++)
             {
-                //bloecke[i, j].transform.localPosition = new Vector3(i,j, 0);
-                bloecke[i, j].transform.Translate(i, j, 0);           
-                
+                bloecke[i, j].transform.Translate(i, j, 0);                          
             }
         }
     }
 
     void ArrayRandomzuweisen()
     {
-        int zahl = Random.Range(0, liste.Count);//random.Next(0, liste.Count);
+        int zahl = Random.Range(0, liste.Count);
         ((GameObject)liste[zahl]).GetComponent<Rigidbody>();
         ((GameObject)liste[zahl]).tag = "stein";
         bloecke[i, j] = (GameObject)liste[zahl];

@@ -30,7 +30,7 @@ public class TextBoxManager : MonoBehaviour {
 
         if(obj.tag == "infoquiz2")
         {
-            quizText.text = "TRAGEN \n\n \nTrage den lila Würfel auf die lila Druckplatte, um den Schlüssel anzeigen zu lassen.\nKlicke zum Würfel Aufnehmen die linke Maustaste " +
+            quizText.text = "TRAGEN \n\n \nTrage den lila Würfel auf die lila Druckplatte.\nKlicke zum Würfel Aufnehmen die linke Maustaste " +
                 "und zum Loslassen die rechte Maustaste.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
 
@@ -42,8 +42,8 @@ public class TextBoxManager : MonoBehaviour {
 
         if(obj.tag == "infoquiz4")
         {
-            quizText.text = "SORTIEREN \n\n\nBringe die roten Würfel nach unten, um den Schlüssel freizuschalten.\n" +
-                "Klicke die Würfel, die sich neben der Lücke befinden, mit der Maus an, um sie in die Lücke zu verschieben.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
+            quizText.text = "SORTIEREN \n\n\nBringe alle roten Würfel nach unten.\n" +
+                "Klicke hierzu die Würfel, die sich neben der Lücke befinden, mit der Maus an, um sie in die Lücke zu verschieben.\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
     }
 
