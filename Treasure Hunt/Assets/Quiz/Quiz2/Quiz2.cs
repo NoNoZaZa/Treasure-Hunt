@@ -24,7 +24,7 @@ public class Quiz2 : MonoBehaviour {
         timer = Instantiate(timer);
         timer.transform.parent = GameObject.Find("UI").transform;
         quiztimer = timer.GetComponent<QuizTimer>();
-        quiztimer.zeitGesamt = 20f;
+        quiztimer.zeitGesamt = 40f;
         quiztimer.quiz = this.gameObject;
 
 
@@ -32,7 +32,7 @@ public class Quiz2 : MonoBehaviour {
         druckplatte = Instantiate(druckplatte);
         druckplatte.transform.parent = this.transform;
         //druckplatte.GetComponent<Renderer>().material.color = Color.magenta;
-        //druckplatte.transform.position = new Vector3(-10f, 2f, 30f);
+        druckplatte.transform.position = new Vector3(0f, 2f, 0f);
 
     }
 
