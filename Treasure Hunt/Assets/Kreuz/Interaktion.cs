@@ -99,7 +99,6 @@ public class Interaktion : MonoBehaviour {
                             stein.transform.Translate(0, 0, -0.4f);
                             klicknum = 0;
                         }
-                        //Bug "ein Würfel kann in beide Plätze abgespeichert werden, sodass nur dieser verschwindet" beheben
 
                         if (geklickt[1] != null)
                         {

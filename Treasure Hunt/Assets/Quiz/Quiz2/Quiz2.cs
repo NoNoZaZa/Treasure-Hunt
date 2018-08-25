@@ -43,6 +43,7 @@ public class Quiz2 : MonoBehaviour {
         {
             quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
+            schluessel.transform.position = new Vector3(0f, 1f, 0f);
         }
     }
 
