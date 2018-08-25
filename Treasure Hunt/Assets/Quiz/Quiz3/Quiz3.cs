@@ -10,7 +10,7 @@ public class Quiz3 : MonoBehaviour {
     private float groesse = 0.0045f;
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
-    private float geschwindigkeit = 8f;
+    private float geschwindigkeit = 9f;
     public GameObject schluesselpref;
 
 
@@ -24,6 +24,7 @@ public class Quiz3 : MonoBehaviour {
         quiztimer = timer.GetComponent<QuizTimer>();
         quiztimer.zeitGesamt = 20f;
         quiztimer.quiz = this.gameObject;
+        geschwindigkeit = geschwindigkeit * Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -56,8 +57,9 @@ public class Quiz3 : MonoBehaviour {
 
     void CubesBewegen()
     {
+        
         foreach (GameObject cube in cubeListe)
-        {
+        {          
             Vector3 dir = Vector3.zero;
             float cubeX = cube.transform.position.x;
 
@@ -69,7 +71,7 @@ public class Quiz3 : MonoBehaviour {
             {
                 cube.transform.forward *= -1;
             }
-            cube.transform.Translate(0,0,geschwindigkeit * Time.deltaTime);
+            cube.transform.Translate(0,0,geschwindigkeit);
         }
     }
 }

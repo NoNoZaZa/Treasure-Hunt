@@ -20,8 +20,7 @@ using UnityEngine;
 
     // Use this for initialization
 
-    void Start () {
-        
+    void Start () {       
         bloecke = new GameObject[4,4];       
         ErzeugungObjekte();
         ArrayBefuellen();
@@ -33,7 +32,6 @@ using UnityEngine;
         quiztimer.quiz = this.gameObject;
     }
 	
-	// Update is called once per frame
 	void Update () {
 
         if (interaktion.quiz1zaehler == 8 && quiztimer.timer > 0)
@@ -41,7 +39,6 @@ using UnityEngine;
             quiztimer.hasWon = true;
             GameObject schluessel = Instantiate(schluesselpref, transform.position, transform.rotation);
         }
-
     }
 
     void ErzeugungObjekte()
