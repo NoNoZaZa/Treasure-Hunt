@@ -16,11 +16,10 @@ public class QuizGeneratorSkript : MonoBehaviour
     public GameObject endraumWandPrefab;
 
     public List<Vector3> raumpositionenInQuizGenerator;
-    int[] quizPositionenArray = new int[3];
+    int[] quizPositionenArray = new int[4];
     int zaehlVariable = 0;
     int anzahlQuizzes = 0;
 
-    bool endRaumPosGefunden = false;
     Vector3 positionWeitestEntfernterRaum = new Vector3(0,0,0);
     public Vector3 positionEndraum = new Vector3(0,0,0);
     //Hilfsvariable um im Wandgenerator zu übergeben, in welche Richtung der Endraum liegt um dort keine Wand zu generieren
@@ -33,7 +32,7 @@ public class QuizGeneratorSkript : MonoBehaviour
     void Start()
     {
         Random.InitState((int)System.DateTime.Now.Ticks);
-        int[] quizPositionenArray = { 0, 0, 0 };
+        int[] quizPositionenArray = new int[4];
         Debug.Log("Das QuizGeneratorSkript wurde gestartet");
 
         int raumpositionenMaximum = 0;
@@ -71,7 +70,6 @@ public class QuizGeneratorSkript : MonoBehaviour
         {
             GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
             ausrichtungDesEndraums = 3;
-            endRaumPosGefunden = true;
         } else
         {
             positionEndraum = new Vector3(positionEndraum.x - 68, positionEndraum.y, positionEndraum.z);
@@ -79,7 +77,6 @@ public class QuizGeneratorSkript : MonoBehaviour
             {
                 GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
                 ausrichtungDesEndraums = 1;
-                endRaumPosGefunden = true;
             } else
             {
                 positionEndraum = new Vector3(positionEndraum.x + 34, positionEndraum.y, positionEndraum.z + 34);
@@ -87,7 +84,6 @@ public class QuizGeneratorSkript : MonoBehaviour
                 {
                     GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
                     ausrichtungDesEndraums = 2;
-                    endRaumPosGefunden = true;
                 }
                 else {
                     positionEndraum = new Vector3(positionEndraum.x, positionEndraum.y, positionEndraum.z - 68);
@@ -95,7 +91,6 @@ public class QuizGeneratorSkript : MonoBehaviour
                     {
                         GameObject endraum = Instantiate(endraumPrefab, positionEndraum, Quaternion.identity);
                         ausrichtungDesEndraums = 4;
-                        endRaumPosGefunden = true;
                     }
                     else {
                         Debug.Log("Es wurde keine Position fuer den Endraum gefunden!");
@@ -106,24 +101,29 @@ public class QuizGeneratorSkript : MonoBehaviour
         
         
 
-        while (anzahlQuizzes < 3)
+        while (anzahlQuizzes < 4)
         {
-            int zufallszahl = zufallszahlGenerieren();
-            if(quizPositionenArray.Contains(zufallszahl) == false)
+            int zufallszahl = zufallszahlGenerieren(0, 9);
+            if (quizPositionenArray.Contains(zufallszahl) == false)
             {
                 quizPositionenArray[anzahlQuizzes] = zufallszahl;
                 //Debug.Log(quizPositionenArray[anzahlQuizzes]);
 
                 anzahlQuizzes++;
-
-            }
+            }            
         }
 
-        Vector3 quiz2position = raumpositionenInQuizGenerator[quizPositionenArray[0]];
-        Vector3 quiz3position = raumpositionenInQuizGenerator[quizPositionenArray[1]];
-        Vector3 quiz4position = raumpositionenInQuizGenerator[quizPositionenArray[2]];
+        if (!quizPositionenArray.Contains(0)) {
+            int anfangsquiz = zufallszahlGenerieren(0, 3);
+            quizPositionenArray[anfangsquiz] = 0;
+        }
+
+        Vector3 quiz1position = raumpositionenInQuizGenerator[quizPositionenArray[0]];
+        Vector3 quiz2position = raumpositionenInQuizGenerator[quizPositionenArray[1]];
+        Vector3 quiz3position = raumpositionenInQuizGenerator[quizPositionenArray[2]];
+        Vector3 quiz4position = raumpositionenInQuizGenerator[quizPositionenArray[3]];
         
-        quiz1.transform.position = new Vector3(0,0,0);
+        quiz1.transform.position = quiz1position;
         quiz2.transform.position = quiz2position;
         quiz3.transform.position = quiz3position;
         quiz4.transform.position = quiz4position;
@@ -136,10 +136,10 @@ public class QuizGeneratorSkript : MonoBehaviour
 
     }
 
-    int zufallszahlGenerieren()
+    int zufallszahlGenerieren(int start, int ende)
     {
         //Range ist 1 bis 9 weil im 0ten Raum (dem Startraum) immer ein Quiz ist und die 9 inklusive der RandomRange ist
-        int zufallszahl = Random.Range(1, 9);
+        int zufallszahl = Random.Range(start, ende);
         return zufallszahl;
     }
 
