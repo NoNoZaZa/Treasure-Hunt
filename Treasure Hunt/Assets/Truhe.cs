@@ -43,7 +43,7 @@ public class Truhe : MonoBehaviour {
     //Quelle von IEnumerator: https://answers.unity.com/questions/1040630/do-something-for-10-sec.html
     private IEnumerator StartCounter()
     {
-        float countDown = 8f;
+        float countDown = 7f;
         for (int i = 0; i < 10000; i++)
         {
             while (countDown >= 0)
