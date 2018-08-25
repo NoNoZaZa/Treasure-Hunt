@@ -11,9 +11,12 @@ public class TuerGenerator : MonoBehaviour {
     List<float> xKoordinatenRaeume = new List<float>();
     List<float> zKoordinatenRaeume = new List<float>();
     int zaehlvariable = 0;
+    Vector3 tuerpositionNeu;
 
-	// Use this for initialization
-	void Start () {
+    List<Vector3> tuerpositionenNeu = new List<Vector3>();
+
+    // Use this for initialization
+    void Start () {
 
         foreach (var raumposition in raumgenerator.raumpositionen) {
             xKoordinatenRaeume.Add(raumposition.x);
@@ -25,27 +28,66 @@ public class TuerGenerator : MonoBehaviour {
         Debug.Log("TuerGenerator gestartet");
 		List<Vector3> tuerpositionen = raumgenerator.tuerpositionen;
 
-        foreach (var tuerposition in tuerpositionen) {
-            if (xKoordinatenRaeume.Contains(tuerposition.x) || xKoordinatenRaeume.Contains(tuerposition.x - 2))
+        for(int i = 0; i < tuerpositionen.Count/2; i++) {
+            if (xKoordinatenRaeume.Contains(tuerpositionen[i].x) || xKoordinatenRaeume.Contains(tuerpositionen[i].x - 2))
             {
-                Vector3 tuerpositionNeu = tuerposition;
+                Vector3 tuerpositionNeu = tuerpositionen[i];
                 if (!xKoordinatenRaeume.Contains(tuerpositionNeu.x)) {
                     tuerpositionNeu = new Vector3(tuerpositionNeu.x - 2, tuerpositionNeu.y, tuerpositionNeu.z);
                 } 
                 tuer = Instantiate(tuer, tuerpositionNeu, Quaternion.Euler(0, 90, 0));
+                tuerpositionenNeu.Add(tuerpositionNeu);
+                //Debug.Log("TuerpositionX: " + tuerpositionNeu.x);
             }
             else {
-                Vector3 tuerpositionNeu = tuerposition;
-                if (zKoordinatenRaeume.Contains(tuerposition.z - 2)) {
+                Vector3 tuerpositionNeu = tuerpositionen[i];
+                if (zKoordinatenRaeume.Contains(tuerpositionen[i].z - 2)) {
                     tuerpositionNeu = new Vector3(tuerpositionNeu.x, tuerpositionNeu.y, tuerpositionNeu.z - 2);
                 }
 
                 tuer = Instantiate(tuer, tuerpositionNeu, Quaternion.identity);
-                //Debug.Log("Nicht-gedrehte Tuerpositionen: " + tuerposition);
+                tuerpositionenNeu.Add(tuerpositionNeu);
+                //Debug.Log("TuerpositionX: " + tuerpositionNeu.x);
+                //Debug.Log("Nicht-gedrehte Tuerpositionen: " + tuerpositionNeu);
             }
 
-            tuer.AddComponent<TuerCollision>();
+            //if (quizgenerator.quizpositionen.Contains(tuerpositionNeu)) {
 
+            //}
+
+            bool gehoertZuRaumMitQuiz = false;
+
+            for(int j = 0; j < quizgenerator.quizPositionenArray.Length; j++)
+            {
+                //Debug.Log("QuizpositionX " + quizposition.x + " TuerpositionX " + tuerpositionenNeu[zaehlvariable].x);
+                //Debug.Log("QuizpositionZ " + quizposition.z + " TuerpositionZ " + tuerpositionenNeu[zaehlvariable].z);
+
+                if (quizgenerator.quizPositionenArray[j] == tuerpositionen[i + 1].x)
+                {
+                    gehoertZuRaumMitQuiz = true;
+                    break;
+                }
+                else {
+                    //Debug.Log("tuerpositionenNeu[zaehlvariable]" + tuerpositionenNeu[zaehlvariable]);
+                }
+
+                //Debug.Log("Quizzuordnung wird ueberprueft");
+                //Debug.Log("gehoertZuRaumMitQuiz " + gehoertZuRaumMitQuiz);
+
+            }
+
+            if (gehoertZuRaumMitQuiz)
+            {
+                tuer.AddComponent<TuerCollision>().unlockable = false;
+                Debug.Log("Raum wurde auf unlockable = false gesetzt");
+            }
+            else
+            {
+                tuer.AddComponent<TuerCollision>().unlockable = true;
+            }
+
+            zaehlvariable++;
+            i++;
         }
     }
 	

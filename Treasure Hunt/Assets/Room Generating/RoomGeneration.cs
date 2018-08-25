@@ -16,6 +16,8 @@ public class RoomGeneration : MonoBehaviour
     public static int seed = 42;
 
     int hilfsvariableNachbarfindung = 0;
+    //
+    int raumnummer = 0;
 
     //x = 0 speichert die Position der Waende, x = 1 speichert die durch die Länge des Vektors codierte Rotation der Waende
     public Vector3[,] wandpositionenArray = new Vector3[maximaleRaumzahl * 4, 2];
@@ -55,24 +57,33 @@ public class RoomGeneration : MonoBehaviour
                 wandpositionenArray[hilfsvariableNachbarfindung, 1] = new Vector3(5, 0, 0);
                 //Debug.Log("Raum Nummer " + hilfsvariableNachbarfindung + " hat einen Nachbarn in -x Richtung!");
                 tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung, 0]);
+                //jeder zweite Vektor3 in tuerpositionen traegt die Raumnummer um besser vergleichen zu können, ob es ein Quizraum ist
+                tuerpositionen.Add(new Vector3(raumnummer,0,0));
             }
             if (raumpositionen.Contains(raumposition + osten))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 1, 1] = new Vector3(5, 0, 0);
                 tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 1, 0]);
+                tuerpositionen.Add(new Vector3(raumnummer, 0, 0));
+
             }
             if (raumpositionen.Contains(raumposition + sueden))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 2, 1] = new Vector3(5, 0, 0);
                 tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 2, 0]);
+                tuerpositionen.Add(new Vector3(raumnummer, 0, 0));
+
             }
             if (raumpositionen.Contains(raumposition + westen))
             {
                 wandpositionenArray[hilfsvariableNachbarfindung + 3, 1] = new Vector3(5, 0, 0);
                 tuerpositionen.Add(wandpositionenArray[hilfsvariableNachbarfindung + 3, 0]);
+                tuerpositionen.Add(new Vector3(raumnummer, 0, 0));
+
             }
 
             hilfsvariableNachbarfindung = hilfsvariableNachbarfindung + 4;
+            raumnummer++;
         }
         
     }

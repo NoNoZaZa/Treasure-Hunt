@@ -16,7 +16,7 @@ public class QuizGeneratorSkript : MonoBehaviour
     public GameObject endraumWandPrefab;
 
     public List<Vector3> raumpositionenInQuizGenerator;
-    int[] quizPositionenArray = new int[4];
+    public int[] quizPositionenArray = new int[4];
     int zaehlVariable = 0;
     int anzahlQuizzes = 0;
 
@@ -27,6 +27,8 @@ public class QuizGeneratorSkript : MonoBehaviour
     public int ausrichtungDesEndraums = 0;
     //Hilfsvariable um im Wandgenerator einfacher die Wand zu finden, die nicht generiert werden soll
     public int zahlDesAmWeitestenEntferntenRaums = 0;
+    //Liste um bei den Tueren pruefen zu können, ob eine Tuer zu einem Raum mit einem Quiz gehoert
+    public List<Vector3> quizpositionen;
 
     // Use this for initialization
     void Start()
@@ -122,7 +124,12 @@ public class QuizGeneratorSkript : MonoBehaviour
         Vector3 quiz2position = raumpositionenInQuizGenerator[quizPositionenArray[1]];
         Vector3 quiz3position = raumpositionenInQuizGenerator[quizPositionenArray[2]];
         Vector3 quiz4position = raumpositionenInQuizGenerator[quizPositionenArray[3]];
-        
+
+        quizpositionen.Add(quiz1position);
+        quizpositionen.Add(quiz2position);
+        quizpositionen.Add(quiz3position);
+        quizpositionen.Add(quiz4position);
+
         quiz1.transform.position = quiz1position;
         quiz2.transform.position = quiz2position;
         quiz3.transform.position = quiz3position;

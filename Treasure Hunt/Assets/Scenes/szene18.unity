@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26572698, g: 0.27143598, b: 0.25494516, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.26572725, g: 0.27143627, b: 0.25494534, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1617,9 +1617,11 @@ MonoBehaviour:
   endraumWandPrefab: {fileID: 1528283918997188, guid: 3b45fc14595810647a2e075d2b1215bf,
     type: 2}
   raumpositionenInQuizGenerator: []
+  quizPositionenArray: 00000000000000000000000000000000
   positionEndraum: {x: 0, y: 0, z: 0}
   ausrichtungDesEndraums: 0
   zahlDesAmWeitestenEntferntenRaums: 0
+  quizpositionen: []
 --- !u!4 &926393715
 Transform:
   m_ObjectHideFlags: 0
@@ -2446,6 +2448,10 @@ Prefab:
       propertyPath: scoreAnzeige
       value: 
       objectReference: {fileID: 428883072}
+    - target: {fileID: 1572724385444024, guid: 17685ed2ae2f86b438409d73673b2646, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17685ed2ae2f86b438409d73673b2646, type: 2}
   m_IsPrefabAsset: 0
