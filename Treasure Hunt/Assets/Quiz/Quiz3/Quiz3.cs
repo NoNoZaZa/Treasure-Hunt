@@ -10,7 +10,7 @@ public class Quiz3 : MonoBehaviour {
     private float groesse = 0.0045f;
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
-    private float geschwindigkeit = 0.15f;
+    private float geschwindigkeit = 8f;
     public GameObject schluesselpref;
 
 
@@ -69,7 +69,7 @@ public class Quiz3 : MonoBehaviour {
             {
                 cube.transform.forward *= -1;
             }
-            cube.transform.Translate(0,0,geschwindigkeit);
+            cube.transform.Translate(0,0,geschwindigkeit * Time.deltaTime);
         }
     }
 }
