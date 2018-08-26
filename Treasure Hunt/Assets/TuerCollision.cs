@@ -6,6 +6,7 @@ public class TuerCollision : MonoBehaviour {
 
     QuizTimer quiz;
     bool sound = true;
+    bool schieben;
 
     // Use this for initialization
     void Start () {
@@ -14,13 +15,8 @@ public class TuerCollision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.tag == "Player") {
-            //Debug.Log("Collisionobjekt: " + collision);
+        if (schieben)
+        {
             Vector3 aktuellePosition = this.transform.position;
 
             Vector3 pos = new Vector3(aktuellePosition.x + 12, aktuellePosition.y, aktuellePosition.z);
@@ -31,6 +27,16 @@ public class TuerCollision : MonoBehaviour {
                 src.Play();
                 sound = false;
             }
+
+        }
+        
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player") {
+            //Debug.Log("Collisionobjekt: " + collision);
+            schieben = true;
         }
     }
 
