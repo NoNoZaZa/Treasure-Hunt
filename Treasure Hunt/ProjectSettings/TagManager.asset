@@ -25,6 +25,7 @@ TagManager:
   - QuizTimer
   - Tuer
   - stone
+  - raumgenerator
   layers:
   - Default
   - TransparentFX

@@ -65,7 +65,13 @@ public class TuerGenerator : MonoBehaviour {
         }
 
         foreach (var GameObject in tuerListe) {
-            GameObject.AddComponent<TuerCollision>();
+            if (zKoordinatenRaeume.Contains(GameObject.transform.position.z))
+            {
+                GameObject.AddComponent<TuerCollisionZ>();
+            }
+            else {
+                GameObject.AddComponent<TuerCollision>();
+            }
         }
 
         
