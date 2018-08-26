@@ -17,14 +17,14 @@ public class Dekoplatzierung : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        int[] positionenarray = new int[] {-13, -12, -11, -10, -9, -8, -7, -6, -5, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
+        int[] positionenarray = new int[] {-13, -11, -9, -7, -5, 5, 7, 9, 11, 13 };
 
         foreach (var raumposition in raumgenerator.raumpositionen) {
             //Random.InitState((int)System.DateTime.Now.Ticks);
             int dekoanzahl = Random.Range(2, 7);
             while (dekoanzahl > 0) {
 
-                Vector3 dekoposition = new Vector3(raumposition.x + positionenarray[Random.Range(0, 18)], 0.5f, raumposition.z + positionenarray[Random.Range(0, 18)]);
+                Vector3 dekoposition = new Vector3(raumposition.x + positionenarray[Random.Range(0, 9)], 0.5f, raumposition.z + positionenarray[Random.Range(0, 9)]);
                 if (!dekopositionen.Contains(dekoposition)) {
                     int dekoelement = Random.Range(1, 5);
                     switch (dekoelement)
