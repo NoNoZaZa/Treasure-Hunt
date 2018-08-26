@@ -678,8 +678,9 @@ MonoBehaviour:
   m_Text: "Laufen -> W-A-S-D\nSpringen -> Leertaste\nUmschauen -> Maus\nSprinten ->
     Links-Shift\n\nDu begibst dich auf geheime Schatzssuche. Finde die 4 Minigames
     und l\xF6se sie in der angegeben Zeit, um die Schl\xFCssel f\xFCr die Schatzkammer
-    zu bekommen. Schaffst du es, alle Schl\xFCssel zu bekommen und den Schatz zu finden?
-    \ \nEs gibt Hilfeboxen, an denen du Anleitungen f\xFCr das kommende Minigame erh\xE4ltst. "
+    zu bekommen. Schaffst du es, alle Schl\xFCssel zu bekommen und die Sch\xE4tze
+    zu finden?  \nEs gibt Hilfeboxen, an denen du Anleitungen f\xFCr das kommende
+    Minigame erh\xE4ltst. "
 --- !u!222 &446558468
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1230,7 +1231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.24528301, g: 0.244126, b: 0.244126, a: 1}
+  m_Color: {r: 0.24313726, g: 0.24313726, b: 0.24313726, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
