@@ -9,15 +9,16 @@ public class Truhe : MonoBehaviour {
     int keysCollected;
     GameManager gameManager;
     public bool offen = false;
-    public Text scoreText;
-    public GameObject scoreAnzeige;
+    //public Text scoreText;
+    //public GameObject scoreAnzeige;
 
     // Use this for initialization
     void Start () {
         anim = anim = GetComponent<Animation>();
 
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        
+        //scoreAnzeige = GameObject.FindWithTag("score");
+        //scoreText = scoreAnzeige.GetComponent<Text>();
     }
 	
 	// Update is called once per frame
@@ -34,6 +35,7 @@ public class Truhe : MonoBehaviour {
         //        GameManager.instance.Eingesetzt(keysCollected);
         //    }
         //}
+        //Debug.Log(offen);
         if (offen && keysCollected == 0)
         {
             StartCoroutine(StartCounter());
@@ -53,8 +55,8 @@ public class Truhe : MonoBehaviour {
                 yield return null;
             }
         }
-        scoreAnzeige.SetActive(true);
-        scoreText.text = "SPIELENDE\n\nHerzlichen Glückwunsch, du hast es geschafft in die Schatzkammer zu gelangen und den Schatz zu bekommen.\n\nDrücke ESC zum Verlassen.";
+        gameManager.EndText();
+       
     }
 
     //private void OnMouseUp()

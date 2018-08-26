@@ -26,6 +26,8 @@ TagManager:
   - Tuer
   - stone
   - raumgenerator
+  - score
+  - scoreText
   layers:
   - Default
   - TransparentFX

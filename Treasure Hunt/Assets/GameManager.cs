@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public GameObject scoreTextObj;
     public int keysCollected = 0;
     Text scoreT;
+    public Text scoreText;
+    public GameObject scoreAnzeige;
 
     private void Start()
     {
@@ -45,6 +47,12 @@ public class GameManager : MonoBehaviour
     {
         keysCollected = keyNum;
         scoreT.text = "Schlüssel: " + keysCollected.ToString();
+    }
+
+    public void EndText()
+    {
+        scoreAnzeige.SetActive(true);
+        scoreText.text = "SPIELENDE\n\nHerzlichen Glückwunsch, du hast es geschafft in die Schatzkammer zu gelangen und den Schatz zu bekommen.\n\nDrücke ESC zum Verlassen.";
     }
 
 }
