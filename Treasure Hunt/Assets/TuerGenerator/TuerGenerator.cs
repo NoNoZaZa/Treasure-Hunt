@@ -6,14 +6,16 @@ public class TuerGenerator : MonoBehaviour {
 
     public RoomGeneration raumgenerator;
     public QuizGeneratorSkript quizgenerator;
-    public GameObject tuer;
+    public GameObject tuerprefab;
 
     List<float> xKoordinatenRaeume = new List<float>();
     List<float> zKoordinatenRaeume = new List<float>();
     int zaehlvariable = 0;
+    int zaehlvariable2 = 0;
     Vector3 tuerpositionNeu;
 
     List<Vector3> tuerpositionenNeu = new List<Vector3>();
+    List<GameObject> tuerListe = new List<GameObject>();
 
     // Use this for initialization
     void Start () {
@@ -28,14 +30,15 @@ public class TuerGenerator : MonoBehaviour {
         Debug.Log("TuerGenerator gestartet");
 		List<Vector3> tuerpositionen = raumgenerator.tuerpositionen;
 
-        for(int i = 0; i < tuerpositionen.Count/2; i++) {
+        for(int i = 0; i < tuerpositionen.Count; i++) {
             if (xKoordinatenRaeume.Contains(tuerpositionen[i].x) || xKoordinatenRaeume.Contains(tuerpositionen[i].x - 2))
             {
                 Vector3 tuerpositionNeu = tuerpositionen[i];
                 if (!xKoordinatenRaeume.Contains(tuerpositionNeu.x)) {
                     tuerpositionNeu = new Vector3(tuerpositionNeu.x - 2, tuerpositionNeu.y, tuerpositionNeu.z);
                 } 
-                tuer = Instantiate(tuer, tuerpositionNeu, Quaternion.Euler(0, 90, 0));
+                GameObject tuer = Instantiate(tuerprefab, tuerpositionNeu, Quaternion.Euler(0, 90, 0));
+                tuerListe.Add(tuer);
                 tuerpositionenNeu.Add(tuerpositionNeu);
                 //Debug.Log("TuerpositionX: " + tuerpositionNeu.x);
             }
@@ -45,7 +48,8 @@ public class TuerGenerator : MonoBehaviour {
                     tuerpositionNeu = new Vector3(tuerpositionNeu.x, tuerpositionNeu.y, tuerpositionNeu.z - 2);
                 }
 
-                tuer = Instantiate(tuer, tuerpositionNeu, Quaternion.identity);
+                GameObject tuer = Instantiate(tuerprefab, tuerpositionNeu, Quaternion.identity);
+                tuerListe.Add(tuer);
                 tuerpositionenNeu.Add(tuerpositionNeu);
                 //Debug.Log("TuerpositionX: " + tuerpositionNeu.x);
                 //Debug.Log("Nicht-gedrehte Tuerpositionen: " + tuerpositionNeu);
@@ -55,19 +59,27 @@ public class TuerGenerator : MonoBehaviour {
 
             //}
 
+            
+
+            zaehlvariable++;
+            i++;
+        }
+
+        foreach (var GameObject in tuerListe) {
             bool gehoertZuRaumMitQuiz = false;
 
-            for(int j = 0; j < quizgenerator.quizPositionenArray.Length; j++)
+            for (int j = 0; j < quizgenerator.quizPositionenArray.Length; j++)
             {
                 //Debug.Log("QuizpositionX " + quizposition.x + " TuerpositionX " + tuerpositionenNeu[zaehlvariable].x);
                 //Debug.Log("QuizpositionZ " + quizposition.z + " TuerpositionZ " + tuerpositionenNeu[zaehlvariable].z);
 
-                if (quizgenerator.quizPositionenArray[j] == tuerpositionen[i + 1].x)
+                if (quizgenerator.quizPositionenArray[j] == tuerpositionen[j + 1].x)
                 {
                     gehoertZuRaumMitQuiz = true;
                     break;
                 }
-                else {
+                else
+                {
                     //Debug.Log("tuerpositionenNeu[zaehlvariable]" + tuerpositionenNeu[zaehlvariable]);
                 }
 
@@ -78,17 +90,19 @@ public class TuerGenerator : MonoBehaviour {
 
             if (gehoertZuRaumMitQuiz)
             {
-                tuer.AddComponent<TuerCollision>().unlockable = false;
+                GameObject.AddComponent<TuerCollision>().unlockable = false;
                 Debug.Log("Raum wurde auf unlockable = false gesetzt");
             }
             else
             {
-                tuer.AddComponent<TuerCollision>().unlockable = true;
+                GameObject.AddComponent<TuerCollision>().unlockable = true;
             }
 
-            zaehlvariable++;
-            i++;
+            zaehlvariable2++;
         }
+
+        
+
     }
 	
 	// Update is called once per frame

@@ -158,7 +158,7 @@ public class Drehrad : MonoBehaviour
         {
             while (countDown >= 0)
             {
-                Debug.Log(i++);
+                //Debug.Log(i++);
                 countDown -= Time.smoothDeltaTime;
                 yield return null;
             }
