@@ -54,7 +54,7 @@ public class Truhe : MonoBehaviour {
             }
         }
         scoreAnzeige.SetActive(true);
-        scoreText.text = "SPIELENDE\n\nDrücke ESC zum Verlassen.";
+        scoreText.text = "SPIELENDE\n\nHerzlichen Glückwunsch, du hast es geschafft in die Schatzkammer zu gelangen und den Schatz zu bekommen.\n\nDrücke ESC zum Verlassen.";
     }
 
     //private void OnMouseUp()
