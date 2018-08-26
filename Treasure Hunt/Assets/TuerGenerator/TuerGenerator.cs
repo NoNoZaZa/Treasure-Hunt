@@ -11,7 +11,6 @@ public class TuerGenerator : MonoBehaviour {
     List<float> xKoordinatenRaeume = new List<float>();
     List<float> zKoordinatenRaeume = new List<float>();
     int zaehlvariable = 0;
-    int zaehlvariable2 = 0;
     Vector3 tuerpositionNeu;
 
     List<Vector3> tuerpositionenNeu = new List<Vector3>();
@@ -66,39 +65,7 @@ public class TuerGenerator : MonoBehaviour {
         }
 
         foreach (var GameObject in tuerListe) {
-            bool gehoertZuRaumMitQuiz = false;
-
-            for (int j = 0; j < quizgenerator.quizPositionenArray.Length; j++)
-            {
-                //Debug.Log("QuizpositionX " + quizposition.x + " TuerpositionX " + tuerpositionenNeu[zaehlvariable].x);
-                //Debug.Log("QuizpositionZ " + quizposition.z + " TuerpositionZ " + tuerpositionenNeu[zaehlvariable].z);
-
-                if (quizgenerator.quizPositionenArray[j] == tuerpositionen[j + 1].x)
-                {
-                    gehoertZuRaumMitQuiz = true;
-                    break;
-                }
-                else
-                {
-                    //Debug.Log("tuerpositionenNeu[zaehlvariable]" + tuerpositionenNeu[zaehlvariable]);
-                }
-
-                //Debug.Log("Quizzuordnung wird ueberprueft");
-                //Debug.Log("gehoertZuRaumMitQuiz " + gehoertZuRaumMitQuiz);
-
-            }
-
-            if (gehoertZuRaumMitQuiz)
-            {
-                GameObject.AddComponent<TuerCollision>().unlockable = false;
-                Debug.Log("Tuer wurde auf unlockable = false gesetzt an folgender Position: " + GameObject.transform.position);
-            }
-            else
-            {
-                GameObject.AddComponent<TuerCollision>().unlockable = true;
-            }
-
-            zaehlvariable2++;
+            GameObject.AddComponent<TuerCollision>();
         }
 
         
