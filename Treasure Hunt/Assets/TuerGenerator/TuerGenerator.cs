@@ -91,7 +91,7 @@ public class TuerGenerator : MonoBehaviour {
             if (gehoertZuRaumMitQuiz)
             {
                 GameObject.AddComponent<TuerCollision>().unlockable = false;
-                Debug.Log("Raum wurde auf unlockable = false gesetzt");
+                Debug.Log("Tuer wurde auf unlockable = false gesetzt an folgender Position: " + GameObject.transform.position);
             }
             else
             {

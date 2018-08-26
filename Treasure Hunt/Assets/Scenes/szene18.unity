@@ -1880,7 +1880,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   raumgenerator: {fileID: 300618892}
   quizgenerator: {fileID: 926393714}
-  tuer: {fileID: 1489613847200994, guid: 845dd3bed99795043a11074c733b42db, type: 2}
+  tuerprefab: {fileID: 1489613847200994, guid: 845dd3bed99795043a11074c733b42db, type: 2}
 --- !u!4 &975619350
 Transform:
   m_ObjectHideFlags: 0
@@ -2796,7 +2796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1600697174}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 2, z: 20}
+  m_LocalPosition: {x: 0, y: 2, z: 5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 282840814}
