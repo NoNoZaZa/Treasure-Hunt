@@ -19,7 +19,7 @@ public class TuerCollisionEndraumX : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (schieben)
+        if (drehRadGeschafft)
         {
             Vector3 aktuellePosition = this.transform.position;
 
@@ -35,17 +35,6 @@ public class TuerCollisionEndraumX : MonoBehaviour
 
         }
 
-    }
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            //Debug.Log("Collisionobjekt: " + collision);
-            if (drehRadGeschafft) {
-                schieben = true;
-            }
-        }
     }
 
 }
