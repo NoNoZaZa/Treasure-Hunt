@@ -50,7 +50,6 @@ public class Truhe : MonoBehaviour {
         {
             while (countDown >= 0)
             {
-                Debug.Log(i++);
                 countDown -= Time.smoothDeltaTime;
                 yield return null;
             }

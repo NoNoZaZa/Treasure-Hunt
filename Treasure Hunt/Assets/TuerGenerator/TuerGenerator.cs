@@ -65,13 +65,46 @@ public class TuerGenerator : MonoBehaviour {
         }
 
         foreach (var GameObject in tuerListe) {
-            if (zKoordinatenRaeume.Contains(GameObject.transform.position.z))
+            float transformiertePositionXMinus = GameObject.transform.position.x - 17.525f;
+            float transformiertePositionXPlus = GameObject.transform.position.x + 17.525f;
+            float transformiertePositionZPlus = GameObject.transform.position.z + 17.525f;
+            float transformiertePositionZMinus = GameObject.transform.position.z - 17.525f;
+
+
+            //Debug.Log("TransformiertePosition: ");
+            if (transformiertePositionXMinus == quizgenerator.positionEndraum.x && quizgenerator.positionEndraum.z == GameObject.transform.position.z ||
+                transformiertePositionXPlus == quizgenerator.positionEndraum.x && quizgenerator.positionEndraum.z == GameObject.transform.position.z ||
+                transformiertePositionZPlus == quizgenerator.positionEndraum.z && quizgenerator.positionEndraum.x == GameObject.transform.position.x ||
+                transformiertePositionZMinus == quizgenerator.positionEndraum.z && quizgenerator.positionEndraum.x == GameObject.transform.position.x )
             {
-                GameObject.AddComponent<TuerCollisionZ>();
+                Debug.Log("Tuer zum Endraum gefunden");
+
+
+                if (zKoordinatenRaeume.Contains(GameObject.transform.position.z))
+                {
+                    GameObject.AddComponent<TuerCollisionEndraumZ>();
+                }
+                else
+                {
+                    GameObject.AddComponent<TuerCollisionEndraumX>();
+                }
             }
             else {
-                GameObject.AddComponent<TuerCollision>();
+                //Debug.Log("Tuer gehoert nicht zum Endraum ");
+                if (zKoordinatenRaeume.Contains(GameObject.transform.position.z))
+                {
+                    GameObject.AddComponent<TuerCollisionZ>();
+                }
+                else
+                {
+                    GameObject.AddComponent<TuerCollision>();
+                }
             }
+            float ausgabeZwischenvariable = GameObject.transform.position.x - 17.525f;
+            //Debug.Log("Endraum-Koordinaten: " + quizgenerator.positionEndraum);
+            //Debug.Log("Tuer-Koordinaten: " + ausgabeZwischenvariable);
+
+            
         }
 
         

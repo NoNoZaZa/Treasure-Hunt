@@ -18,6 +18,10 @@ public class Drehrad : MonoBehaviour
     public Text scoreText;
     public GameObject scoreAnzeige;
 
+    public GameObject endraumtuer;
+    public TuerCollisionEndraumX tuerCollisionEndraumX;
+    public TuerCollisionEndraumZ tuerCollsiionEndraumZ;
+
     // Use this for initialization
     void Start()
     {
@@ -136,6 +140,11 @@ public class Drehrad : MonoBehaviour
             //{ keil.transform.Rotate(0, 0, 90); }
             //keil.transform.parent = this.transform;
             sperre = false;
+            endraumtuer = GameObject.FindGameObjectWithTag("endraumtuer");
+            //tuerCollisionEndraumX = endraumtuer.GetComponent<TuerCollisionEndraumX>();
+            //tuerCollisionEndraumX.drehRadGeschafft = true;
+            tuerCollsiionEndraumZ = endraumtuer.GetComponent<TuerCollisionEndraumZ>();
+            tuerCollsiionEndraumZ.drehRadGeschafft = true;
         }
         else if (keysCollected == 0 && sperre && Mathf.Approximately(0f, (int)(rad1.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad2.transform.rotation.y * 100)) && Mathf.Approximately(0f, (int)(rad3.transform.rotation.y * 100)))
         {

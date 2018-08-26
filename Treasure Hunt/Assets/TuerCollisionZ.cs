@@ -8,8 +8,6 @@ public class TuerCollisionZ : MonoBehaviour
     QuizTimer quiz;
     bool sound = true;
     bool schieben;
-    GameObject raumgenerator;
-    List<float> zKoordinatenRaeume = new List<float>();
 
     // Use this for initialization
     void Start()

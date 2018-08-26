@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26572698, g: 0.27143598, b: 0.25494516, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.26572725, g: 0.27143627, b: 0.25494534, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2930,6 +2930,9 @@ MonoBehaviour:
   posZ: 0
   scoreText: {fileID: 1348490320}
   scoreAnzeige: {fileID: 428883072}
+  endraumtuer: {fileID: 0}
+  tuerCollisionEndraumX: {fileID: 0}
+  tuerCollsiionEndraumZ: {fileID: 0}
 --- !u!4 &1657860157
 Transform:
   m_ObjectHideFlags: 0

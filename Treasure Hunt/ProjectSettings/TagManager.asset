@@ -28,6 +28,7 @@ TagManager:
   - raumgenerator
   - score
   - scoreText
+  - endraumtuer
   layers:
   - Default
   - TransparentFX
