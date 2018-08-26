@@ -2039,7 +2039,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1169337989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2068,6 +2068,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1245180752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1245180754}
+  - component: {fileID: 1245180753}
+  m_Layer: 0
+  m_Name: Dekoplatzierung
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1245180753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245180752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8972f467d651542807e80f1438aac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  raumgenerator: {fileID: 300618892}
+  quizgenerator: {fileID: 926393714}
+  pharaonenkopf: {fileID: 100000, guid: 583bae384ec310f4e9d54800f338bb7b, type: 2}
+  pharaonenstatue: {fileID: 100000, guid: ddbd5473f99bba6458e20052cf0d385d, type: 2}
+  pharaonenstatueOhneKopf: {fileID: 100000, guid: dd6eee3f44836ad4ca1960cd89d31a3b,
+    type: 2}
+  kobra: {fileID: 100000, guid: aca8b7298a8395c4a88cda1156f250ce, type: 2}
+--- !u!4 &1245180754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1245180752}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348490318
 GameObject:
@@ -2749,7 +2796,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1600697174}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 2, z: 5}
+  m_LocalPosition: {x: 0, y: 2, z: 20}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 282840814}
