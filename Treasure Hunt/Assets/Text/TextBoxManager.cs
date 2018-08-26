@@ -30,8 +30,8 @@ public class TextBoxManager : MonoBehaviour {
 
         if(obj.tag == "infoquiz2")
         {
-            quizText.text = "TRAGEN \n\n \nTrage den lila Würfel auf die lila Druckplatte, die sich im ersten Raum, in dem du warst, befindet.\nKlicke zum Würfel Aufnehmen die linke Maustaste " +
-                "und zum Loslassen die rechte Maustaste.\n\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
+            quizText.text = "TRAGEN \n\n \nTrage den lila Würfel auf die lila Druckplatte, die sich im ersten Raum, in dem du warst, befindet.\nKlicke, um den Würfel aufzunehmen, die linke Maustaste " +
+                "und um ihn loszulassen die rechte Maustaste.\n\n\nHüpfe gegen den Würfel mit dem Stern, um das Minigame zu starten.\n\nZum Schließen der Anleitung drücke die linke Maustaste.";
         }
 
         if (obj.tag == "infoquiz3")
