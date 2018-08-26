@@ -2444,6 +2444,10 @@ Prefab:
       propertyPath: scoreAnzeige
       value: 
       objectReference: {fileID: 428883072}
+    - target: {fileID: 1572724385444024, guid: 17685ed2ae2f86b438409d73673b2646, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17685ed2ae2f86b438409d73673b2646, type: 2}
   m_IsPrefabAsset: 0

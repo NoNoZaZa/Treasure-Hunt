@@ -39,16 +39,18 @@ public class QuizTimer : MonoBehaviour
             {
                 winText.text = "Verloren";
                 solved = true;
-                GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerAuf>().solved = solved;
+                //GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerCollision>().solved = solved;
+                GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerCollision>().unlockable = true;
             } 
         }
 
         if (hasWon == true && timer>0)
         {
             winText.text = "Gewonnen!";
-            solved = true;
-            GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerAuf>().solved = solved;
+            //solved = true;
             timer = 0;
+            //GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerCollision>().solved = solved;
+            GameObject.FindGameObjectWithTag("Tuer").GetComponent<TuerCollision>().unlockable = true;
         }
 
         if (timer <= -3)

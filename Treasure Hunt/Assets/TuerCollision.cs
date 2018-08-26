@@ -5,9 +5,12 @@ using UnityEngine;
 public class TuerCollision : MonoBehaviour {
 
     public bool unlockable;
+    public bool solved = false;
+    QuizTimer quiz;
+    bool sound = true;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -33,8 +36,29 @@ public class TuerCollision : MonoBehaviour {
             Vector3 aktuellePosition = this.transform.position;
 
             if (unlockable) {
-                this.transform.position = new Vector3(aktuellePosition.x + 2, aktuellePosition.y, aktuellePosition.z);
-
+                Vector3 pos = new Vector3(aktuellePosition.x + 12, aktuellePosition.y, aktuellePosition.z);
+                this.transform.position = Vector3.Lerp((this.transform.position), pos, Time.deltaTime);
+                AudioSource src = this.GetComponent<AudioSource>();
+                if (sound)
+                {
+                    src.Play();
+                    sound = false;
+                }
+            }
+            else
+            {
+                if (solved == true)
+                {
+                    Vector3 pos = new Vector3(aktuellePosition.x +2, aktuellePosition.y, aktuellePosition.z);
+                    this.transform.position = Vector3.Lerp((this.transform.position), pos, Time.deltaTime);
+                    AudioSource src = this.GetComponent<AudioSource>();
+                    if (sound)
+                    {
+                        src.Play();
+                        sound = false;
+                    }
+                    //enabled = false;
+                }
             }
             Debug.Log("unlockable: " + unlockable);
         }
