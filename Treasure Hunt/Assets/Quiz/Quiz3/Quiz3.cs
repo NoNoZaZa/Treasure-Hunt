@@ -10,7 +10,7 @@ public class Quiz3 : MonoBehaviour {
     private float groesse = 0.0045f;
     public List<GameObject> cubeListe;
     public GameObject cubeForm;
-    private float geschwindigkeit = 9f;
+    private float geschwindigkeit = 5f;
     public GameObject schluesselpref;
 
 
